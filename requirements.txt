@@ -1,0 +1,9 @@
+streamlit
+langchain
+pdfminer.six
+chromadb
+nltk
+sentence-transformers
+InstructorEmbedding
+openai
+tiktoken
