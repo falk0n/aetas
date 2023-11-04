@@ -1,7 +1,7 @@
 from enum import Enum
 import re
 
-import fscutils as fsc
+from modules import fscutils as fsc
 
 
 #

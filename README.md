@@ -20,3 +20,4 @@ Python scripts assume you have configured the following environment variables co
 * ragchain03.py: load a directory of pdf documents into chroma vectorstore
 * retrieve02.py: retrieve documents from the vector store
 
+~~~~

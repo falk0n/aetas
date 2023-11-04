@@ -7,13 +7,10 @@ from langchain.document_loaders import PDFMinerLoader
 from langchain.text_splitter import CharacterTextSplitter, NLTKTextSplitter
 import langchain.embeddings as lce
 
-import bsi
-
-import fscutils as fsc
+from modules import fscutils as fsc, bsi
 
 #
-# ragchain03.py
-#
+# load-directory.py
 # Load and embed all documents in the given directory into the chroma collection.
 # The action starts at let's GET REAL!
 #

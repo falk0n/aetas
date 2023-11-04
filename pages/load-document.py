@@ -6,12 +6,10 @@ from langchain.document_loaders import PDFMinerLoader
 from langchain.text_splitter import CharacterTextSplitter, NLTKTextSplitter
 import langchain.embeddings as lce
 
-import bsi
-
-import fscutils as fsc
+from modules import fscutils as fsc, bsi
 
 #
-# ragchain02.py
+# load-document.py
 #
 # Show for the first part of the RAG ingestion chain.
 # Streamlit application to show some of the moving parts and interim results.

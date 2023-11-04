@@ -3,14 +3,18 @@ import streamlit as st
 from langchain.llms import OpenAI
 import tiktoken
 
-import fscutils as fsc
-
+from modules import fscutils as fsc, config
 
 #
-# llm01.py
-# Simple interface for chatting with an llm using streamlit and langchain.
+# llm-qa.py
+# Simple interface for chatting with a llm using streamlit and langchain.
 # Mostly useful for as a "Hello world"-type of chatbot and also to understand some parameters like max_tokens.
 #
+
+# first, run initial configurations
+config.config_default_embedding()
+config.config_default_vectorstore()
+
 
 st.title("Simple OpenAI interface")
 
