@@ -11,9 +11,13 @@ from modules import fscutils as fsc, config
 # Mostly useful for as a "Hello world"-type of chatbot and also to understand some parameters like max_tokens.
 #
 
-# first, run initial configurations
-config.config_default_embedding()
-config.config_default_vectorstore()
+# first, run initial configurations (and only once!)
+if "init_already_done" not in st.session_state.keys():
+    config.default_loader()
+    config.default_preprocess()
+    config.default_embedding()
+    config.default_vectorstore()
+    st.session_state["init_already-done"] = True
 
 
 st.title("Simple OpenAI interface")

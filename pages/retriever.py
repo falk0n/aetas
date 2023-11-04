@@ -16,7 +16,7 @@ if st.checkbox("Show vectorstore and embedding"):
     st.text(f'Device: {st.session_state["embedding_device"]}')
     st.write("#### Vectorstore")
     st.text(f'persist_dir: {st.session_state["vectorstore_dir"]}')
-    st.text(f'collection: {st.session_state["vectorstore_collection"]}')
+    st.text(f'collection: {st.session_state["vectorstore_name"]}')
 
 
 # Let's GET REAL
@@ -48,6 +48,5 @@ for doc in retrieved_docs:
     st.write(f"#### Baustein: *{ metadata.get('baustein_name', 'nicht gesetzt')}*")
     st.write(f"**Kapitel:** *{ metadata.get('chapter_name', 'nicht gesetzt')}*")
     st.write(f"**Abschnitt:** *{ metadata.get('section_name', 'nicht gesetzt')}*")
-    st.write(f"**Anforderung:** *{ metadata.get('requirement', False) }*")
     st.write(f"**Inhalt:** *{doc.page_content}*")
     st.write("\n")

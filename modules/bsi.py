@@ -30,8 +30,10 @@ def classify_line(line, name_baustein, id_baustein):
         result = Linetype.FOOTER
     elif re.match(name_baustein, line["page_content"]) is not None:
         result = Linetype.HEADER
+    # Next one is the prefix of subsection specifying exactly one requirement.
+    # Because we decided to split either chapters are sections it is now treated like content.
     elif re.match(id_baustein + r"\.A\d+ ", line["page_content"]) is not None:
-        result = Linetype.REQUIREMENT
+        result = Linetype.CONTENT
     return result
 
 
@@ -84,7 +86,7 @@ def annotate_lines(lines, baustein, id_baustein):
 # -> return a list of Document (to keep in langchain world)
 # -> each Document is one section (or requirement) with appropriate annotations in the metadata
 #
-def parse(docs_raw):
+def parse(docs_raw, aggregate_into_chapters):
     docs_lines = fsc.conv_document_list_to_dicts(docs_raw)  # convert list of Document into dict()
     foo = docs_lines[0]["metadata"]["source"]               # source is the only guaranteed metadata field
     bar = foo.split("/")[-1]                                # do some string gymnastics to get the name of the Baustein
@@ -94,13 +96,12 @@ def parse(docs_raw):
     # annotate lines, keep only content lines -> This is the heavy lifting.
     docs_annotated = annotate_lines(docs_lines, baustein_name, baustein_id)
 
-    # merge chunks with the same chapter, section and requirements (=sub section)
+    # merge chunks with the same chapter and section
     docs_combined = []
     current = docs_annotated[0]
     for next_chunk in docs_annotated[1:]:
         if (current["metadata"].get("chapter_name", 0) == next_chunk["metadata"].get("chapter_name", 0)) and \
-                (current["metadata"].get("section_name", 0) == next_chunk["metadata"].get("section_name", 0)) and \
-                (current["metadata"].get("requirement_name", 0) == next_chunk["metadata"].get("requirement_name", 0)):
+                (current["metadata"].get("section_name", 0) == next_chunk["metadata"].get("section_name", 0)):
             current["page_content"] += " " + next_chunk["page_content"]
         else:
             # remove all remaining \n from page_content (the last remnant from PDFMiner)

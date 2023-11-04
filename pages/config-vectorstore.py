@@ -14,12 +14,13 @@ import chromadb
 
 st.write("# Configure Vectorstore")
 st.write("#### Current vectorstore")
-widget_dir = st.text(f'persist_directory: {st.session_state["vectorstore_dir"]}')
-widget_collection = st.text(f'collection: {st.session_state["vectorstore_collection"]}')
+kwargs = st.session_state["vectorstore_kwargs"]
+widget_dir = st.text(f'persist_directory: {kwargs["persist_dir"]}')
+widget_collection = st.text(f'collection: {st.session_state["vectorstore_name"]}')
 
 
 st.write("#### Specify new vectorstore")
-config_chroma_dir = st.session_state["vectorstore_dir"]
+config_chroma_dir = kwargs["persist_dir"]
 my_chroma_dir = st.text_input(label="location of chroma vectorstore", value=config_chroma_dir)
 
 # let the user select only a collection that already exists
@@ -36,9 +37,10 @@ vectordb = Chroma(
 # finally, update the global state
 if st.button("Set new vectorstore"):
     st.session_state["vectorstore"] = vectordb
-    st.session_state["vectorstore_client"] = chroma_client
-    st.session_state["vectorstore_persist_dir"] = my_chroma_dir
-    st.session_state["vectorstore_collection"] = my_collection
+    st.session_state["vectorstore_name"] = my_collection
+    kwargs["chroma_client"] = chroma_client
+    kwargs["persist_dir"] = my_chroma_dir
+    st.session_state["kwargs"] = kwargs
     # update the vectorstore information at the top of the page
-    widget_dir.text(f'persist_directory: {st.session_state["vectorstore_dir"]}')
-    widget_collection.text(f'collection: {st.session_state["vectorstore_collection"]}')
+    widget_dir.text(f'persist_directory: {kwargs["persist_dir"]}')
+    widget_collection.text(f'collection: {st.session_state["vectorstore_name"]}')

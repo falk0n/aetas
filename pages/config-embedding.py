@@ -12,8 +12,9 @@ import langchain.embeddings as lce
 
 st.write("# Configure Embedding")
 st.write("#### Current embedding")
+kwargs = st.session_state["kwargs"]
 widget_name = st.text(f'model_name: {st.session_state["embedding_name"]}')
-widget_device = st.text(f'device: {st.session_state["embedding_device"]}')
+widget_device = st.text(f'device: {kwargs["device"]}')
 
 
 st.write("#### Specify new embedding")
@@ -59,7 +60,7 @@ else:
 if st.button("Set new embedding function"):
     st.session_state["embedding_function"] = embedding_function
     st.session_state["embedding_name"] = embedding_name
-    st.session_state["embedding_device"] = embedding_device
+    st.session_state["kwargs"] = {"embedding_device": embedding_device}
     # update the model information at the top of the page
     widget_name.text(f'model_name: {st.session_state["embedding_name"]}')
-    widget_device.text(f'device: {st.session_state["embedding_device"]}')
+    widget_device.text(f'device: {kwargs["device"]}')
