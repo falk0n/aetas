@@ -59,28 +59,37 @@ vectordb = Chroma(
 
 # Let's GET REAL
 st.write("## Query")
+st.write("#### search text")
 question_default = "Welche Anforderungen gibt es für Linux?"
 question = st.text_input(label="Frage:", value=question_default)
 
-filter_metadata = dict()
+st.write("#### retrieval config")
+config_retriever = {"k": 5, "score_threshold": 0.5}
+config_search_type = "similarity_score_threshold"
 
-config_anzahl = 5
-my_anzahl = st.number_input(label="Wie viele Ergebnisse sollen zurückgegeben werden?", value=config_anzahl)
+if st.checkbox("show retrieval configuration"):
+    config_retriever["k"] = st.number_input(label="Anzahl Ergebnisse:", value=config_retriever["k"])
+    config_retriever["score_threshold"] = st.number_input(
+        label="minimal similarity for match", value=config_retriever["score_threshold"], min_value=0.0, max_value=1.0)
+
+retriever = vectordb.as_retriever(search_type=config_search_type, search_kwargs=config_retriever)
 
 
 st.write("## Results")
-st.write("### Statistics")
-data = vectordb.get(include=["metadatas"])
-st.write(f'total number of entries in vectorstore: {len(data["ids"])}')
+retrieved_docs = retriever.invoke(question)
 
-st.write("### Query results")
-retrieved_docs = vectordb.similarity_search_with_score(query=question, k=my_anzahl, filter=filter_metadata)
+if st.checkbox("show statistics and raw data"):
+    st.write("#### Statistics and raw data")
+    data = vectordb.get(include=["metadatas"])
+    st.write(f'total number of entries in vectorstore: {len(data["ids"])}')
+    st.write(retrieved_docs)
+
+st.write("#### query results")
 for doc in retrieved_docs:
-    metadata = doc[0].metadata
+    metadata = doc.metadata
     st.write(f"#### Baustein: *{ metadata.get('baustein_name', 'nicht gesetzt')}*")
     st.write(f"**Kapitel:** *{ metadata.get('chapter_name', 'nicht gesetzt')}*")
     st.write(f"**Abschnitt:** *{ metadata.get('section_name', 'nicht gesetzt')}*")
     st.write(f"**Anforderung:** *{ metadata.get('requirement', False) }*")
-    st.write(f"**Inhalt:** *{doc[0].page_content}*")
-    st.write(f'**Cosine similarity**: *{ "{:.5f}".format(doc[1]) }*')
+    st.write(f"**Inhalt:** *{doc.page_content}*")
     st.write("\n")
