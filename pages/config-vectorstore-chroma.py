@@ -1,25 +1,20 @@
 import streamlit as st
-from langchain.vectorstores import Chroma
 import chromadb
+from langchain.vectorstores import Chroma
+
+from modules import config
 
 #
 # config-vectorstore.py
-# This module allows the user to select the vector store to use.
-# As per the application architecture the following session variables are set:
-# vectorstore: langchain.....Vectorstore
-# vectorstore_dir: str
-# vectorstore_collection: str
-# vectorstore_client: chroma client (result from chroma.PersistentClient)
+# Configure the global vectorstore object in session state.
+# This is a configuration with a persistent chroma client.
 #
-
 st.write("# Configure Vectorstore")
-st.write("#### Current vectorstore")
+config.show_config("vectorstore", True)
 kwargs = st.session_state["vectorstore_kwargs"]
-widget_dir = st.text(f'persist_directory: {kwargs["persist_dir"]}')
-widget_collection = st.text(f'collection: {st.session_state["vectorstore_name"]}')
 
 
-st.write("#### Specify new vectorstore")
+st.write("### Specify new vectorstore")
 config_chroma_dir = kwargs["persist_dir"]
 my_chroma_dir = st.text_input(label="location of chroma vectorstore", value=config_chroma_dir)
 
@@ -42,5 +37,3 @@ if st.button("Set new vectorstore"):
     kwargs["persist_dir"] = my_chroma_dir
     st.session_state["embedding_kwargs"] = kwargs
     # update the vectorstore information at the top of the page
-    widget_dir.text(f'persist_directory: {kwargs["persist_dir"]}')
-    widget_collection.text(f'collection: {st.session_state["vectorstore_name"]}')

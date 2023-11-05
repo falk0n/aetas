@@ -85,3 +85,23 @@ def default_llm():
     st.session_state["llm"] = llm
     st.session_state["llm_name"] = default_model
     st.session_state["llm_kwargs"] = kwargs
+
+
+# show the details of a global configuration
+# name is one of loader, preprocess, embedding, vectorstore
+def show_config(conf_name, show_details=False):
+    print_name = conf_name.capitalize()
+    if conf_name == "llm":
+        print_name = "LLM"
+
+    st.write(f"### {print_name}")
+    st.write(f'{print_name} name: {st.session_state[conf_name + "_name"]}')
+
+    if show_details:
+        st.write(f'{print_name} object: {st.session_state[conf_name]}')
+        details = st.session_state[conf_name + "_kwargs"]
+        if len(details.keys()) > 0:
+            for detail in sorted(list(details.keys())):
+                st.write(f'{detail}: {details[detail]}')
+        else:
+            st.write("No details available")

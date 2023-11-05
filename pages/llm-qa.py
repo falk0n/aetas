@@ -1,5 +1,7 @@
 import streamlit as st
 
+from modules import config
+
 #
 # llm-qa.py
 # Simple interface for chatting with the llm from the global session state.
@@ -9,10 +11,9 @@ llm = st.session_state["llm"]
 calc_token_length = llm.get_num_tokens
 
 if st.checkbox("Show LLM configuration"):
-    st.write(f'**LLM name:** {st.session_state["llm_name"]}')
-    for attribute in sorted(list(st.session_state["llm_kwargs"])):
-        st.write(f'**{attribute}:** {st.session_state["llm_kwargs"][attribute]}')
+    config.show_config("llm", True)
 
+st.write("### Query")
 config_query = "Bitte nenne mir 5 Gründe, warum man eine AI Anwendung in Python programmieren sollte."
 my_query = st.text_input(label="Query text", value=config_query)
 st.write(f"Number of tokens in query: {calc_token_length(my_query)}")

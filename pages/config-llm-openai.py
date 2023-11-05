@@ -1,18 +1,17 @@
 import streamlit as st
-
 from langchain.llms import OpenAI
 
 #
 # llm-qa.py
-# Simple interface for chatting with a llm using streamlit and langchain.
-# Mostly useful for as a "Hello world"-type of chatbot and also to understand some parameters like max_tokens.
+# Configure the global LLM object in session state.
+# In this case we configure an OpenAI instruct model.
 #
-st.write("# Configure OpenAI llm")
+st.write("# Configure OpenAI LLM")
 st.write("#### Current LLM")
 widget = st.text(f'LLM name: {st.session_state["llm_name"]}')
 
 
-st.write("#### New LLM configuration")
+st.write("#### New LLM")
 google_says = """
 While GPT-3.5 Turbo performs well in 0-shot classification and math,
 Davinci-003 performs slightly better in k-shot classification

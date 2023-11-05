@@ -3,13 +3,10 @@ import langchain.embeddings as lce
 
 #
 # config-embedding.py
-# This module allows the user to select the embedding model to use.
-# As per the application architecture the following session variables are set:
-# embedding_function: langchain.schema.embeddings.Embeddings
-# embedding_name: str
-# embedding_device: str
+# Configure the global embedding object in session state.
+# In this case it is an instruct embedding model from Huggingface.
+# Please note, that the model might be downloaded from Huggingface if not already locally cached.
 #
-
 st.write("# Configure Instruct Embedding")
 st.write("#### Current embedding model")
 widget = st.text(f'Embedding model name: {st.session_state["embedding_name"]}')
@@ -29,7 +26,6 @@ config_query_instruction = "Represent the question for retrieving supporting doc
 my_query_instruction = st.text_input(label="Query instruction", value=config_query_instruction)
 
 # initialize the embedding model
-# This might download the model from Huggingface if not already locally cached.
 embedding_model = lce.HuggingFaceInstructEmbeddings(
     model_name=embedding_names[my_embedding],
     model_kwargs={"device": my_compute_method},
