@@ -1,62 +1,53 @@
 import streamlit as st
 import chromadb
-
-from modules import fscutils as fsc
-
+import pandas as pd
+import numpy as np
 
 #
 # chroma-admin.py
-# Open a local chroma vectorstore and do some simple maintenance.
-# The action starts at let's GET REAL!
+# Open a persistent chroma vectorstore and do some simple collection management.
 #
-
-st.write("# Simple Chroma Admin")
+st.write("# Simple collection management")
 
 # location of chroma vectorstore
 chroma_dir = "/home/falk/work/nlp/vectordb/chromadb"
 if st.checkbox("select chromadb location"):
     chroma_dir = st.text_input(label="location of chroma vectorstore", value=chroma_dir)
-
-# Let's GET REAL
 chroma_client = chromadb.PersistentClient(chroma_dir)
+
+
+st.write("### Collections overview")
 chroma_collections_raw = chroma_client.list_collections()
+collection_names = sorted([collection.name for collection in chroma_collections_raw])
+collection_stats = np.zeros(shape=(len(collection_names), 2), dtype=int)
+for row in range(len(collection_names)):
+    collection = chroma_client.get_collection(collection_names[row])
+    collection_stats[row, 0] = collection.count()
+    if collection_stats[row, 0] > 0:
+        peek_value = collection.peek(limit=1)
+        collection_stats[row, 1] = len(peek_value["embeddings"][0])
+    else:
+        collection_stats[row, 1] = 0
+collections_overview = pd.DataFrame(collection_stats, index=collection_names, columns=["Entries", "Vector length"])
+st.table(data=collections_overview)
 
-chroma_collections = dict()
-for collection in chroma_collections_raw:
-    chroma_collections[collection.name] = collection
 
-available_collections = sorted(chroma_collections.keys())
-my_collection = st.selectbox(label="choose collection", options=available_collections)
-collection = chroma_collections[my_collection]
+st.write("### Collection management")
+available_collections = collection_names
+my_collection = st.selectbox(label="Choose collection", options=available_collections)
+collection = chroma_client.get_collection(my_collection)
 
-st.write("### Collection info")
-model_dump = collection.model_dump()
-for key in model_dump.keys():
-    st.write(f"{key}: {model_dump[key]}")
+available_actions = ["Create new", "Clean", "Delete"]
+my_action = st.radio(label="Select action", options=available_actions, index=0, horizontal=True)
+my_new_collection = "default collection"
+if my_action == "Create new":
+    my_new_collection = st.text_input(label="Name of new collection", value=my_new_collection)
 
-entries_in_collection = collection.count()
-st.write(f'Anzahl Embeddings: {entries_in_collection}')
-
-if entries_in_collection > 0:
-    peek_value = collection.peek(limit=1)
-    st.write(f'dimensions: {len(peek_value["embeddings"][0])}')
-    st.write(f'metadata keys: {list(peek_value["metadatas"][0].keys())}')
-
-st.write("### Delete Collection")
-config_delete_collection = False
-config_really_delete = False
-
-my_delete_collection = fsc.true_false_radio("delete collection", default=config_delete_collection)
-if my_delete_collection:
-    my_really_delete = fsc.true_false_radio(
-        f"REALLY delete collection {my_collection} NOW", default=config_really_delete)
-    if my_really_delete:
+if st.button("Perform action"):
+    if my_action == "Create new":
+        chroma_client.get_or_create_collection(my_new_collection)
+    elif my_action == "Clean":
         chroma_client.delete_collection(my_collection)
-        my_delete_collection = False
-        my_really_delete = False
-        my_collection = "please select an existing collection"
-
-# if st.checkbox("I want to delete the selection"):
-#    if st.checkbox(f"I want to REALLY delete collection {my_collection}"):
-#        chroma_client.delete_collection(my_collection)
-#        my_collection = "not available"
+        chroma_client.get_or_create_collection(my_collection)
+    else:   # Delete as the default action ;)
+        chroma_client.delete_collection(my_collection)

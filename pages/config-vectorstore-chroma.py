@@ -16,7 +16,7 @@ kwargs = st.session_state["vectorstore_kwargs"]
 
 st.write("### Specify new vectorstore")
 config_chroma_dir = kwargs["persist_dir"]
-my_chroma_dir = st.text_input(label="location of chroma vectorstore", value=config_chroma_dir)
+my_chroma_dir = st.text_input(label="Location of chroma vectorstore", value=config_chroma_dir)
 
 # let the user select only a collection that already exists
 chroma_client = chromadb.PersistentClient(my_chroma_dir)

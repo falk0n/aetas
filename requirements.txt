@@ -7,3 +7,5 @@ sentence-transformers
 InstructorEmbedding
 openai
 tiktoken
+pandas
+numpy
