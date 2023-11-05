@@ -39,3 +39,10 @@ if st.button("Set new vectorstore"):
     # update the vectorstore information at the top of the page
     widget_path.text(f'Persist path: {kwargs["persist_dir"]}')
     widget_collection.text(f'Collection name: {st.session_state["vectorstore_name"]}')
+
+
+st.write("#### Hinweise")
+st.write("""
+Es können nur bestehende Collections ausgewählt werden.
+Falls eine neue Collection benötigt wird, muss diese zunächst angelegt werden (chroma-admin).  
+""")

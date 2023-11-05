@@ -34,3 +34,11 @@ if st.button("Confirm new embedding model"):
     st.session_state["embedding_kwargs"] = {"embedding_device": my_compute_method}
     # update the model information at the top of the page
     widget.text(f'Embedding model name: {st.session_state["embedding_name"]}')
+
+
+st.write("#### Hinweise")
+st.write("""
+Wenn das Embedding Model geändert wird, sollte auch der Vectorstore neu konfiguriert werden.
+Das Embedding Model wird bei der Anlage des Vectorstore benötigt.
+Ein bestehender Vectorstore wird nicht automatisch aktualisiert.
+""")

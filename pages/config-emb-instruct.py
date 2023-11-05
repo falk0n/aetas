@@ -15,9 +15,9 @@ widget = st.text(f'Embedding model name: {st.session_state["embedding_name"]}')
 # select embedding model and computing preference
 st.write("#### New embedding model")
 embedding_names = {
-    "instructor-xl": "hkunlp/instructor-xl",                            # MTEB retrieval rank 14
+    "instructor-base": "hkunlp/instructor-base",                        # MTEB retrieval rank 29
     "instructor-large": "hkunlp/instructor-large",                      # MTEB retrieval rank 23
-    "instructor-base": "hkunlp/instructor-base"}                        # MTEB retrieval rank 29
+    "instructor-xl": "hkunlp/instructor-xl"}                            # MTEB retrieval rank 14
 my_embedding = st.radio(label="Embedding model", options=embedding_names, index=0, horizontal=True)
 my_compute_method = st.radio(label="Compute method", options=["cpu", "cuda"], index=0, horizontal=True)
 
@@ -40,3 +40,11 @@ if st.button("Confirm new embedding model"):
     st.session_state["embedding_kwargs"] = {"embedding_device": my_compute_method}
     # update the model information at the top of the page
     widget.text(f'model_name: {st.session_state["embedding_name"]}')
+
+
+st.write("#### Hinweise")
+st.write("""
+Wenn das Embedding Model geändert wird, sollte auch der Vectorstore neu konfiguriert werden.
+Das Embedding Model wird bei der Anlage des Vectorstore benötigt.
+Ein bestehender Vectorstore wird nicht automatisch aktualisiert.
+""")

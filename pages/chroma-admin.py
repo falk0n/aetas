@@ -38,7 +38,7 @@ available_collections = collection_names
 my_collection = st.selectbox(label="Choose collection", options=available_collections)
 collection = chroma_client.get_collection(my_collection)
 
-available_actions = ["Create new", "Clean", "Delete"]
+available_actions = ["Clean", "Create new", "Delete"]
 my_action = st.radio(label="Select action", options=available_actions, index=0, horizontal=True)
 my_new_collection = "default collection"
 if my_action == "Create new":
@@ -52,3 +52,14 @@ if st.button("Perform action"):
         chroma_client.get_or_create_collection(my_collection)
     else:   # Delete as the default action ;)
         chroma_client.delete_collection(my_collection)
+
+st.write("#### Hinweise")
+st.write("""
+Die Aktion "Clean" löscht die Collection und legte eine neue mit demselben Namen an.
+Falls eine Vectorstore die alte Collection genutzt hat, muss er neu konfiguriert werden.
+
+Wenn "Create new" mit dem Namen einer bestehenden Collection aufgerufen wird,
+erfolgt keine Änderung der bestehenden Collection.
+
+Für "Delete" gibt es keine Sicherheitsabfrage. Die Daten sind weg!
+""")
