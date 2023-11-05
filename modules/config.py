@@ -34,7 +34,7 @@ def default_embedding():
         encode_kwargs={"normalize_embeddings": True})
     st.session_state["embedding"] = embedding_function
     st.session_state["embedding_name"] = default_embedding_model
-    st.session_state["kwargs"] = {"embedding_device": default_device}
+    st.session_state["embedding_kwargs"] = {"embedding_device": default_device}
     return embedding_function
 
 
@@ -46,13 +46,13 @@ def default_vectorstore():
     vectordb = Chroma(
         client=chroma_client,
         collection_name=config_collection,
-        embedding_function=st.session_state["embedding_function"],
+        embedding_function=st.session_state["embedding"],
         persist_directory=config_chroma_dir)
     st.session_state["vectorstore"] = vectordb
     st.session_state["vectorstore_name"] = config_collection
     kwargs = {"persist_dir": config_chroma_dir,
               "chroma_client": chroma_client}
-    st.session_state["kwargs"] = kwargs
+    st.session_state["vectorstore_kwargs"] = kwargs
 
 
 # set session state to default document loader
@@ -70,5 +70,5 @@ def no_preprocessing(docs):
 # set session state to default preprocessing
 def default_preprocess():
     st.session_state["preprocess"] = no_preprocessing
-    st.session_state["preprocess_name"] = "No preprocessing"
+    st.session_state["preprocess_name"] = "none"
     st.session_state["preprocess_kwargs"] = dict()

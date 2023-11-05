@@ -12,7 +12,7 @@ import langchain.embeddings as lce
 
 st.write("# Configure Embedding")
 st.write("#### Current embedding")
-kwargs = st.session_state["kwargs"]
+kwargs = st.session_state["embedding_kwargs"]
 widget_name = st.text(f'model_name: {st.session_state["embedding_name"]}')
 widget_device = st.text(f'device: {kwargs["device"]}')
 

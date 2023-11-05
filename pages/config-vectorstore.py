@@ -30,7 +30,7 @@ my_collection = st.radio(label="Chroma collection name: ", options=chroma_collec
 vectordb = Chroma(
     client=chroma_client,
     collection_name=my_collection,
-    embedding_function=st.session_state["embedding_function"],
+    embedding_function=st.session_state["embedding"],
     persist_directory=my_chroma_dir)
 
 
@@ -40,7 +40,7 @@ if st.button("Set new vectorstore"):
     st.session_state["vectorstore_name"] = my_collection
     kwargs["chroma_client"] = chroma_client
     kwargs["persist_dir"] = my_chroma_dir
-    st.session_state["kwargs"] = kwargs
+    st.session_state["embedding_kwargs"] = kwargs
     # update the vectorstore information at the top of the page
     widget_dir.text(f'persist_directory: {kwargs["persist_dir"]}')
     widget_collection.text(f'collection: {st.session_state["vectorstore_name"]}')
