@@ -1,9 +1,10 @@
 import streamlit as st
 import chromadb
-
 import langchain.embeddings as lce
+
 from langchain.vectorstores import Chroma
 from langchain.document_loaders import PDFMinerLoader
+from langchain.llms import OpenAI
 
 #
 # Session state contains four elements:
@@ -72,3 +73,15 @@ def default_preprocess():
     st.session_state["preprocess"] = no_preprocessing
     st.session_state["preprocess_name"] = "none"
     st.session_state["preprocess_kwargs"] = dict()
+
+
+# set session state to default llm
+def default_llm():
+    default_model = "text-davinci-003"
+    kwargs = {"temperature": 0.1, "max_tokens": 256}
+    llm = OpenAI(model_name=default_model,
+                 temperature=kwargs["temperature"],
+                 max_tokens=kwargs["max_tokens"])
+    st.session_state["llm"] = llm
+    st.session_state["llm_name"] = default_model
+    st.session_state["llm_kwargs"] = kwargs
