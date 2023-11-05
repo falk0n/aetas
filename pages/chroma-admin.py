@@ -6,6 +6,7 @@ import numpy as np
 #
 # chroma-admin.py
 # Open a persistent chroma vectorstore and do some simple collection management.
+# This module intentionally does not change the vectorstore in the session state.
 #
 st.write("# Simple collection management")
 
