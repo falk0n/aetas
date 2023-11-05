@@ -1,5 +1,5 @@
 import streamlit as st
-from langchain.text_splitter import CharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
 
 from modules import bsi, fscutils as fsc
 
@@ -8,11 +8,17 @@ from modules import bsi, fscutils as fsc
 # preprocess-bsi.py
 # Configure the preprocess object in session state.
 # In this case it is a specialized preprocessing for PDFs from BSI IT-Grundschutz.
+# Assumptions:
+#   - Paragraphs are separated by "\n\n"
+#   - no occurrences of "\n\n" except as paragraph separator
 #
 def bsi_preprocessor(docs):
-    # 1. split into paragraphs as a preparation for the bsi.parse function
-    split_para = CharacterTextSplitter(separator="\n\n", chunk_size=1, chunk_overlap=0, keep_separator=False)
-    docs_raw = split_para.split_documents(docs)
+    # First, split by line feed (\x0c). Otherwise the header lines are not going to be recognized.
+    # Then split into paragraphs (\n\n) and lines. bsi.parse() expects lines that can be classified.
+    split_pages = CharacterTextSplitter(separator="\x0c", chunk_size=1, chunk_overlap=0, keep_separator=False)
+    split_para = RecursiveCharacterTextSplitter(
+        separators=["\n\n", "\n"], chunk_size=1, chunk_overlap=0, keep_separator=False)
+    docs_raw = split_para.split_documents(split_pages.split_documents(docs))
 
     # 2. Preprocess PDF (Baustein IT-Grundschutz)
     attributes = st.session_state["preprocess_kwargs"]

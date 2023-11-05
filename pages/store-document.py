@@ -22,17 +22,20 @@ if st.checkbox("Show processing configuration"):
     st.write(f'Embedding: {st.session_state["embedding_name"]}')
     st.write(f'Collection: {st.session_state["vectorstore_name"]}')
 
+show_docs_raw = st.checkbox("Show raw documents")
+show_docs_preprocessed = st.checkbox("Show preprocessed documents")
+
 if st.button("Process document"):
     st.write("## Process document")
     loader = st.session_state["loader"]
     fileloader = loader(infile)
     docs_raw = fileloader.load()
-    if st.checkbox("Show raw documents"):
+    if show_docs_raw:
         st.write(docs_raw)
 
     preprocessor = st.session_state["preprocess"]
     docs_preprocessed = preprocessor(docs_raw)
-    if st.checkbox("Show preprocessed documents"):
+    if show_docs_preprocessed:
         st.write(docs_preprocessed)
 
     vectordb = st.session_state["vectorstore"]
