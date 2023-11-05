@@ -89,12 +89,12 @@ def default_llm():
 
 # show the details of a global configuration
 # name is one of loader, preprocess, embedding, vectorstore
-def show_config(conf_name, show_details=False):
+def show_config(conf_name, show_details=False, prefix=""):
     print_name = conf_name.capitalize()
     if conf_name == "llm":
         print_name = "LLM"
 
-    st.write(f"### {print_name}")
+    st.write(f"### {prefix + print_name}")
     st.write(f'{print_name} name: {st.session_state[conf_name + "_name"]}')
 
     if show_details:

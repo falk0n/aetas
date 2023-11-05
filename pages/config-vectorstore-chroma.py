@@ -2,26 +2,26 @@ import streamlit as st
 import chromadb
 from langchain.vectorstores import Chroma
 
-from modules import config
-
 #
 # config-vectorstore.py
 # Configure the global vectorstore object in session state.
 # This is a configuration with a persistent chroma client.
 #
 st.write("# Configure Vectorstore")
-config.show_config("vectorstore", True)
+st.write("### Current vectorstore")
 kwargs = st.session_state["vectorstore_kwargs"]
+widget_path = st.text(f'Persist path: {kwargs["persist_dir"]}')
+widget_collection = st.text(f'Collection name: {st.session_state["vectorstore_name"]}')
 
 
-st.write("### Specify new vectorstore")
+st.write("### New vectorstore")
 config_chroma_dir = kwargs["persist_dir"]
 my_chroma_dir = st.text_input(label="Location of chroma vectorstore", value=config_chroma_dir)
 
-# let the user select only a collection that already exists
+# let the user select only collections that already exist
 chroma_client = chromadb.PersistentClient(my_chroma_dir)
 chroma_collections = [foo.name for foo in chroma_client.list_collections()]
-my_collection = st.radio(label="Chroma collection name: ", options=chroma_collections, horizontal=True)
+my_collection = st.selectbox(label="Chroma collection name: ", options=chroma_collections)
 vectordb = Chroma(
     client=chroma_client,
     collection_name=my_collection,
@@ -37,3 +37,5 @@ if st.button("Set new vectorstore"):
     kwargs["persist_dir"] = my_chroma_dir
     st.session_state["embedding_kwargs"] = kwargs
     # update the vectorstore information at the top of the page
+    widget_path.text(f'Persist path: {kwargs["persist_dir"]}')
+    widget_collection.text(f'Collection name: {st.session_state["vectorstore_name"]}')
