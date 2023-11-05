@@ -7,8 +7,8 @@ from langchain.document_loaders import PDFMinerLoader
 from langchain.llms import OpenAI
 
 #
-# Session state contains four elements:
-# loader, preprocess, embedding and vectorstore
+# Session state contains five elements:
+# loader, preprocess, embedding, vectorstore, llm
 #
 # For each element there are three variables in the session state:
 # XXX, XXX_name, XXX_kwargs where XXX is one of the elements above.
@@ -88,7 +88,7 @@ def default_llm():
 
 
 # show the details of a global configuration
-# name is one of loader, preprocess, embedding, vectorstore
+# name is one of the elements described at the top of this file
 def show_config(conf_name, show_details=False, prefix=""):
     print_name = conf_name.capitalize()
     if conf_name == "llm":
