@@ -5,11 +5,11 @@ import streamlit as st
 # store-document.py
 # Embed and store one document in the vectorstore.
 # This script uses the configurations made by other modules.
-# namely loader, preprocessing, embedding and vectorstore.
+# namely loader, preprocessing, vectorstore.
 #
 
 st.write("# Embed and store one document")
-st.write("## Document configuration")
+st.write("### Document configuration")
 config_filedir = "/home/falk/work/nlp/corpus/bsi_pdf/"                  # default directory
 config_filename = "SYS.1.3 Server unter Linux und Unix.pdf.clean.pdf"   # default filename
 my_filedir = st.text_input(label="Verzeichnis:", value=config_filedir)  # directory after user input
