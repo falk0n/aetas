@@ -95,6 +95,19 @@ def chunk_continues(current, next_chunk, aggregate_into_chapters):
     return result
 
 
+# add an annotation that is used whenever this chunk should be cited.
+# The form of the citation is Baustein ID / Section Name
+# If the chunk is not part of a section it is Baustein ID / chapter name.
+# Every chunk is/should be part of a chapter.
+def add_citation(chunk):
+    metadata = chunk["metadata"]
+    zitat = metadata["baustein_id"] + " / " + metadata["section_name"]
+    if metadata["section_name"] == "none":
+        zitat = metadata["baustein_id"] + " / " + metadata["chapter_name"]
+    metadata["citation"] = zitat.strip()
+    return
+
+
 #
 # Parse the line by line representation of the IT-Grundschutz Baustein:
 # -> return a list of Document (to keep in langchain world)
@@ -119,9 +132,10 @@ def parse(docs_raw, aggregate_into_chapters):
             current["page_content"] += " " + next_chunk["page_content"]
         else:
             # remove all remaining \n from page_content (the last remnant from PDFMiner)
-            # TODO: Check if this is still necessary
+            # Check if this is still necessary
             new_content = current["page_content"].replace("\n", "")
             current["page_content"] = new_content
+            add_citation(current)
             docs_combined.append(current)
             current = next_chunk
     docs_combined.append(current)
