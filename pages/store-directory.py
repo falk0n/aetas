@@ -2,9 +2,6 @@ import time
 import os
 
 import streamlit as st
-from langchain.document_loaders import PDFMinerLoader
-
-from modules import fscutils as fsc, bsi
 
 #
 # store-directory.py

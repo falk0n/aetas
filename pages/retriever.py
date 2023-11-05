@@ -1,26 +1,24 @@
 import streamlit as st
 
+from modules import config
+
 #
 # retriever.py
 # Let's enter test questions and retrieve matching documents from the store.
 # The action starts at let's GET REAL!
 #
 
-embedding_function = st.session_state["embedding_function"]
+embedding_function = st.session_state["embedding"]
 vectordb = st.session_state["vectorstore"]
 
 st.write("# Retrieval from vectorstore")
 if st.checkbox("Show vectorstore and embedding"):
-    st.write("#### Embedding function")
-    st.text(f'Name: {st.session_state["embedding_name"]}')
-    st.text(f'Device: {st.session_state["embedding_device"]}')
-    st.write("#### Vectorstore")
-    st.text(f'persist_dir: {st.session_state["vectorstore_dir"]}')
-    st.text(f'collection: {st.session_state["vectorstore_name"]}')
+    config.show_config("embedding", False)
+    config.show_config("vectorstore", False)
 
 
 # Let's GET REAL
-st.write("### Retrieval query")
+st.write("## Retrieval query")
 config_search_type = "similarity_score_threshold"
 config_retriever = {"k": 5, "score_threshold": 0.5}
 if st.checkbox("Modify retrieval configuration"):
@@ -35,7 +33,7 @@ question_default = "Welche Anforderungen gibt es für Linux?"
 question = st.text_input(label="Retrieval Phrase", value=question_default)
 
 
-st.write("### Results")
+st.write("## Results")
 retrieved_docs = retriever.invoke(question)
 if st.checkbox("Show statistics and raw data"):
     st.write("#### Statistics and raw data")
