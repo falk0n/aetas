@@ -13,7 +13,7 @@ from modules import bsi, fscutils as fsc
 #   - no occurrences of "\n\n" except as paragraph separator
 #
 def bsi_preprocessor(docs):
-    # First, split by line feed (\x0c). Otherwise the header lines are not going to be recognized.
+    # First, split by line feed (\x0c). Otherwise, the header lines are not going to be recognized.
     # Then split into paragraphs (\n\n) and lines. bsi.parse() expects lines that can be classified.
     split_pages = CharacterTextSplitter(separator="\x0c", chunk_size=1, chunk_overlap=0, keep_separator=False)
     split_para = RecursiveCharacterTextSplitter(
@@ -30,11 +30,11 @@ st.write("# Configure BSI specific preprocessing")
 st.write("#### Preprocessing")
 widget = st.text(f'Preprocessing name: {st.session_state["preprocess_name"]}')
 
-split_into_sections = fsc.true_false_radio("Aggregate sections into chapters", default=True)
+aggregate_sections = fsc.true_false_radio("Aggregate sections into chapters", default=False)
 
 if st.button("Save preprocessing configuration"):
     st.session_state["preprocess"] = bsi_preprocessor
     st.session_state["preprocess_name"] = "BSI specific processing"
-    st.session_state["preprocess_kwargs"] = {"aggregate_into_chapters": split_into_sections}
+    st.session_state["preprocess_kwargs"] = {"aggregate_into_chapters": aggregate_sections}
     # update the preprocessing information at the top of the page
     widget.text(f'Preprocessing name: {st.session_state["preprocess_name"]}')
