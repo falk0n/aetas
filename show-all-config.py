@@ -8,6 +8,7 @@ if "init-already-done" not in st.session_state.keys():
     config.default_preprocess()
     config.default_embedding()
     config.default_vectorstore()
+    config.default_retriever()
     config.default_llm()
     st.session_state["init-already-done"] = True    # make sure we don't initialize twice and overwrite user configs
     widget.text("Initial configuration done.")
@@ -17,5 +18,5 @@ if "init-already-done" not in st.session_state.keys():
 st.write("# Show all global configurations")
 show_me_details = st.checkbox("Show configuration details")
 
-for name in ["loader", "preprocess", "embedding", "vectorstore", "llm"]:
+for name in ["loader", "preprocess", "embedding", "vectorstore", "retriever", "llm"]:
     config.show_config(name, show_me_details)

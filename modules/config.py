@@ -87,6 +87,17 @@ def default_llm():
     st.session_state["llm_kwargs"] = kwargs
 
 
+def default_retriever():
+    config_search_type = "similarity_score_threshold"
+    config_retriever = {"k": 5, "score_threshold": 0.5}
+    vectordb = st.session_state["vectorstore"]
+    retriever = vectordb.as_retriever(search_type=config_search_type, search_kwargs=config_retriever)
+    retriever_kwargs = {"search_type": config_search_type, "kwargs": config_retriever}
+    st.session_state["retriever"] = retriever
+    st.session_state["retriever_name"] = "Vectorstore retriever"
+    st.session_state["retriever_kwargs"] = retriever_kwargs
+
+
 # show the details of a global configuration
 # name is one of the elements described at the top of this file
 def show_config(conf_name, show_details=False, prefix=""):
@@ -98,7 +109,6 @@ def show_config(conf_name, show_details=False, prefix=""):
     st.write(f'{print_name} name: {st.session_state[conf_name + "_name"]}')
 
     if show_details:
-        st.write(f'{print_name} object: {st.session_state[conf_name]}')
         details = st.session_state[conf_name + "_kwargs"]
         if len(details.keys()) > 0:
             for detail in sorted(list(details.keys())):

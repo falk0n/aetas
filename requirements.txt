@@ -9,3 +9,4 @@ openai
 tiktoken
 pandas
 numpy
+matplotlib
