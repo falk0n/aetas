@@ -1,0 +1,267 @@
+<title>APP.4.4 Kubernetes</title>
+<section xml:id="scroll-bookmark-1878">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-1879">
+<title>Einleitung</title>
+<para><emphasis role="color:#000000">Kubernetes hat sich als De-Facto-Standard für die Orchestrierung von Containern in der Public und Private Cloud etabliert. Auch für IoT und andere Anwendungsfälle ist Kubernetes im Einsatz, mit K3S gibt es beispielsweise eine Edition, die für sehr kleine Server wie Einplatinencomputer gedacht ist. Auch der sogenannte Cloud Native Stack, der aus vielen verschiedenen Komponenten besteht, baut auf dem von Kubernetes etablierten Standard auf.</emphasis></para>
+<para><emphasis role="color:#000000">Der Begriff <emphasis role="italics">Container</emphasis> bezeichnet eine Technik, bei der ein Host-System Anwendungen parallel in separierten Umgebungen ausführt (Operating System Level Virtualization). In den meisten Fällen erfolgt die Überwachung, das Starten und Beenden und die weitere Verwaltung der Container durch eine Verwaltungssoftware, die somit die sogenannte <emphasis role="italics">Orchestrierung</emphasis> übernimmt. Kubernetes fasst dabei einen oder mehrere zusammengehörige Container in einem <emphasis role="italics">Pod</emphasis> zusammen. Da der Fokus des Bausteins auf Kubernetes liegt, wird im Weiteren nur von Pods und nicht von einzelnen Containern gesprochen. Die Orchestrierung erfolgt dabei zumeist in Gruppen von gemeinsam verwalteten Kubernetes-Nodes in einem oder mehreren sogenannten <emphasis role="italics">Clustern</emphasis>.</emphasis></para>
+<para><emphasis role="color:#000000">Um die Orchestrierung von Pods zu betreiben und diese zu verwalten, haben sich mehrere Produkte etabliert, die es erlauben, auch sehr große Umgebungen zu bedienen. In ihrem Kern setzen allerdings alle auf Kubernetes auf. Bei der Betrachtung ist zwischen der <emphasis role="italics">Runtime</emphasis>, die die Prozesse auf den Kubernetes-Nodes betreibt, und der <emphasis role="italics">Orchestrierung</emphasis>, die die Runtimes auf mehreren Kubernetes-Nodes steuert, zu unterscheiden.</emphasis></para>
+<para><emphasis role="color:#000000">Zusätzlich zu diesen beiden zentralen Komponenten besteht der Betrieb von Kubernetes in den meisten Fällen noch aus einer spezialisierten Infrastruktur, zu der z. B. Registries, Code-Versionierung und -Speicherung, Automatisierungswerkzeuge, Verwaltungsserver, Speichersysteme oder virtuelle Netze gehören.</emphasis></para>
+<para><emphasis role="color:#000000">Die folgenden Begriffe werden im Baustein in dieser Bedeutung verwendet:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Anwendung</emphasis> bezeichnet eine Zusammenstellung mehrerer Programme, die gemeinsam eine Aufgabe erfüllen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Cluster</emphasis> sind Betriebsumgebungen für Container mit mehreren Nodes</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Container</emphasis> sind aus einem Image gestartete Prozesse, die innerhalb von Betriebssystem-Namespaces laufen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Container Network Interface (CNI)</emphasis> bezeichnet die Schnittstelle zur Verwaltung der virtuellen Netze im Cluster</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Container Storage Interface</emphasis> (CSI) bezeichnet die Schnittstelle zu den zumeist externen Speichersystemen, die Kubernetes den Pods bereitstellen kann</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Control Plane</emphasis> bezeichnet alle für die Verwaltung, also Orchestrierung der Nodes, Runtimes und Cluster eingesetzten Anwendungen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Images</emphasis> sind alle der Open Container Initiative (OCI) entsprechenden Software-Pakete, diese umfassen sowohl Basis-Images für eigene Images als auch solche Images, die unverändert im Einsatz sind</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Node</emphasis> bezeichnet einen Server, der für den Betrieb der Runtime installiert und optimiert ist</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Pod</emphasis> bezeichnet eine Sammlung mehrerer Container, die innerhalb der gleichen Betriebssystem-Namespaces laufen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Registry</emphasis> ist der Oberbegriff für die Code-Verwaltung und die Speicherung der Images</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000"><emphasis role="italics">Runtime</emphasis> bezeichnet die Software, die die Software im Image als Container startet</emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-1880">
+<title>Zielsetzung</title>
+<para><emphasis role="color:#000000">Ziel dieses Bausteins ist der Schutz von Informationen, die in Kubernetes-Clustern verarbeitet, angeboten oder darüber übertragen werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1881">
+<title>Abgrenzung und Modellierung</title>
+<para><emphasis role="color:#000000">Der Baustein APP.4.4 <emphasis role="italics">Kubernetes </emphasis>ist immer zusammen mit dem Baustein SYS.1.6 <emphasis role="italics">Containerisierung</emphasis> anzuwenden. Dabei ist es bezogen auf den Fokus des vorliegenden Bausteins nicht relevant, welche Container-Runtime im Einsatz ist oder welche zusätzlichen Anwendungen Teil der Control Plane sind.</emphasis></para>
+<para><emphasis role="color:#000000">Der Baustein enthält grundsätzliche Anforderungen zur Einrichtung, zum Betrieb und zur Orchestrierung mit Kubernetes sowie zur spezialisierten Infrastruktur, die zum Betrieb notwendig ist. Letzteres beinhaltet Registries, CSI/CNI, Nodes und Automatisierungssoftware, soweit sie direkt mit dem Cluster interagieren. Die Anforderungen für diese Anwendungen beziehen sich zumeist auf die Schnittstellen, enthalten aber auch Anforderungen, die den Betrieb dieser Anwendungen betreffen, sofern sie direkt die Sicherheit des Clusters berühren. Weitere im Kubernetes-Umfeld übliche Dienste, wie z. B. Automatisierung für CI/CD-Pipelines und Codeverwaltung in z. B. Git, behandelt der Baustein nicht in der Tiefe.</emphasis></para>
+<para><emphasis role="color:#000000">Der Baustein modelliert umfassend einen Cluster. Die Anwendungen der Control Plane, Dienste zur Automatisierung und die Nodes, sind hier als eine Gruppe zu sehen und zu behandeln.</emphasis></para>
+<para><emphasis role="color:#000000">Sicherheitsanforderungen für die in Kubernetes-Clustern betriebenen Dienste, wie z. B. Webserver (APP.3.2 <emphasis role="italics">Webserver</emphasis>) oder E-Mail-Server (siehe APP.5.3 <emphasis role="italics">Allgemeiner E-Mail-Client und -Server</emphasis>), sind Gegenstand eigener Bausteine.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1882">
+<title>Gefährdungslage</title>
+<para><emphasis role="color:#000000">Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein APP.4.4 <emphasis role="italics">Kubernetes </emphasis>von besonderer Bedeutung.</emphasis></para>
+<section xml:id="scroll-bookmark-1883">
+<title>Mangelhafte Authentisierung und Autorisierung in der Control Plane</title>
+<para><emphasis role="color:#000000">Um Runtimes, Nodes und auch Kubernetes selbst zu verwalten, benötigen sowohl Administrierende als auch die toolgestützte Bereitstellung administrative Zugänge. Diese Zugänge sind entweder als Unix-Sockets oder Netzports ausgeführt. Mechanismen zur Authentisierung und Verschlüsselung der administrativen Zugänge sind häufig vorhanden, aber nicht bei allen Produkten standardmäßig aktiviert.</emphasis></para>
+<para><emphasis role="color:#000000">Wenn Unbefugte auf das Datennetz oder auf die Nodes zugreifen, können sie über ungeschützte administrative Zugänge Befehle ausführen, die der Verfügbarkeit, Vertraulichkeit und Integrität der verarbeiteten Daten schaden können.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1884">
+<title>Vertraulichkeitsverlust von Zugangsdaten</title>
+<para><emphasis role="color:#000000">Oft benötigen Pods Zugangsdaten (Access Token) für Kubernetes. Über einen Angriff auf den Pod können diese Zugangsdaten in unbefugte Hände gelangen. Mit diesen Zugangsdaten ist es bei Angriffen möglich, mit der Control Plane authentifiziert zu interagieren und, sofern die Berechtigungen ausreichen, auch Veränderungen an der Orchestrierung vorzunehmen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1885">
+<title>Ressourcenkonflikte auf Nodes</title>
+<para><emphasis role="color:#000000">Einzelne Pods können den Node oder auch die Orchestrierung überlasten und so die Verfügbarkeit aller anderen Pods auf dem Node oder auch den Betrieb des Nodes selbst gefährden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1886">
+<title>Unautorisierte Änderungen an Clustern</title>
+<para><emphasis role="color:#000000">Die Automatisierung mit CI/CD und die daraus folgende Notwendigkeit, den Werkzeugen privilegierte Zugangsberechtigungen zu erteilen, birgt das Risiko, dass nicht autorisierte Änderungen an Clustern erfolgen. So kann z. B. eine neue Version einer Anwendung auf dem Cluster aufgebracht werden, die nicht ausreichend getestet ist oder die den Freigabeprozess nicht durchlaufen hat. Auch ist es bei Fehlern in den Berechtigungen auf der CI/CD-Umgebung möglich, dass Schadsoftware in die Cluster eindringen und dort Daten auslesen, löschen oder verändern kann.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1887">
+<title>Unberechtigte Kommunikation</title>
+<para><emphasis role="color:#000000">Alle Pods in einem Cluster sind grundsätzlich in der Lage, miteinander, mit den Nodes im eigenen Cluster sowie beliebigen anderen IT-Systemen zu kommunizieren. Sofern diese Kommunikation nicht eingeschränkt ist, kann dies ausgenutzt werden, um z. B. die Control Plane, andere Pods oder die Nodes anzugreifen.</emphasis></para>
+<para><emphasis role="color:#000000">Auch besteht die Gefahr, dass Pods im Cluster unerwünscht von außen erreichbar sind. So kann ein Angriff gegen Dienste, die eigentlich nur innerhalb des Clusters erreichbar sein sollten, von außen erfolgen. Diese Gefährdung wird durch die geringere Aufmerksamkeit verschlimmert, die internen Diensten oft entgegengebracht wird. Wird z. B. eine Verwundbarkeit auf einem nur intern eingesetzten Dienst toleriert und ist dieser auch von außen erreichbar, gefährdet dies den gesamten Cluster erheblich.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1888">
+<title>Anforderungen</title>
+<para><emphasis role="color:#000000">Im Folgenden sind die spezifischen Anforderungen des Bausteins APP.4.4 <emphasis role="italics">Kubernetes </emphasis>aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</emphasis></para>
+<para><emphasis role="color:#000000">Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</emphasis></para>
+<para><emphasis role="color:#000000">Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.<?linebreak?>
+</emphasis></para>
+<section xml:id="scroll-bookmark-1889">
+<title>Basis-Anforderungen</title>
+<para><emphasis role="color:#000000">Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-1890">
+<title>APP.4.4.A1 Planung der Separierung der Anwendungen (B)</title>
+<para><emphasis role="color:#000000">Vor der Inbetriebnahme MUSS geplant werden, wie die in den Pods betriebenen Anwendungen und deren unterschiedlichen Test- und Produktions-Betriebsumgebungen separiert werden. Auf Basis des Schutzbedarfs der Anwendungen MUSS festgelegt werden, welche Architektur der Namespaces, Meta-Tags, Cluster und Netze angemessen auf die Risiken eingeht und ob auch virtualisierte Server und Netze zum Einsatz kommen sollen.</emphasis></para>
+<para><emphasis role="color:#000000">Die Planung MUSS Regelungen zu Netz-, CPU- und Festspeicherseparierung enthalten. Die Separierung SOLLTE auch das Netzzonenkonzept und den Schutzbedarf beachten und auf diese abgestimmt sein.</emphasis></para>
+<para><emphasis role="color:#000000">Anwendungen SOLLTEN jeweils in einem eigenen Kubernetes-Namespace laufen, der alle Programme der Anwendung umfasst. Nur Anwendungen mit ähnlichem Schutzbedarf und ähnlichen möglichen Angriffsvektoren SOLLTEN einen Kubernetes-Cluster teilen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1891">
+<title>APP.4.4.A2 Planung der Automatisierung mit CI/CD (B)</title>
+<para><emphasis role="color:#000000">Wenn eine Automatisierung des Betriebs von Anwendungen in Kubernetes mithilfe von CI/CD stattfindet, DARF diese NUR nach einer geeigneten Planung erfolgen. Die Planung MUSS den gesamten Lebenszyklus von Inbetrieb- bis Außerbetriebnahme inklusive Entwicklung, Tests, Betrieb, Überwachung und Updates umfassen. Das Rollen- und Rechtekonzept sowie die Absicherung von Kubernetes Secrets MÜSSEN Teil der Planung sein.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1892">
+<title>APP.4.4.A3 Identitäts- und Berechtigungsmanagement bei Kubernetes (B)</title>
+<para><emphasis role="color:#000000">Kubernetes und alle anderen Anwendungen der Control Plane MÜSSEN jede Aktion eines Benutzenden oder, im automatisierten Betrieb, einer entsprechenden Software authentifizieren und autorisieren, unabhängig davon, ob die Aktionen über einen Client, eine Weboberfläche oder über eine entsprechende Schnittstelle (API) erfolgt. Administrative Handlungen DÜRFEN NICHT anonym erfolgen.</emphasis></para>
+<para><emphasis role="color:#000000">Benutzende DÜRFEN NUR die unbedingt notwendigen Rechte erhalten. Berechtigungen ohne Einschränkungen MÜSSEN sehr restriktiv vergeben werden.</emphasis></para>
+<para><emphasis role="color:#000000">Nur ein kleiner Kreis von Personen SOLLTE berechtigt sein, Prozesse der Automatisierung zu definieren. Nur ausgewählte Administrierende SOLLTEN in Kubernetes das Recht erhalten, Freigaben für Festspeicher (Persistent Volumes) anzulegen oder zu ändern.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1893">
+<title>APP.4.4.A4 Separierung von Pods (B)</title>
+<para><emphasis role="color:#000000">Der Betriebssystem-Kernel der Nodes MUSS über Isolationsmechanismen zur Beschränkung von Sichtbarkeit und Ressourcennutzung der Pods untereinander verfügen (vergleiche Linux Namespaces und cgroups). Die Trennung MUSS dabei mindestens IDs von Prozessen sowie Benutzenden, Inter-Prozess-Kommunikation, Dateisystem und Netz inklusive Hostname umfassen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1894">
+<title>APP.4.4.A5 Datensicherung im Cluster (B)</title>
+<para><emphasis role="color:#000000">Es MUSS eine Datensicherung des Clusters erfolgen. Die Datensicherung MUSS umfassen:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Festspeicher (Persistent Volumes),</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Konfigurationsdateien von Kubernetes und den weiteren Programmen der Control Plane,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">den aktuellen Zustand des Kubernetes-Clusters inklusive der Erweiterungen,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Datenbanken der Konfiguration, namentlich hier <emphasis role="italics">etcd</emphasis>,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">alle Infrastrukturanwendungen, die zum Betrieb des Clusters und der darin befindlichen Dienste notwendig sind und</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">die Datenhaltung der Code und Image Registries.</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Es SOLLTEN auch Snapshots für den Betrieb der Anwendungen betrachtet werden. Snapshots DÜRFEN die Datensicherung NICHT ersetzen.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1895">
+<title>Standard-Anforderungen</title>
+<para><emphasis role="color:#000000">Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-1896">
+<title>APP.4.4.A6 Initialisierung von Pods (S)</title>
+<para><emphasis role="color:#000000">Sofern im Pod zum Start eine Initialisierung z. B. einer Anwendung erfolgt, SOLLTE diese in einem eigenen Init-Container stattfinden. Es SOLLTE sichergestellt sein, dass die Initialisierung alle bereits laufenden Prozesse beendet. Kubernetes SOLLTE nur bei erfolgreicher Initialisierung die weiteren Container starten.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1897">
+<title>APP.4.4.A7 Separierung der Netze bei Kubernetes (S)</title>
+<para><emphasis role="color:#000000">Die Netze für die Administration der Nodes, der Control Plane sowie die einzelnen Netze der Anwendungsdienste SOLLTEN separiert werden.</emphasis></para>
+<para><emphasis role="color:#000000">Es SOLLTEN NUR die für den Betrieb notwendigen Netzports der Pods in die dafür vorgesehenen Netze freigegeben werden. Bei mehreren Anwendungen auf einem Kubernetes-Cluster SOLLTEN zunächst alle Netzverbindungen zwischen den Kubernetes-Namespaces untersagt und nur benötigte Netzverbindungen gestattet sein (Whitelisting). Die zur Administration der Nodes, der Runtime und von Kubernetes inklusive seiner Erweiterungen notwendigen Netzports SOLLTEN NUR aus dem Administrationsnetz und von Pods, die diese benötigen, erreichbar sein.</emphasis></para>
+<para><emphasis role="color:#000000">Nur ausgewählte Administrierende SOLLTEN in Kubernetes berechtigt sein, das CNI zu verwalten und Regeln für das Netz anzulegen oder zu ändern.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1898">
+<title>APP.4.4.A8 Absicherung von Konfigurationsdateien bei Kubernetes (S)</title>
+<para><emphasis role="color:#000000">Die Konfigurationsdateien des Kubernetes-Clusters, inklusive aller Erweiterungen und Anwendungen, SOLLTEN versioniert und annotiert werden.</emphasis></para>
+<para><emphasis role="color:#000000">Zugangsrechte auf die Verwaltungssoftware der Konfigurationsdateien SOLLTEN minimal vergeben werden. Zugriffsrechte für lesenden und schreibenden Zugriff auf die Konfigurationsdateien der Control Plane SOLLTEN besonders sorgfältig vergeben und eingeschränkt sein.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1899">
+<title>APP.4.4.A9 Nutzung von Kubernetes Service-Accounts (S)</title>
+<para><emphasis role="color:#000000">Pods SOLLTEN NICHT den "default"-Service-Account nutzen. Dem "default"-Service-Account SOLLTEN keine Rechte eingeräumt werden. Pods für unterschiedliche Anwendungen SOLLTEN jeweils unter eigenen Service-Accounts laufen. Berechtigungen für die Service-Accounts der Pods der Anwendungen SOLLTEN auf die unbedingt notwendigen Rechte beschränkt werden.</emphasis></para>
+<para><emphasis role="color:#000000">Pods, die keinen Service-Account benötigen, SOLLTEN diesen nicht einsehen können und keinen Zugriff auf entsprechende Token haben.</emphasis></para>
+<para><emphasis role="color:#000000">Nur Pods der Control Plane und Pods, die diese unbedingt benötigen, SOLLTEN privilegierte Service-Accounts nutzen.</emphasis></para>
+<para><emphasis role="color:#000000">Programme der Automatisierung SOLLTEN jeweils eigene Token erhalten, auch wenn sie aufgrund ähnlicher Aufgaben einen gemeinsamen Service-Account nutzen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1900">
+<title>APP.4.4.A10 Absicherung von Prozessen der Automatisierung (S)</title>
+<para><emphasis role="color:#000000">Alle Prozesse der Automatisierungssoftware, wie CI/CD und deren Pipelines, SOLLTEN nur mit unbedingt notwendigen Rechten arbeiten. Wenn unterschiedliche Gruppen von Benutzenden die Konfiguration über die Automatisierungssoftware verändern oder Pods starten können, SOLLTE dies für jede Gruppe durch eigene Prozesse durchgeführt werden, die nur die für die jeweilige Gruppe notwendigen Rechte besitzen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1901">
+<title>APP.4.4.A11 Überwachung der Container (S)</title>
+<para><emphasis role="color:#000000">In Pods SOLLTE jeder Container einen Health Check für den Start und den Betrieb („readiness“ und „liveness“) definieren. Diese Checks SOLLTEN Auskunft über die Verfügbarkeit der im Pod ausgeführten Software geben. Die Checks SOLLTEN fehlschlagen, wenn die überwachte Software ihre Aufgaben nicht ordnungsgemäß wahrnehmen kann. Für jede dieser Kontrollen SOLLTE eine dem im Pod betriebenen Dienst angemessene Zeitspanne definieren. Auf Basis dieser Checks SOLLTE Kubernetes die Pods löschen oder neu starten.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1902">
+<title>APP.4.4.A12 Absicherung der Infrastruktur-Anwendungen (S)</title>
+<para><emphasis role="color:#000000">Sofern eine eigene Registry für Images oder eine Software zur Automatisierung, zur Verwaltung des Festspeichers, zur Speicherung von Konfigurationsdateien oder ähnliches im Einsatz ist, SOLLTE deren Absicherung mindestens betrachten:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Verwendung von personenbezogenen und Service-Accounts für den Zugang,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">verschlüsselte Kommunikation auf allen Netzports,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">minimale Vergabe der Berechtigungen an Benutzende und Service Accounts,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Protokollierung der Veränderungen und</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">regelmäßige Datensicherung.</emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1903">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para><emphasis role="color:#000000">Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</emphasis></para>
+<section xml:id="scroll-bookmark-1904">
+<title>APP.4.4.A13 Automatisierte Auditierung der Konfiguration (H)</title>
+<para><emphasis role="color:#000000">Es SOLLTE ein automatisches Audit der Einstellungen der Nodes, von Kubernetes und der Pods der Anwendungen gegen eine definierte Liste der erlaubten Einstellungen und gegen standardisierte Benchmarks erfolgen.</emphasis></para>
+<para><emphasis role="color:#000000">Kubernetes SOLLTE die aufgestellten Regeln im Cluster durch Anbindung geeigneter Werkzeuge durchsetzen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1905">
+<title>APP.4.4.A14 Verwendung dedizierter Nodes (H)</title>
+<para><emphasis role="color:#000000">In einem Kubernetes-Cluster SOLLTEN die Nodes dedizierte Aufgaben zugewiesen bekommen und jeweils nur Pods betreiben, welche der jeweiligen Aufgabe zugeordnet sind.</emphasis></para>
+<para><emphasis role="color:#000000">Bastion Nodes SOLLTEN alle ein- und ausgehenden Datenverbindungen der Anwendungen zu anderen Netzen übernehmen.</emphasis></para>
+<para><emphasis role="color:#000000">Management Nodes SOLLTEN die Pods der Control Plane betreiben und sie SOLLTEN nur die Datenverbindungen der Control Plane übernehmen.</emphasis></para>
+<para><emphasis role="color:#000000">Sofern eingesetzt, SOLLTEN Speicher-Nodes nur die Pods der Festspeicherdienste im Cluster betreiben.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1906">
+<title>APP.4.4.A15 Trennung von Anwendungen auf Node- und Cluster-Ebene (H)</title>
+<para><emphasis role="color:#000000">Anwendungen mit einem sehr hohen Schutzbedarf SOLLTEN jeweils eigene Kubernetes-Cluster oder dedizierte Nodes nutzen, die nicht für andere Anwendungen bereitstehen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1907">
+<title>APP.4.4.A16 Verwendung von Operatoren (H)</title>
+<para><emphasis role="color:#000000">Die Automatisierung von Betriebsaufgaben in Operatoren SOLLTE bei besonders kritischen Anwendungen und den Programmen der Control Plane zum Einsatz kommen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1908">
+<title>APP.4.4.A17 Attestierung von Nodes (H)</title>
+<para><emphasis role="color:#000000">Nodes SOLLTEN eine kryptografisch und möglichst mit einem TPM verifizierte gesicherte Zustandsmeldung an die Control Plane senden. Die Control Plane SOLLTE nur Nodes in den Cluster aufnehmen, die erfolgreich ihre Unversehrtheit nachweisen konnten.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1909">
+<title>APP.4.4.A18 Verwendung von Mikro-Segmentierung (H)</title>
+<para><emphasis role="color:#000000">Die Pods SOLLTEN auch innerhalb eines Kubernetes-Namespace nur über die notwendigen Netzports miteinander kommunizieren können. Es SOLLTEN Regeln innerhalb des CNI existieren, die alle bis auf die für den Betrieb notwendigen Netzverbindungen innerhalb des Kubernetes-Namespace unterbinden. Diese Regeln SOLLTEN Quelle und Ziel der Verbindungen genau definieren und dafür mindestens eines der folgenden Kriterien nutzen: Service-Name, Metadaten („Labels"), die Kubernetes Service Accounts oder zertifikatsbasierte Authentifizierung.</emphasis></para>
+<para><emphasis role="color:#000000">Alle Kriterien, die als Bezeichnung für diese Verbindung dienen, SOLLTEN so abgesichert sein, dass sie nur von berechtigten Personen und Verwaltungs-Diensten verändert werden können.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1910">
+<title>APP.4.4.A19 Hochverfügbarkeit von Kubernetes (H)</title>
+<para><emphasis role="color:#000000">Der Betrieb SOLLTE so aufgebaut sein, dass bei Ausfall eines Standortes die Cluster und damit die Anwendungen in den Pods entweder ohne Unterbrechung weiterlaufen oder in kurzer Zeit an einem anderen Standort neu anlaufen können.</emphasis></para>
+<para><emphasis role="color:#000000">Für den Wiederanlauf SOLLTEN alle notwendigen Konfigurationsdateien, Images, Nutzdaten, Netzverbindungen und sonstige für den Betrieb benötigten Ressourcen inklusive der zum Betrieb nötigen Hardware bereits an diesem Standort verfügbar sein.</emphasis></para>
+<para><emphasis role="color:#000000">Für den unterbrechungsfreien Betrieb des Clusters SOLLTEN die Control Plane von Kubernetes, die Infrastruktur-Anwendungen der Cluster sowie die Pods der Anwendungen anhand von Standort-Daten der Nodes über mehrere Brandabschnitte so verteilt werden, dass der Ausfall eines Brandabschnitts nicht zum Ausfall der Anwendung führt.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1911">
+<title>APP.4.4.A20 Verschlüsselte Datenhaltung bei Pods (H)</title>
+<para><emphasis role="color:#000000">Die Dateisysteme mit den persistenten Daten der Control Plane (hier besonders <emphasis role="italics">etcd</emphasis>) und der Anwendungsdienste SOLLTEN verschlüsselt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1912">
+<title>APP.4.4.A21 Regelmäßiger Restart von Pods (H)</title>
+<para><emphasis role="color:#000000">Bei einem erhöhten Risiko für Fremdeinwirkung und einem sehr hohen Schutzbedarf SOLLTEN Pods regelmäßig gestoppt und neu gestartet werden. Kein Pod SOLLTE länger als 24 Stunden laufen. Dabei SOLLTE die Verfügbarkeit der Anwendungen im Pod sichergestellt sein.</emphasis></para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1913">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-1914">
+<title>Wissenswertes</title>
+<para><emphasis role="color:#000000">Weiterführende Informationen zu Gefährdungen und Sicherheitsmaßnahmen im Bereich Container finden sich unter anderem in folgenden Veröffentlichungen:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">NIST 800-190</emphasis><?linebreak?>
+<emphasis role="color:#000000"><link xlink:href="https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-190.pdf">https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-190.pdf</link></emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">CIS Benchmark Kubernetes</emphasis><?linebreak?>
+<emphasis role="color:#000000"><link xlink:href="https://www.cisecurity.org/benchmark/kubernetes/">https://www.cisecurity.org/benchmark/kubernetes/</link></emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">OCI - Open Container Initiative</emphasis><?linebreak?>
+<emphasis role="color:#000000"><link xlink:href="https://www.opencontainers.org/">https://www.opencontainers.org/</link></emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">CNCF - Cloud Native Computing Foundation</emphasis><?linebreak?>
+<emphasis role="color:#000000"><link xlink:href="https://www.cncf.io/">https://www.cncf.io/</link></emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+</section>

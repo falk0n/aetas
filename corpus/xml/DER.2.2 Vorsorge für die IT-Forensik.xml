@@ -1,0 +1,143 @@
+<title>DER.2.2 Vorsorge für die IT-Forensik</title>
+<section xml:id="scroll-bookmark-1198">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-1199">
+<title>Einleitung</title>
+<para><emphasis role="color:#000000">IT-Forensik ist die streng methodisch vorgenommene Datenanalyse auf Datenträgern und in Datennetzen zur Aufklärung von Sicherheitsvorfällen in IT-Systemen.</emphasis></para>
+<para><emphasis role="color:#000000">IT-Sicherheitsvorfälle forensisch zu untersuchen, ist immer dann notwendig, wenn entstandene Schäden bestimmt, Angriffe abgewehrt, zukünftige Angriffe vermieden und Angreifende identifiziert werden sollen. Ob ein IT-Sicherheitsvorfall forensisch untersucht wird, entscheidet sich, während der Vorfall behandelt wird. Eine IT-forensische Untersuchung im Sinne dieses Bausteins besteht aus den folgenden Phasen:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Strategische Vorbereitung: In dieser Phase werden Prozesse geplant und aufgebaut, die sicherstellen, dass eine Institution IT-Sicherheitsvorfälle forensisch analysieren kann. Sie ist auch dann notwendig, wenn die Institution über keine eigene Forensik-Expertise verfügt.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Initialisierung: Nachdem die verantwortlichen Mitarbeitenden entschieden haben, einen IT-Sicherheitsvorfall forensisch zu untersuchen, werden die vorher geplanten Prozesse angestoßen. Des Weiteren wird der Untersuchungsrahmen festgelegt und es werden Erstmaßnahmen durchgeführt.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Spurensicherung: Hier werden die zu sichernden Beweismittel ausgewählt und die Daten forensisch gesichert. Dabei wird zwischen Live-Forensik und Post-Mortem-Forensik unterschieden: Die Live-Forensik stellt sicher, dass flüchtige Daten, wie z. B. Netzverbindungen oder RAM, von einem laufenden IT-System gesichert werden. Bei der Post-Mortem-Forensik hingegen werden forensische Kopien von Datenträgern erstellt.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Analyse: Die gesammelten Daten werden forensisch analysiert. Dabei werden die Daten sowohl für sich als auch im Gesamtzusammenhang betrachtet.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Ergebnisdarstellung: Die relevanten Untersuchungsergebnisse werden zielgruppengerecht aufbereitet und vermittelt.</emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-1200">
+<title>Zielsetzung</title>
+<para><emphasis role="color:#000000">Der Baustein zeigt auf, welche Vorsorgemaßnahmen notwendig sind, um IT-forensische Untersuchungen zu ermöglichen. Dabei wird vor allem darauf eingegangen, wie die Spurensicherung vorbereitet und durchgeführt werden kann.</emphasis></para>
+<para><emphasis role="color:#000000">Führen Forensik-Dienstleistende Spurensicherungen ganz oder teilweise durch, gelten die Anforderungen auch für die Dienstleistenden. Durch vertragliche Vereinbarungen und Prüfungen kann dabei sichergestellt werden, dass sich die Dienstleistenden auch daran halten.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1201">
+<title>Abgrenzung und Modellierung</title>
+<para><emphasis role="color:#000000">Der Baustein DER.2.2 <emphasis role="italics">Vorsorge für die IT-Forensik</emphasis> ist für den gesamten Informationsverbund einmal anzuwenden.</emphasis></para>
+<para><emphasis role="color:#000000">Der Baustein befasst sich mit Vorsorgemaßnahmen, die grundlegend für spätere IT-forensische Untersuchungen sind.</emphasis></para>
+<para><emphasis role="color:#000000">Wie die eigentliche forensische Analyse durchgeführt wird, ist daher nicht Thema dieses Bausteins. Es werden keine Anforderungen beschrieben, die sicherstellen, dass Angriffe erkannt werden. Diese sind im Baustein DER.1 <emphasis role="italics">Detektion von sicherheitsrelevanten Ereignissen</emphasis> enthalten und werden im vorliegenden Baustein vorausgesetzt. Auch werden keine Kriterien und Prozesse erläutert, anhand derer die Verantwortlichen entscheiden können, ob ein IT-Sicherheitsvorfall forensisch untersucht werden muss oder nicht. Die Entscheidung darüber wird getroffen, während der Sicherheitsvorfall behandelt wird (siehe DER.2.1 <emphasis role="italics">Behandlung von Sicherheitsvorfällen</emphasis>).</emphasis></para>
+<para><emphasis role="color:#000000">Ebenso bezieht sich der Baustein nicht auf IT-forensische Untersuchungen bei Straftaten.</emphasis></para>
+<para><emphasis role="color:#000000">Letztlich geht der Baustein auch nicht darauf ein, wie sich IT-Infrastrukturen bereinigen lassen, nachdem sie angegriffen worden sind (siehe dazu DER.2.3 <emphasis role="italics">Bereinigung weitreichender Sicherheitsvorfälle</emphasis>). Die dort beschriebenen Tätigkeiten können jedoch durch die Ergebnisse von IT-forensischen Untersuchungen maßgeblich unterstützt werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1202">
+<title>Gefährdungslage</title>
+<para><emphasis role="color:#000000">Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein DER.2.2 <emphasis role="italics">Vorsorge für die IT-Forensik</emphasis> von besonderer Bedeutung.</emphasis></para>
+<section xml:id="scroll-bookmark-1203">
+<title>Verstoß gegen rechtliche Rahmenbedingungen</title>
+<para><emphasis role="color:#000000">Für IT-forensische Untersuchungen werden oft alle für notwendig befundenen Daten kopiert, sichergestellt und ausgewertet. Darunter befinden sich meistens auch personenbezogene Daten von Mitarbeitenden oder externen Partner und Partnerinnen. Wird darauf z. B. unbegründet und ohne Einbeziehung der oder die Datenschutzbeauftragte zugegriffen, verstößt die Institution gegen gesetzliche Regelungen, etwa wenn dabei die Zweckbindung missachtet wird. Auch ist es möglich, dass aus den erhobenen Daten beispielsweise abgeleitet werden kann, wie sich Mitarbeitende verhalten, oder es kann ein Bezug zu ihnen hergestellt werden. Dadurch besteht die Gefahr, dass auch gegen interne Regelungen verstoßen wird.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1204">
+<title>Verlust von Beweismitteln durch fehlerhafte oder unvollständige Beweissicherung</title>
+<para><emphasis role="color:#000000">Werden Beweismittel falsch oder nicht schnell genug gesichert, können dadurch wichtige Daten verloren gehen, die später nicht wiederhergestellt werden können. Im ungünstigsten Fall führt das zu einer ergebnislosen forensischen Untersuchung. Mindestens ist jedoch die Beweiskraft eingeschränkt.</emphasis></para>
+<para><emphasis role="color:#000000">Die Gefahr, wichtige Beweismittel zu verlieren, steigt stark an, wenn Mitarbeitende die Werkzeuge zur Forensik fehlerhaft benutzen, Daten zu langsam sichern oder zu wenig üben. Oft gehen auch Beweismittel verloren, wenn die Verantwortlichen flüchtige Daten nicht als relevant erkennen und sichern.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1205">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins <emphasis role="color:#000000">DER.2.2 <emphasis role="italics">Vorsorge für die IT-Forensik</emphasis></emphasis> aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para>Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig</emphasis> sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</para>
+<section xml:id="scroll-bookmark-1206">
+<title>Basis-Anforderungen</title>
+<para><emphasis role="color:#000000">Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden:</emphasis></para>
+<section xml:id="scroll-bookmark-1207">
+<title>DER.2.2.A1 Prüfung rechtlicher und regulatorischer Rahmenbedingungen zur Erfassung und Auswertbarkeit (B) [Datenschutzbeauftragte, Institutionsleitung] </title>
+<para><emphasis role="color:#000000">Werden Daten für forensische Untersuchungen erfasst und ausgewertet, MÜSSEN alle rechtlichen und regulatorischen Rahmenbedingungen identifiziert und eingehalten werden (siehe ORP.5 <emphasis role="italics">Compliance Management (Anforderungsmanagement)</emphasis>). Auch DARF NICHT gegen interne Regelungen und Mitarbeitendenvereinbarungen verstoßen werden. Dazu MÜSSEN der Betriebs- oder Personalrat sowie der oder die Datenschutzbeauftragte einbezogen werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1208">
+<title>DER.2.2.A2 Erstellung eines Leitfadens für Erstmaßnahmen bei einem IT-Sicherheitsvorfall (B)</title>
+<para><emphasis role="color:#000000">Es MUSS ein Leitfaden erstellt werden, der für die eingesetzten IT-Systeme beschreibt, welche Erstmaßnahmen bei einem IT-Sicherheitsvorfall durchgeführt werden müssen, um möglichst wenig Spuren zu zerstören. Darin MUSS auch beschrieben sein, durch welche Handlungen potenzielle Spuren vernichtet werden könnten und wie sich das vermeiden lässt.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1209">
+<title>DER.2.2.A3 Vorauswahl von Forensik-Dienstleistenden (B)</title>
+<para><emphasis role="color:#000000">Verfügt eine Institution nicht über ein eigenes Forensik-Team, MÜSSEN bereits in der Vorbereitungsphase mögliche geeignete Forensik-Dienstleistenden identifiziert werden. Welche Forensik-Dienstleistende infrage kommen, MUSS dokumentiert werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1210">
+<title>Standard-Anforderungen</title>
+<para><emphasis role="color:#000000">Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-1211">
+<title>DER.2.2.A4 Festlegung von Schnittstellen zum Krisen- und Notfallmanagement (S)</title>
+<para><emphasis role="color:#000000">Die Schnittstellen zwischen IT-forensischen Untersuchungen und dem Krisen- und Notfallmanagement SOLLTEN definiert und dokumentiert werden. Hierzu SOLLTE geregelt werden, welche Mitarbeitenden für welche Aufgaben verantwortlich sind und wie mit ihnen kommuniziert werden soll. Darüber hinaus SOLLTE sichergestellt werden, dass die zuständigen Kontaktpersonen stets erreichbar sind.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1212">
+<title>DER.2.2.A5 Erstellung eines Leitfadens für Beweissicherungsmaßnahmen bei IT-Sicherheitsvorfällen (S)</title>
+<para><emphasis role="color:#000000">Es SOLLTE ein Leitfaden erstellt werden, in dem beschrieben wird, wie Beweise gesichert werden sollen. Darin SOLLTEN Vorgehensweisen, technische Werkzeuge, rechtliche Rahmenbedingungen und Dokumentationsvorgaben aufgeführt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1213">
+<title>DER.2.2.A6 Schulung des Personals für die Umsetzung der forensischen Sicherung (S)</title>
+<para><emphasis role="color:#000000">Alle verantwortlichen Mitarbeitenden SOLLTEN wissen, wie sie Spuren korrekt sichern und die Werkzeuge zur Forensik richtig einsetzen. Dafür SOLLTEN geeignete Schulungen durchgeführt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1214">
+<title>DER.2.2.A7 Auswahl von Werkzeugen zur Forensik (S)</title>
+<para><emphasis role="color:#000000">Es SOLLTE sichergestellt werden, dass Werkzeuge, mit denen Spuren forensisch gesichert und analysiert werden, auch dafür geeignet sind. Bevor ein Werkzeug zur Forensik eingesetzt wird, SOLLTE zudem geprüft werden, ob es richtig funktioniert. Auch SOLLTE überprüft und dokumentiert werden, dass es nicht manipuliert wurde.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1215">
+<title>DER.2.2.A8 Auswahl und Reihenfolge der zu sichernden Beweismittel (S) [Fachverantwortliche] </title>
+<para><emphasis role="color:#000000">Eine forensische Untersuchung SOLLTE immer damit beginnen, die Ziele bzw. den Arbeitsauftrag zu definieren. Die Ziele SOLLTEN möglichst konkret formuliert sein. Danach SOLLTEN alle notwendigen Datenquellen identifiziert werden. Auch SOLLTE festgelegt werden, in welcher Reihenfolge die Daten gesichert werden und wie genau dabei vorgegangen werden soll. Die Reihenfolge SOLLTE sich danach richten, wie flüchtig (volatil) die zu sichernden Daten sind. So SOLLTEN schnell flüchtige Daten zeitnah gesichert werden. Erst danach SOLLTEN nichtflüchtige Daten wie beispielsweise Festspeicherinhalte und schließlich Backups folgen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1216">
+<title>DER.2.2.A9 Vorauswahl forensisch relevanter Daten (S) [Fachverantwortliche] </title>
+<para><emphasis role="color:#000000">Es SOLLTE festgelegt werden, welche sekundären Daten (z. B. Logdaten oder Verkehrsmitschnitte) auf welche Weise und wie lange im Rahmen der rechtlichen Rahmenbedingungen für mögliche forensische Beweissicherungsmaßnahmen vorgehalten werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1217">
+<title>DER.2.2.A10 IT-forensische Sicherung von Beweismitteln (S) [Fachverantwortliche] </title>
+<para><emphasis role="color:#000000">Datenträger SOLLTEN möglichst komplett forensisch dupliziert werden. Wenn das nicht möglich ist, z. B. bei flüchtigen Daten im RAM oder in SAN-Partitionen, SOLLTE eine Methode gewählt werden, die möglichst wenige Daten verändert.</emphasis></para>
+<para><emphasis role="color:#000000">Die Originaldatenträger SOLLTEN versiegelt aufbewahrt werden. Es SOLLTEN schriftlich dokumentierte kryptografische Prüfsummen von den Datenträgern angelegt werden. Diese SOLLTEN getrennt und in mehreren Kopien aufbewahrt werden. Zudem SOLLTE sichergestellt sein, dass die so dokumentierten Prüfsummen nicht verändert werden können. Damit die Daten gerichtlich verwertbar sind, SOLLTE ein Zeuge bestätigen, wie dabei vorgegangen wurde und die erstellten Prüfsummen beglaubigen.</emphasis></para>
+<para><emphasis role="color:#000000">Es SOLLTE ausschließlich geschultes Personal (siehe DER.2.2.A6 <emphasis role="italics">Schulung des Personals für die Umsetzung der forensischen Sicherung</emphasis>) oder ein Forensik-Dienstleistender (siehe DER.2.2.A3 <emphasis role="italics">Vorauswahl von Forensik-Dienstleistenden</emphasis>) eingesetzt werden, um Beweise forensisch zu sichern.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1218">
+<title>DER.2.2.A11 Dokumentation der Beweissicherung (S) [Fachverantwortliche] </title>
+<para><emphasis role="color:#000000">Wenn Beweise forensisch gesichert werden, SOLLTEN alle durchgeführten Schritte dokumentiert werden. Die Dokumentation SOLLTE lückenlos nachweisen, wie mit den gesicherten Originalbeweismitteln umgegangen wurde. Auch SOLLTE dokumentiert werden, welche Methoden eingesetzt wurden und warum sich die Verantwortlichen dafür entschieden haben.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1219">
+<title>DER.2.2.A12 Sichere Verwahrung von Originaldatenträgern und Beweismitteln (S) [Fachverantwortliche] </title>
+<para><emphasis role="color:#000000">Alle sichergestellten Originaldatenträger SOLLTEN physisch so gelagert werden, dass nur ermittelnde und namentlich bekannte Mitarbeitende darauf zugreifen können. Wenn Originaldatenträger und Beweismittel eingelagert werden, SOLLTE festgelegt werden, wie lange sie aufzubewahren sind. Nachdem die Frist abgelaufen ist, SOLLTE geprüft werden, ob die Datenträger und Beweise noch weiter aufbewahrt werden müssen. Nach der Aufbewahrungsfrist SOLLTEN Beweismittel sicher gelöscht oder vernichtet und Originaldatenträger zurückgegeben werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1220">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para><emphasis role="color:#000000">Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</emphasis></para>
+<section xml:id="scroll-bookmark-1221">
+<title>DER.2.2.A13 Rahmenverträge mit externen Dienstleistenden (H)</title>
+<para><emphasis role="color:#000000">Die Institution SOLLTE Abrufvereinbarungen bzw. Rahmenverträge mit Forensik-Dienstleistenden abschließen, damit IT-Sicherheitsvorfälle schneller forensisch untersucht werden können.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1222">
+<title>DER.2.2.A14 Festlegung von Standardverfahren für die Beweissicherung (H)</title>
+<para><emphasis role="color:#000000">Für Anwendungen, IT-Systeme bzw. IT-Systemgruppen mit hohem Schutzbedarf sowie für verbreitete Systemkonfigurationen SOLLTEN Standardverfahren erstellt werden, die es erlauben, flüchtige und nichtflüchtige Daten möglichst vollständig forensisch zu sichern.</emphasis></para>
+<para><emphasis role="color:#000000">Die jeweiligen systemspezifischen Standardverfahren SOLLTEN durch erprobte und möglichst automatisierte Prozesse umgesetzt werden. Sie SOLLTEN zudem durch Checklisten und technische Hilfsmittel unterstützt werden, z. B. durch Software, Software-Tools auf mobilen Datenträgern und IT-forensische Hardware wie Schreibblocker.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-1223">
+<title>DER.2.2.A15 Durchführung von Übungen zur Beweissicherung (H)</title>
+<para><emphasis role="color:#000000">Alle an forensischen Analysen beteiligten Mitarbeitenden SOLLTEN regelmäßig in Form von Übungen trainieren, wie Beweise bei einem IT-Sicherheitsvorfall zu sichern sind.</emphasis></para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1224">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-1225">
+<title>Wissenswertes</title>
+<para><emphasis role="color:#000000">Das BSI gibt in dem „Leitfaden IT-Forensik“ weiterführende Informationen in die Thematik und kann auch als Nachschlagewerk für einzelne praxisbezogene Problemstellungen dienen.</emphasis></para>
+<para><emphasis role="color:#000000">Die International Organization for Standardization (ISO) gibt in der Norm ISO/IEC 27042:2015 und 27043:2015 01:2013 Vorgaben für die Durchführung von forensischen Analysen.</emphasis></para>
+<para><emphasis role="color:#000000">Das Information Security Forum (ISF) macht in seinem Standard „The Standard of Good Practice for Information Security“ im Kapitel TM 2.4 Forensik Investigations Vorgaben für die Durchführung von forensischen Analysen.</emphasis></para>
+<para><emphasis role="color:#000000">Der Request for Comments (RFC) 3227 „Guidelines for Evidence Collection and Archiving“ gibt in seinem Leitfaden Hinweise zur grundlegenden Vorgehensweise bei einer forensischen Sicherung.</emphasis></para>
+</section>
+</section>

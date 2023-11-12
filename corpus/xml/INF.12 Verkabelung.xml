@@ -1,0 +1,218 @@
+<title>INF.12 Verkabelung</title>
+<section xml:id="scroll-bookmark-4105">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-4106">
+<title>Einleitung</title>
+<para><emphasis role="color:#000000">Die ordnungsgemäße und normgerechte Ausführung der Verkabelung ist Grundlage für einen sicheren IT-Betrieb. Dabei muss grundsätzlich zwischen der elektrotechnischen Verkabelung und der IT-Verkabelung unterschieden werden.</emphasis></para>
+<para><emphasis role="color:#000000">Die elektrotechnische Verkabelung von IT-Systemen und anderen Geräten umfasst alle Kabel und Verteilungen im Gebäude vom Einspeisepunkt des Verteilungsnetzbetreibers (VNB) bis zu den Anschlüssen der Endgeräte.</emphasis></para>
+<para><emphasis role="color:#000000">Die IT-Verkabelung in einer Institution umfasst alle Kommunikationskabel und passiven Komponenten wie Rangier- bzw. Spleißverteiler oder Patchfelder. Sie bildet also die physikalische Grundlage der internen Kommunikationsnetze. Die IT-Verkabelung reicht von den Übergabepunkten aus einem Fremdnetz bis zu den Anschlusspunkten der Netzteilnehmenden. Übergabepunkte sind z. B. der Anschluss eines Telekommunikationsunternehmens oder die DSL-Anbindung eines Internet-Providers.</emphasis></para>
+<para><emphasis role="color:#000000">Trotz dieser Unterscheidung sind die grundlegenden Anforderungen an beide Arten der Verkabelung identisch. Daher sollte die Verkabelung innerhalb einer Institution immer auch als Ganzes betrachtet werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4107">
+<title>Zielsetzung</title>
+<para><emphasis role="color:#000000">Ziel dieses Bausteins ist es, die gesamte elektrotechnische Verkabelung und IT-Verkabelung vor Ausfall, Manipulation und Störung zu schützen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4108">
+<title>Abgrenzung und Modellierung</title>
+<para><emphasis role="color:#000000">Der Baustein INF.12 <emphasis role="italics">Verkabelung</emphasis> ist einmal auf die Verkabelung in Gebäuden und Räumen anzuwenden, zusätzlich zum Baustein INF.1 <emphasis role="italics">Allgemeines Gebäude</emphasis>. Die Anforderungen des Bausteins sind immer sowohl auf die IT- als auch auf die elektronische Verkabelung anzuwenden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4109">
+<title>Gefährdungslage</title>
+<para>Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein INF.12 <emphasis role="italics">Verkabelung </emphasis>von besonderer Bedeutung.</para>
+<section xml:id="scroll-bookmark-4110">
+<title>Kabelbrand</title>
+<para><emphasis role="color:#000000">Kabelbrände können einen Informationsverbund erheblich schädigen. Ein Kabelbrand verursacht z. B. Kurzschlüsse oder unterbricht Leiter. Infolgedessen fallen auch Schutzeinrichtungen aus. Zudem können bei Kabelbränden, abhängig von den Materialien der Isolierungen, aggressive Gase entstehen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4111">
+<title>Unzureichende Dimensionierung der Verkabelung</title>
+<para><emphasis role="color:#000000">Werden Arbeitsplätze, Serverräume oder Rechenzentren geplant, dann werden diese Pläne häufig ausschließlich am aktuellen Bedarf ausgerichtet. Jedoch verlangen zukünftige neue Anforderungen oft auch nach weiteren Kapazitäten des Stromnetzes und der Datenkabel. Dies kann z. B. notwendig werden, sobald zusätzliche Server eingesetzt werden oder sich technische Standards ändern. Die Verkabelung kann aber nur in dem Umfang erweitert werden, den die bereits vorhandenen und verlegten Kabel und Kabeltrassen zulassen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4112">
+<title>Unzureichende Dokumentation der Verkabelung</title>
+<para><emphasis role="color:#000000">Wenn die genaue Lage von Kabeln nicht bekannt ist, weil sie unzureichend dokumentiert wurde, dann können diese Kabel bei Bauarbeiten außerhalb oder innerhalb eines Gebäudes beschädigt werden. Eine unzureichende Dokumentation erschwert es auch, Kabel zu prüfen und zu reparieren.</emphasis></para>
+<para><emphasis role="color:#000000">Darüber hinaus kann nicht davon ausgegangen werden, dass alle Kabel in den Installationszonen nach aktuell gültigen Normen installiert sind.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4113">
+<title>Unzureichend geschützte Verteiler</title>
+<para><emphasis role="color:#000000">Gelegentlich sind Verteilungen des Stromversorgungs- oder Datennetzes unverschlossen in Bereichen installiert, die allgemein zugänglich sind. Unbefugte Personen können solche Verteiler öffnen, manipulieren und so Ausfälle in der Strom- oder Datenversorgung herbeizuführen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4114">
+<title>Leitungsbeschädigungen</title>
+<para><emphasis role="color:#000000">Je ungeschützter ein Kabel verlegt ist, desto größer ist die Gefahr, dass es absichtlich oder unabsichtlich beschädigt wird. Beschädigungen verursachen nicht nur direkte Ausfälle von Verbindungen, sondern können auch später zu Störungen führen. Eine beschädigte Isolierung beeinträchtigt unter Umständen erst mit großer zeitlicher Verzögerung die funktionellen Eigenschaften eines Kabels.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4115">
+<title>Spannungsschwankungen, Überspannung, Unterspannung</title>
+<para><emphasis role="color:#000000">Schwankungen der Versorgungsspannung können in allen Bereichen der Netze entstehen. Extrem kurze und kleine Ereignisse wirken sich kaum oder gar nicht auf IT-Systeme aus. Größere Schwankungen führen jedoch zu Funktionsstörungen. Die angeschlossenen Systeme können beschädigt werden bis hin zu Totalausfällen. Auch zerstörerische Überspannungen können auftreten.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4116">
+<title>Verwendung qualitativ unzureichender Steckdosenleisten</title>
+<para><emphasis role="color:#000000">Oft reichen die fest installierten Steckdosen für die zu betreibenden Geräte nicht aus. Um dies auszugleichen, werden häufig Steckdosenleisten verwendet. Sind diese Steckdosenleisten jedoch qualitativ unzureichend, dann können sie zur Zündquelle und damit zu einer großen Brandgefahr werden.</emphasis></para>
+<para><emphasis role="color:#000000">In vielen Fällen werden mehrere Steckdosenleisten hintereinander geschaltet, um Steckplätze für alle Geräte bereitzustellen. Bei einer solchen Reihenschaltung besteht die Gefahr der Überlastung. Die Folge kann ein unvollständiger Kurzschluss mit hoher Brandgefahr sein.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4117">
+<title>Unzulässige Kabelverbindungen</title>
+<para><emphasis role="color:#000000">In manchen Fällen werden zwischen IT-Systemen oder anderen technischen Komponenten Kabelverbindungen hergestellt, die nicht vorgesehen und unzulässig sind. Dies kann Sicherheitsprobleme oder Betriebsstörungen verursachen.</emphasis></para>
+<para><emphasis role="color:#000000">So ermöglichen solche Kabelverbindungen unter Umständen, dass unerlaubt auf Datennetze, IT-Systeme, Informationen oder Anwendungen zugegriffen werden kann. Durch unzulässige Kabelverbindungen können Informationen auch zu falschen Empfangenden übertragen werden. Zudem kann die Verbindung gestört werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4118">
+<title>Leitungsbeeinträchtigungen</title>
+<para><emphasis role="color:#000000">Die elektrische Signalübertragung in Kommunikationskabeln kann durch elektrische und magnetische Felder negativ beeinflusst werden. Eine spezielle Form dieser Leitungsbeeinträchtigung ist Übersprechen. Dabei werden Ströme und Spannungen von benachbarten Leitungen als Störsignale auf das Kommunikationskabel übertragen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4119">
+<title>Abhören und Manipulation von Kabeln</title>
+<para><emphasis role="color:#000000">Abhörangriffe auf Datenkabel sind eine Gefahr für die Informationssicherheit, die nicht vernachlässigt werden sollte. Grundsätzlich gibt es keine abhörsicheren Kabel. Die Kabel unterscheiden sich in ihrer Qualität lediglich hinsichtlich des Aufwands, der zum Abhören der Leitung betrieben werden muss. Ob ein Kabel tatsächlich abgehört wird, ist nur mit hohem messtechnischem Aufwand feststellbar.</emphasis></para>
+<para><emphasis role="color:#000000">Daneben stellen bewusste Manipulationen von Kabeln bis hin zu ihrer Zerstörung eine Gefahr für die Institution dar. Fehlfunktionen von Kabeln können in manipulativer Absicht bewusst herbeigeführt werden. Solche Manipulationen verfolgen oftmals das Ziel, den IT-Betrieb zu stören oder die Institution zu schädigen.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4120">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins INF.12 <emphasis role="italics">Verkabelung </emphasis>aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para>Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig</emphasis> sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</para>
+<section xml:id="scroll-bookmark-4121">
+<title>Basis-Anforderungen</title>
+<para><emphasis role="color:#000000">Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-4122">
+<title>INF.12.A1 Auswahl geeigneter Kabeltypen (B) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">Bei der Auswahl von Kabeltypen MUSS geprüft werden, welche übertragungstechnischen Eigenschaften notwendig sind. Die einschlägigen Normen und Vorschriften MÜSSEN beachtet werden. Auch die Umgebungsbedingungen im Betrieb und bei der Verlegung MÜSSEN berücksichtigt werden. Hinsichtlich der Umgebungsbedingungen MÜSSEN die folgenden Faktoren beachtet werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Temperaturen,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Kabelwege,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Zugkräfte bei der Verlegung,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">die Art der Verlegung sowie</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">die Entfernung zwischen den Endpunkten und möglichen Störquellen.</emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-4123">
+<title>INF.12.A2 Planung der Kabelführung (B) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">Kabel, Kabelwege und Kabeltrassen MÜSSEN aus funktionaler und aus physikalischer Sicht ausreichend dimensioniert werden. Dabei MÜSSEN künftige Notwendigkeiten eingerechnet werden, z. B. genügend Platz für mögliche technische Erweiterungen in Kabelkanälen und -trassen. Bei der gemeinsamen Führung von IT- und Stromverkabelung in einer Trasse MUSS das Übersprechen zwischen den einzelnen Kabeln verhindert werden. Es MUSS darauf geachtet werden, dass die IT-Verkabelung und die elektrotechnische Verkabelung mit dem normgerechten Trennungsabstand geführt werden. Erkennbare Gefahrenquellen MÜSSEN umgangen werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4124">
+<title>INF.12.A3 Fachgerechte Installation (B) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">Die Installationsarbeiten der Verkabelung MÜSSEN fachkundig und sorgfältig erfolgen. Bei der Installation MÜSSEN alle relevanten Normen beachtet werden. Die fachgerechte Ausführung der Verkabelung MUSS durch eine fachkundige Person in allen Phasen überprüft werden. Bei Anlieferung des Materials MUSS geprüft werden, ob die richtigen Kabel und Anschlusskomponenten geliefert wurden. Es MUSS darauf geachtet werden, dass die Montage keine Beschädigungen verursacht. Außerdem MÜSSEN die Kabelwege so gewählt werden, dass eine Beschädigung der verlegten Kabel durch die normale Nutzung des Gebäudes ausgeschlossen ist.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4125">
+<title>INF.12.A4 EMV-taugliche Stromversorgung (B) [Haustechnik]</title>
+<para><emphasis role="color:#000000">Die Stromversorgung MUSS EMV (Elektromagnetische Verträglichkeit) -tauglich sein. Dafür MUSS das Stromverteilnetz als TN-S-System aufgebaut sein. Bei Aufbau und Betrieb des Stromverteilnetzes MÜSSEN die in den entsprechenden Normen empfohlenen Trennungsabstände soweit wie möglich eingehalten werden. Vorkehrungen gegen Einstrahlungen von außen, Abstrahlung durch die Stromleitung sowie zur Erkennung von Ausgleichsströmen MÜSSEN getroffen werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4126">
+<title>Standard-Anforderungen</title>
+<para><emphasis role="color:#000000">Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-4127">
+<title>INF.12.A5 Anforderungsanalyse für die Verkabelung (S) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">Grundsätzlich SOLLTEN die Anforderungen analysiert werden, die Einfluss auf eine zukunftssichere, bedarfsgerechte und wirtschaftliche Ausführung der Verkabelung haben. In dieser Anforderungsanalyse SOLLTE zunächst abgeschätzt werden, wie die kurzfristige Nutzung der Verkabelung innerhalb der Institution aussieht. Darauf aufbauend SOLLTE die längerfristige Entwicklung der Nutzung abgeschätzt werden. Darüber hinaus MÜSSEN die Schutzziele der Verfügbarkeit, Integrität und Vertraulichkeit bei der Anforderungsanalyse für die Verkabelung mit betrachtet werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4128">
+<title>INF.12.A6 Abnahme der Verkabelung (S) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">Für die Verkabelung SOLLTE es einen Abnahmeprozess geben. Verkabelungen SOLLTEN immer dann abgenommen werden, wenn alle (gegebenenfalls im Rahmen eines Meilensteins) durchzuführenden Aufgaben abgeschlossen sind. Die Ausführenden SOLLTE hierfür die Aufgaben als abgeschlossen und zur Abnahme bereit gemeldet haben. Außerdem SOLLTEN sich bei den Kontrollen durch die auftraggebende Institution keine inakzeptablen Mängel gezeigt haben. Der Abnahmetermin SOLLTE so gewählt werden, dass die Kontrollen zur Abnahme in ausreichender Zeit vorbereitet werden können. Die auftragnehmende Institution MUSS spätestens zum Abnahmetermin schriftlich belegen, dass sämtliche Normen und Vorschriften eingehalten wurden, die für das Gewerk gelten. Bei der Abnahme MUSS der tatsächliche Umfang der Leistungen überprüft werden. Für das Abnahmeprotokoll SOLLTE eine Checkliste vorbereitet werden. Das Abnahmeprotokoll MUSS von den Teilnehmenden und Verantwortlichen rechtsverbindlich unterzeichnet werden. Das Protokoll MUSS Bestandteil der internen Dokumentation der Verkabelung sein.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4129">
+<title>INF.12.A7 Überspannungsschutz (S) [Haustechnik] </title>
+<para><emphasis role="color:#000000">Jedes elektrisch leitende Netz SOLLTE gegen Überspannungen geschützt werden. Hierfür MUSS ein entsprechendes Überspannungsschutzkonzept erstellt werden, das den gültigen Normen entspricht. Netzersatzanlagen (NEA) und unterbrechungsfreie Stromversorgungen (USV) MÜSSEN in das Überspannungsschutzkonzept aufgenommen werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4130">
+<title>INF.12.A8 Entfernen und Deaktivieren nicht mehr benötigter Kabel (S) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">Wenn Kabel nicht mehr benötigt werden, SOLLTEN sie fachgerecht und vollständig entfernt werden. Nachdem Kabel entfernt wurden, MÜSSEN die Brandschottungen fachgerecht verschlossen werden.</emphasis></para>
+<para><emphasis role="color:#000000">Kabel, die aktuell nicht mehr benötigt werden, aber mit der vorhandenen Technik sinnvoll als Reserve an Ort und Stelle verbleiben können, SOLLTEN in einem betriebsfähigen Zustand erhalten werden. Solche Kabel MÜSSEN mindestens an den Endpunkten entsprechend gekennzeichnet werden.</emphasis></para>
+<para><emphasis role="color:#000000">Grundsätzlich SOLLTE eine Übersicht über nicht mehr benötigte Kabel aufgestellt werden. Aus der Dokumentation SOLLTE hervorgehen, welche Kabel entfernt oder deaktiviert wurden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4131">
+<title>INF.12.A9 Brandschutz in Trassen (S) [Haustechnik]</title>
+<para><emphasis role="color:#000000">Trassen SOLLTEN ausreichend dimensioniert werden. Trassen SOLLTEN über eine ausreichende Be- und Entlüftung verfügen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4132">
+<title>INF.12.A10 Dokumentation und Kennzeichnung der Verkabelung (S) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">Eine Institution SOLLTE sicherstellen, dass sie für ihre Verkabelung sowohl über eine interne als auch eine externe Dokumentation verfügt. Die interne Dokumentation MUSS alle Aufzeichnungen zur Installation und zum Betrieb der Verkabelung enthalten. Die interne Dokumentation SOLLTE so umfangreich angefertigt und gepflegt werden, dass der Betrieb und dessen Weiterentwicklung bestmöglich unterstützt werden. Die externe Dokumentation (Beschriftung von Anschlüssen zur Unterstützung des Betriebs) der Verkabelung SOLLTE möglichst neutral gehalten werden.</emphasis></para>
+<para><emphasis role="color:#000000">Jede Veränderung im Netz SOLLTE dokumentiert werden. Eine Interims- oder Arbeitsversion der Dokumentation SOLLTE unmittelbar, d. h. am Tag selbst angepasst werden. Die Stamm-Dokumentation MUSS spätestens 4 Wochen nach Abschluss der jeweiligen Arbeiten aktualisiert sein. Es SOLLTE geprüft werden, ob ein Dokumentenmanagement für die Dokumentation eingesetzt werden kann. Die Dokumentation SOLLTE regelmäßig überprüft und aktualisiert werden. Sämtliche technischen Einrichtungen, die im Rahmen der Verkabelung dokumentiert sind, MÜSSEN hinsichtlich der Dokumentationstreue spätestens nach 4 Jahren geprüft werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4133">
+<title>INF.12.A11 Neutrale Dokumentation in den Verteilern (S) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">In jedem Verteiler SOLLTE es eine Dokumentation geben, die den derzeitigen Stand von Rangierungen und Leitungsbelegungen wiedergibt. Die Dokumentation im Verteiler MUSS ein sicheres Schalten ermöglichen.</emphasis></para>
+<para><emphasis role="color:#000000">Die Dokumentation im Verteiler SOLLTE möglichst neutral gehalten werden. In der Dokumentation im Verteiler SOLLTEN nur bestehende und genutzte Verbindungen sowie auflaufende Reservekabel aufgeführt sein. Falls möglich, SOLLTEN keine Hinweise auf die Art gegeben werden, wie Kabel genutzt werden. Es SOLLTEN nur solche Hinweise gegeben werden, die ausdrücklich vorgeschrieben sind. Alle weitergehenden Informationen SOLLTEN in einer Revisionsdokumentation aufgeführt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4134">
+<title>INF.12.A12 Kontrolle elektrotechnischer Anlagen und bestehender Verbindungen (S) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">Alle elektrischen Anlagen und Betriebsmittel SOLLTEN gemäß DGUV Vorschrift 3, entsprechend den in § 5 Prüfung genannten Durchführungsanweisungen, regelmäßig geprüft werden. Alle Unregelmäßigkeiten, die festgestellt werden, MÜSSEN unverzüglich dokumentiert werden. Festgestellte Unregelmäßigkeiten MÜSSEN unverzüglich den zuständigen Organisationseinheiten gemeldet werden. Die zuständigen Organisationseinheiten MÜSSEN die festgestellten Unregelmäßigkeiten so zeitnah beheben, dass eine Gefährdung von Personen ausgeschlossen werden kann. Die Verfügbarkeit der elektrischen Anlagen und Betriebsmittel MUSS hierbei im erforderlichen Maß sichergestellt sein.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4135">
+<title>INF.12.A13 Vermeidung elektrischer Zündquellen (S) [Haustechnik]</title>
+<para><emphasis role="color:#000000">Die Nutzung privater Elektrogeräte innerhalb einer Institution SOLLTE klar geregelt werden. Alle Elektrogeräte MÜSSEN durch eine Elektrofachkraft geprüft und für sicher befunden werden, bevor sie eingesetzt werden. Die Verwendung von Steckdosenleisten SOLLTE soweit wie möglich vermieden werden. Fehlende Steckdosen SOLLTEN durch eine Elektrofachkraft fachgerecht nachgerüstet werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4136">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para><emphasis role="color:#000000">Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</emphasis></para>
+<section xml:id="scroll-bookmark-4137">
+<title>INF.12.A14 A-B-Versorgung (H) [Haustechnik] </title>
+<para><emphasis role="color:#000000">Es SOLLTE geprüft werden, ob anstelle einer einzügigen Stromversorgung eine zweizügige sogenannte A-B-Versorgung geschaffen werden soll, die wichtige IT-Komponenten und andere Verbraucher versorgt. Dabei SOLLTE die Funktionsfähigkeit der Stromversorgung permanent durch geeignete technische Einrichtungen überwacht werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4138">
+<title>INF.12.A15 Materielle Sicherung der Verkabelung (H) [IT-Betrieb, Haustechnik] </title>
+<para><emphasis role="color:#000000">Für alle Räume eines Gebäudes, insbesondere in Räumen mit Publikumsverkehr sowie in unübersichtlichen Bereichen SOLLTE überlegt werden, Kabel und Verteiler gegen unbefugte Zugriffe zu sichern. In jedem Fall SOLLTEN die Zahl und der Umfang derjenigen Stellen möglichst gering gehalten werden, an denen Einrichtungen der Energieversorgung und Zugangspunkte des Datennetzes für Unbefugte zugänglich sind.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4139">
+<title>INF.12.A16 Nutzung von Schranksystemen (H) [Haustechnik] </title>
+<para><emphasis role="color:#000000">Elektrotechnische Anschlüsse und -verteiler SOLLTEN in Schranksystemen aufgestellt oder in diese eingebaut werden. Bei der Dimensionierung der Schranksysteme SOLLTE das erwartete Wachstum für den geplanten Einsatzzeitraum berücksichtigt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4140">
+<title>INF.12.A17 Redundanzen für die IT-Verkabelung (H) [IT-Betrieb]</title>
+<para><emphasis role="color:#000000">Es SOLLTE geprüft werden, ob eine redundante primäre IT-Verkabelung geschaffen werden soll, die über unabhängige Trassen geführt wird. Ebenso SOLLTE geprüft werden, ob die Anschlüsse an IT- oder TK-Provider redundant ausgelegt werden sollen. Bei hohen oder sehr hohen Verfügbarkeitsanforderungen SOLLTE überlegt werden, in den relevanten Gebäuden die Sekundär- und Tertiärverkabelung redundant auszulegen. Dabei SOLLTEN redundant ausgelegte Teile der Sekundärverkabelung in unterschiedlichen Brandabschnitten geführt werden. Wird eine redundante Verkabelung verwendet, SOLLTE deren Funktionsfähigkeit regelmäßig geprüft werden.</emphasis></para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4141">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-4142">
+<title>Wissenswertes</title>
+<para><emphasis role="color:#000000">Das Deutsche Institut für Normung formuliert Vorgaben, die für die Verkabelung relevant sind. Hierbei handelt es sich um folgende Normen:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">DIN 4102, Brandverhalten von Baustoffen und Bauteilen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">DIN IEC 60364, Einrichten von Niederspannungsanlagen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">IEC 62305, Merkblatt: Die Blitzschutz-Normen DIN EN 62305 / VE 01805-305:2006</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">IN VDE 0100, Errichten von Niederspannungsanlagen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">DIN VDE 0105-100, Betrieb von elektrischen Anlagen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">DIN 41494, Bauweisen für elektronische Einrichtungen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">DIN EN 50173, Informationstechnik - Anwendungsneutrale Kommunikationskabelanlagen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">DIN EN 50174, Informationstechnik - Installation von Kommunikationsverkabelung</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">DIN EN 50310:2017-02, Telekommunikationstechnische Potentialausgleichsanlage für Gebäude und andere Strukturen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">DIN EN 50346:2010-02, Informationstechnik - Installation von Kommunikationsverkabelung - Prüfen installierter Verkabelung</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">DIN IEC 60297, Bauweise für elektronische Einrichtungen</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Die Berufsgenossenschaft für Gesundheitsdienst und Wohlfahrtspflege (BGW) hat in der DGUV Vorschrift 3: „Elektrische Anlagen und Betriebsmittel, Unfallverhütungsvorschrift“ weitere Vorschriften für die elektrotechnische Verkabelung veröffentlicht.</emphasis></para>
+<para><emphasis role="color:#000000">Die International Organization for Standardization (ISO) gibt in der Norm ISO/IEC 11801:2002-09 „Informationstechnik - Anwendungsneutrale Standortverkabelung" Vorgaben für die IT-Verkabelung.</emphasis></para>
+</section>
+</section>

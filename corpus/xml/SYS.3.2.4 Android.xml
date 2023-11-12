@@ -1,0 +1,99 @@
+<title>SYS.3.2.4 Android</title>
+<section xml:id="scroll-bookmark-2925">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-2926">
+<title>Einleitung</title>
+<para>Ein oft genutztes Betriebssystem für Smartphones und Tablets ist Android von Google. Seit Version 4 wurde Android schrittweise für den Unternehmenseinsatz ausgebaut. So wurden z. B. Funktionen integriert, die es Institutionen erleichtern, Android-Geräte zu verwalten. Auch steigt die Zahl der von Android unterstützten Verwaltungsrichtlinien mit jeder Version. Zudem ermöglichen spezifische Erweiterungen der herstellenden Institutionen zusätzliche Richtlinien.</para>
+</section>
+<section xml:id="scroll-bookmark-2927">
+<title>Zielsetzung</title>
+<para>Ziel des Bausteins ist es, über typische Gefährdungen im Zusammenhang mit Android zu informieren sowie aufzuzeigen, wie Android-basierte Geräte sicher in Institutionen eingesetzt werden können. Auf Basis der im Baustein aufgeführten Anforderungen können zudem Sicherheitsrichtlinien erstellt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2928">
+<title>Abgrenzung und Modellierung</title>
+<para>Der Baustein SYS.3.2.4 <emphasis role="italics">Android</emphasis> ist für alle dienstlich verwendeten Smartphones und Tablets mit dem Betriebssystem Google Android anzuwenden.</para>
+<para>Der Baustein enthält grundsätzliche Anforderungen, die beim Betrieb von Android-basierten Geräten zu beachten und zu erfüllen sind. Allgemeine und übergreifende Anforderungen an den Betrieb von Smartphones und Tablets werden nicht in diesem Baustein, sondern in SYS.3.2.1 <emphasis role="italics">Allgemeine Smartphones und Tablets</emphasis> behandelt und sind ebenfalls umzusetzen, wenn Android-basierte Geräte verwendet werden. Ebenfalls nicht Bestandteil dieses Bausteins sind Anforderungen für den Fall einer zentralen Administration von Android-Geräten über ein MDM. Diese sind im Baustein SYS.3.2.2 <emphasis role="italics">Mobile Device Management (MDM)</emphasis> aufgeführt.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2929">
+<title>Gefährdungslage</title>
+<para>Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein SYS.3.2.4 <emphasis role="italics">Android</emphasis><emphasis role="italics"> </emphasis>von besonderer Bedeutung.</para>
+<section xml:id="scroll-bookmark-2930">
+<title>Deaktivieren von Sicherheitsfunktionen</title>
+<para>Der Bootprozess von Android-basierten Geräten wird mit Hilfe eines Herstellendenzertifikats abgesichert. Dabei wird jeweils der nächste Ausführungsschritt vor dessen Ausführung überprüft. Damit ist sichergestellt, dass das Betriebssystem Android unverändert startet.</para>
+<para>Beim Entsperren des Bootloaders wird diese Vertrauenskette unterbrochen, so dass ein verändertes Betriebssystem starten kann. Solche Veränderungen am Bootprozess werden teilweise von der herstellenden Institution unterstützt, teilweise werden Bootloader auch über Schwachstellen entsperrt.</para>
+<para>Das Android-Sicherheitskonzept wird hierbei umgangen oder außer Kraft gesetzt und es entstehen neue Gefährdungen, die anderweitig abgesichert werden müssen.</para>
+</section>
+<section xml:id="scroll-bookmark-2931">
+<title>Schadsoftware für das Android-Betriebssystem</title>
+<para>Aufgrund der hohen Verbreitung und der offenen Architektur sind Geräte mit Android-Betriebssystem ein beliebtes Ziel für Schadsoftware, die oft von Benutzenden selbst installiert wird. Unter Android ist es relativ einfach möglich, Apps nicht nur aus dem Playstore von Google, sondern auch aus alternativen Quellen oder per direktem Download zu installieren. Neben den überwachten App Stores von Google, Geräteherstellenden und anderen Anbietenden werden Apps auch über eher zweifelhafte Quellen zur Installation angeboten. Da es unter Android nicht zwingend erforderlich ist, Apps aus dem offiziellen Google Playstore zu installieren, könnten Angreifende beispielsweise eine beliebte App mit einer Schadsoftware infizieren und anschließend wieder zum Download zur Verfügung stellen.</para>
+</section>
+<section xml:id="scroll-bookmark-2932">
+<title>Fehlende Updates für das Android-Betriebssystem</title>
+<para>Einige herstellende Institutionen liefern Smartphones und Tablets mit veralteten Versionen von Android aus oder stellen keine regelmäßigen oder sogar überhaupt keine Updates zur Verfügung. Da regelmäßig Schwachstellen in Android entdeckt werden, sind solche Geräte besonders gefährdet. Als Konsequenz können bekannte Schwachstellen dieser Geräte nicht beseitigt und entsprechend leicht von Angreifenden ausgenutzt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2933">
+<title>Risiko durch Konten (Google-ID) für Google-Dienste</title>
+<para>Mit der Google-ID können Benutzende zentral auf alle Google-Dienste zugreifen, z. B. auf die Geräteverwaltung, die aufgezeichneten geographischen Positionen, Chatsoftware, Cloud-Speicher, den Play Store, Musik-, Buch- und Filmangebote, Datensicherung, Bookmarks oder Password-Speicher für Webseiten und Synchronisationsdienste. Auch viele andere Anbietende von Diensten im Internet verwenden die Google-ID, um Benutzende zu authentisieren.</para>
+<para>Können sich Angreifende über die Google-ID authentisieren, können alle hiermit verbundenen Dienste unter der gestohlenen Identität benutzt werden. Auch können beispielsweise auf alle dort gespeicherten Daten zugegriffen und Geräte aus der Ferne lokalisiert oder zurückgesetzt, also alle Daten auf dem Gerät gelöscht werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2934">
+<title>Vorinstallierte Apps und integrierte Funktionen bei Android-basierten Geräten</title>
+<para>Mit dem Betriebssystem liefern die herstellenden Institutionen von Android-Geräten oft bereits fest integrierte und vorinstallierte Apps sowie eine Anbindung zu Diensten von Drittanbietenden (Twitter, Facebook, usw.) aus. Diese Apps können Benutzende oft nicht selbst entfernen. Damit vergrößert sich die Angriffsfläche des Android-Betriebssystems. Auch die direkte Anbindung an Dienste von Drittanbietenden ist in Institutionen oft nicht erwünscht.</para>
+<para>Insgesamt steigt durch die tiefe Integration von Apps und Schnittstellen von Drittanbietenden die Gefahr, dass das Gerät mit Schadsoftware infiziert wird oder Angreifende unberechtigt auf vertrauliche Informationen zugreifen können.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2935">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins SYS.3.2.4 <emphasis role="italics">Android </emphasis>aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para>Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</para>
+<section xml:id="scroll-bookmark-2936">
+<title>Basis-Anforderungen</title>
+<para>Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</para>
+<section xml:id="scroll-bookmark-2937">
+<title>SYS.3.2.4.A1 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2938">
+<title>Standard-Anforderungen</title>
+<para>Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</para>
+<section xml:id="scroll-bookmark-2939">
+<title>SYS.3.2.4.A2 Deaktivieren des Entwicklermodus (S)</title>
+<para>In allen Android-basierten Geräten SOLLTE der Entwicklermodus deaktiviert sein.</para>
+</section>
+<section xml:id="scroll-bookmark-2940">
+<title>SYS.3.2.4.A3 Einsatz des Multi-User- und Gäste-Modus (S)</title>
+<para>Es SOLLTE geregelt sein, ob ein Gerät mit anderen Personen geteilt werden darf. Es SOLLTE festgelegt werden, ob dazu der Multi-User- oder Gäste-Modus verwendet werden muss. Benutzende auf einem Android-basierten Gerät SOLLTEN natürliche Personen sein.</para>
+</section>
+<section xml:id="scroll-bookmark-2941">
+<title>SYS.3.2.4.A4 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-2942">
+<title>SYS.3.2.4.A5 Erweiterte Sicherheitseinstellungen (S)</title>
+<para>Es SOLLTEN nur freigegebene Sicherheits-Apps Rechte zur Geräteadministration bekommen oder sich als „Trust Agents“ eintragen lassen. Dies SOLLTE regelmäßig überprüft werden.</para>
+<para>Weiterhin SOLLTE es nur erlaubten Apps möglich sein, auf Nutzungsdaten und auf Benachrichtigungen zuzugreifen.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2943">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para>Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</para>
+<section xml:id="scroll-bookmark-2944">
+<title>SYS.3.2.4.A6 ENTFALLEN (H)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-2945">
+<title>SYS.3.2.4.A7 ENTFALLEN (H)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2946">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-2947">
+<title>Wissenswertes</title>
+<para>Für den Baustein SYS.3.2.4 <emphasis role="italics">Android</emphasis> gibt es keine weiterführenden Informationen.</para>
+</section>
+</section>

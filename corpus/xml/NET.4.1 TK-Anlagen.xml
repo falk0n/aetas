@@ -1,0 +1,147 @@
+<title>NET.4.1 TK-Anlagen</title>
+<section xml:id="scroll-bookmark-3677">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-3678">
+<title>Einleitung</title>
+<para>Mit einer Telekommunikationsanlage, kurz TK-Anlage, können die Telefone einer Institution intern verbunden und extern an ein öffentliches Telefonnetz angeschlossen werden. Durch die zunehmende Verzahnung von IT und Telekommunikation können TK-Anlagen dabei sowohl analog als auch IP-basiert aufgebaut sein. Hybrid-Anlagen sind eine Kombination aus einer klassischen Telekommunikationslösung und einem VoIP-System. Mit einer Hybrid-Anlage können klassische digitale und analoge Telefonie sowie VoIP gleichzeitig betrieben werden.</para>
+<para>Neben der Sprachtelefonie können, abhängig von den angeschlossenen Endgeräten, weitere Dienste genutzt werden. So ist es möglich, mittels TK-Anlagen Daten, Texte, Grafiken und Bewegtbilder zu übertragen. Die Informationen können dabei analog oder digital über drahtgebundene oder drahtlose Übertragungsmedien weitergeleitet werden. Je nach Anbindung und genutzten Datennetzen können in einer Institution verschiedenste Telekommunikationsanlagen eingesetzt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3679">
+<title>Zielsetzung</title>
+<para>In diesem Baustein werden die für die TK-Anlagen sowie die entsprechenden Anteile von Hybrid-Anlagen spezifischen Gefährdungen und Anforderungen betrachtet. Das Ziel des Bausteins ist der Schutz der Informationen, die über TK-Anlagen übermittelt werden sowie der Schutz der Anlage vor Fremdeingriffen und Manipulationen.</para>
+</section>
+<section xml:id="scroll-bookmark-3680">
+<title>Abgrenzung und Modellierung</title>
+<para>Der Baustein NET.4.1 <emphasis role="italics">TK-Anlagen</emphasis> ist auf jede TK-Anlage anzuwenden.</para>
+<para>Dieser Baustein behandelt die Gefährdungen und Anforderungen, die spezifisch für eine TK-Anlage sowie die entsprechenden Teile einer Hybrid-Anlage sind. Themen, die über die TK-Anlage hinausgehen, wie zum Beispiel Gefährdungen und Anforderungen für einzelne VoIP-Implementierungen, sowie extern bereitgestellte Dienste werden in den entsprechenden Bausteinen des IT-Grundschutz-Kompendiums gesondert behandelt.</para>
+<para>Die Sicherheitsaspekte von VoIP-Komponenten und der Sprachübertragung über VoIP werden im Baustein NET.4.2 <emphasis role="italics">VoIP</emphasis> näher betrachtet.</para>
+<para>TK-Anlagen sollten grundsätzlich mit berücksichtigt werden, wenn die Bausteine ORP.4 <emphasis role="italics">Identitäts- und Berechtigungsmanagemen</emphasis>t, OPS.1.2.5 <emphasis role="italics">Fernwartung</emphasis>, CON.3 <emphasis role="italics">Datensicherungskonzept </emphasis>und OPS.1.1.5 <emphasis role="italics">Protokollierung</emphasis> umgesetzt werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3681">
+<title>Gefährdungslage</title>
+<para>Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein NET.4.1 <emphasis role="italics">TK-Anlagen</emphasis><emphasis role="italics"> </emphasis>von besonderer Bedeutung.</para>
+<section xml:id="scroll-bookmark-3682">
+<title>Abhören von TK-Anlagen</title>
+<para>Wenn Telefongespräche oder Daten über eine TK-Anlage unverschlüsselt übertragen werden, besteht grundsätzlich die Gefahr, dass Angreifende Informationen mithören oder mitlesen. So könnten sie beispielsweise die Telefonkabel direkt anzapfen oder an einer zwischen den Gesprächsteilnehmenden vermittelnden TK-Anlage lauschen.</para>
+<para>Bei vielen TK-Anlagen können Anrufende Empfangenden Nachrichten hinterlassen, wenn diese zum Zeitpunkt des Anrufs telefonisch nicht erreichbar sind. Einige Anrufbeantworter, vor allem bei VoIP-Anlagen, verschicken diese Informationen als Audio-Datei in einer E-Mail. Der Inhalt dieser E-Mail könnte direkt von Angreifenden abgefangen und angehört werden.</para>
+<para>Des Weiteren könnten Gespräche durch das Aktivieren von gesperrten, in Deutschland zum Teil unzulässigen, Leistungsmerkmalen von Dritten mitgehört werden. Ein Beispiel hierfür ist die Zeugenschaltung. Eine derartige Aktivierung erfordert zwar genauere Systemkenntnisse, ist aber aufgrund vieler frei verfügbarer Hinweise im Internet häufig kein großes Hindernis.</para>
+</section>
+<section xml:id="scroll-bookmark-3683">
+<title>Abhören von Räumen über TK-Anlagen</title>
+<para>Über Mikrofone in Endgeräten können grundsätzlich auch Räume abgehört werden. Dabei werden zwei Varianten unterschieden:</para>
+<para>Bei der ersten Variante können Endgeräte, wenn entsprechende Funktionen implementiert sind, aus dem öffentlichen Netz oder über das LAN dazu veranlasst werden, die eingebauten Mikrofone zu aktivieren. Ein bekanntes Beispiel hierfür ist die sogenannte „Baby-Watch-Funktion“ von Telefonen oder Anrufbeantwortern.</para>
+<para>Bei der zweiten Variante kann das Leistungsmerkmal „direktes Ansprechen“ in Kombination mit der Option „Freisprechen“ missbraucht werden. Die auf diese Weise realisierbare Funktion einer Wechselsprechanlage kann unter gewissen Umständen auch zum Abhören eines Raumes ausgenutzt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3684">
+<title>Gebührenbetrug</title>
+<para>Gebührenbetrug im Zusammenhang mit Daten- oder Telekommunikationsdiensten hat das Ziel, die Kosten für geführte Telefonate oder Datentransfers auf Dritte zu übertragen. Eine TK-Anlage lässt sich auf verschiedene Weise von außen manipulieren. Zum einen können Angreifende versuchen, vorhandene Leistungsmerkmale für den Gebührenbetrug zu missbrauchen. Zu diesen Leistungsmerkmalen zählen beispielsweise aus der Ferne umprogrammierbare Rufumleitungen oder Dial-in-Optionen. Zum anderen können die Berechtigungen so vergeben werden, dass kommende „Amtsleitungen“ abgehende „Amtsleitungen“ belegen. Auf diese Weise können Anrufenden bei Anwahl einer bestimmten Rufnummer auf Kosten des TK-Anlagenbetreibenden von außen automatisch wieder mit dem „Amt“ verbunden werden.</para>
+<para>Darüber hinaus können nicht nur Angreifende von außen, sondern auch die Beschäftigten innerhalb einer Institution mit den Gebühren betrügen. So können sie etwa versuchen, auf Kosten der Institution oder der anderen Beschäftigten zu telefonieren, indem sie z. B. von fremden Apparaten telefonieren, fremde Berechtigungscodes (Passwörter) auslesen oder persönliche Berechtigungen verändern.</para>
+</section>
+<section xml:id="scroll-bookmark-3685">
+<title>Missbrauch frei zugänglicher Telefonanschlüsse</title>
+<para>Oft werden Telefone betrieben, die keinen Benutzenden persönlich zugeordnet sind. Einige dieser Telefone, wie zum Beispiel solche in Druckerräumen, sind nur einem eingeschränkten Personenkreis zugänglich. Andererseits sind Telefone häufig in Bereichen zu finden, die für Besuchende frei zugänglich sind. Dazu zählen beispielsweise Parkhäuser oder Bereiche vor Zugangskontrollsystemen. Besitzen diese Telefone ein elektronisches Telefonbuch, in dem interne Telefonnummern gespeichert sind, könnten diese Nummern ungewollt nach außen gelangen.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3686">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins NET.4.1 <emphasis role="italics">TK-Anlagen</emphasis> aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para>Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</para>
+<section xml:id="scroll-bookmark-3687">
+<title>Basis-Anforderungen</title>
+<para>Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</para>
+<section xml:id="scroll-bookmark-3688">
+<title>NET.4.1.A1 Anforderungsanalyse und Planung für TK-Anlagen (B) [IT-Betrieb]</title>
+<para>Vor der Beschaffung oder Erweiterung einer TK-Anlage MUSS eine Anforderungsanalyse durchgeführt werden. Im Rahmen dieser Analyse MUSS festgelegt werden, welche Funktionen die TK-Anlage bieten soll. Hierbei MÜSSEN neben der Ausprägung der TK-Anlage auch die Anzahl der benötigten Verbindungen und Anschlüsse festgelegt werden. Auch eine mögliche Erweiterbarkeit und grundlegenden Sicherheitsfunktionen MÜSSEN bei der Planung betrachtet werden. Darüber hinaus MÜSSEN je nach Bedarf Support- und Wartungsverträge für die TK-Anlage berücksichtigt werden. Basierend auf den ermittelten Anforderungen MUSS anschließend der Einsatz der TK-Anlage geplant und dokumentiert werden. Die zuvor ermittelten Anforderungen und die Planung MÜSSEN mit den entsprechenden IT-Zuständigen abgestimmt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3689">
+<title>NET.4.1.A2 Auswahl von TK-Diensteanbietenden (B) [IT-Betrieb]</title>
+<para>Um mit Personen telefonieren zu können, deren Telefone nicht an die institutionseigene TK-Anlage angeschlossen sind, MUSS ein TK-Diensteanbieter oder TK-Diensteanbieterin beauftragt werden. Dabei MÜSSEN die Anforderungen an die TK-Anlage, die Sicherheitsrichtlinie sowie vertragliche und finanzielle Aspekte berücksichtigt werden. Alle vereinbarten Leistungen MÜSSEN eindeutig schriftlich festgehalten werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3690">
+<title>NET.4.1.A3 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-3691">
+<title>NET.4.1.A4 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-3692">
+<title>NET.4.1.A5 Protokollierung bei TK-Anlagen (B)</title>
+<para>Bei TK-Anlagen MÜSSEN geeignete Daten erfasst und bei Bedarf ausgewertet werden. Protokolliert werden MÜSSEN zusätzlich alle systemtechnischen Eingriffe, die Programmveränderungen beinhalten, sowie Auswertungsläufe, Datenübermittlungen und Datenzugriffe. Alle Administrationsarbeiten an der TK-Anlage MÜSSEN ebenfalls protokolliert werden. Die protokollierten Informationen SOLLTEN regelmäßig kontrolliert werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3693">
+<title>Standard-Anforderungen</title>
+<para>Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</para>
+<section xml:id="scroll-bookmark-3694">
+<title>NET.4.1.A6 Erstellung einer Sicherheitsrichtlinie für TK-Anlagen (S) [IT-Betrieb]</title>
+<para>Basierend auf der institutionsweiten Sicherheitsrichtlinie SOLLTE eine eigene Sicherheitsrichtlinie für die TK-Anlage erstellt werden. Diese Sicherheitsrichtlinie für die TK-Anlage SOLLTE grundlegende Aussagen zur Vertraulichkeit, Verfügbarkeit und Integrität beinhalten. Sie SOLLTE allen Personen, die an der Beschaffung, dem Aufbau, der Umsetzung und dem Betrieb der TK-Anlage beteiligt sind, bekannt sein und die Grundlage für deren Arbeit darstellen. Die zentralen sicherheitstechnischen Anforderungen an die TK-Anlage sowie das zu erreichende Sicherheitsniveau SOLLTEN in der institutionsweite Sicherheitsrichtlinie aufgenommen werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3695">
+<title>NET.4.1.A7 Geeignete Aufstellung der TK-Anlage (S)</title>
+<para>Die TK-Anlage SOLLTE in einem geeigneten Raum untergebracht sein. Die Schnittstellen an der TK-Anlage, besonders nicht genutzte Schnittstellen, SOLLTEN geeignet geschützt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3696">
+<title>NET.4.1.A8 Einschränkung und Sperrung nicht benötigter oder sicherheitskritischer Leistungsmerkmale (S)</title>
+<para>Der Umfang der verfügbaren Leistungsmerkmale SOLLTE auf das notwendige Minimum beschränkt werden. Nur die benötigten Leistungsmerkmale SOLLTEN freigeschaltet werden. Die nicht benötigten oder wegen ihres Missbrauchspotenzials als kritisch eingestuften Leistungsmerkmale SOLLTEN so weit wie möglich an der zentralen Anlage abgeschaltet werden. Zusätzliche Schutzmaßnahmen SOLLTEN für die auf den Endgeräten gespeicherten und abrufbaren vertraulichen Daten ergriffen werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3697">
+<title>NET.4.1.A9 Schulung zur sicheren Nutzung von TK-Anlagen (S) [Vorgesetzte]</title>
+<para>Die Benutzenden der TK-Anlage SOLLTEN in die korrekte Verwendung von Diensten und Geräten eingewiesen werden. Den Benutzenden der TK-Anlage SOLLTEN alle notwendigen Unterlagen zur Bedienung der entsprechenden Endgeräte zur Verfügung gestellt werden. Sämtliche Auffälligkeiten und Unregelmäßigkeiten der TK-Anlage SOLLTEN den entsprechenden Verantwortlichen gemeldet werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3698">
+<title>NET.4.1.A10 Dokumentation und Revision der TK-Anlagenkonfiguration (S) [IT-Betrieb]</title>
+<para>Die TK-Anlagenkonfiguration SOLLTE geeignet dokumentiert und fortgeschrieben werden. Die TK-Anlagenkonfiguration SOLLTE in regelmäßigen Abständen überprüft werden. Das Ergebnis der Prüfung SOLLTE zumindest den Informationssicherheitsbeauftragten, den Fachverantwortlichen und anderen verantwortlichen Mitarbeitenden vorgelegt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3699">
+<title>NET.4.1.A11 Außerbetriebnahme von TK-Anlagen und -geräten (S) [IT-Betrieb]</title>
+<para>Die Aussonderung von TK-Anlagen und angeschlossenen TK-Geräten SOLLTE in der Sicherheitsrichtlinie berücksichtigt werden. Alle Daten, die auf TK-Anlagen oder Endgeräten gespeichert sind, SOLLTEN vor der Aussonderung sicher gelöscht werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3700">
+<title>NET.4.1.A12 Datensicherung der Konfigurationsdateien (S)</title>
+<para>Die Konfigurations- und Anwendungsdaten der eingesetzten TK-Anlage SOLLTEN bei der Ersteinrichtung und anschließend regelmäßig gesichert werden, insbesondere nachdem sich diese geändert haben. Es SOLLTE regelmäßig geprüft und dokumentiert werden, ob die Sicherungen der TK-Anlagen auch tatsächlich als Basis für eine Systemwiederherstellung genutzt werden können.</para>
+<para>Es SOLLTE ein Datensicherungskonzept für TK-Anlagen erstellt und mit den allgemeinen Konzepten der Datensicherung für Server und Netzkomponenten abgestimmt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3701">
+<title>NET.4.1.A13 Beschaffung von TK-Anlagen (S)</title>
+<para>Bei der Beschaffung von TK-Anlagen SOLLTEN die Ergebnisse der Anforderungsanalyse und der Planung miteinbezogen werden. Bei der Beschaffung einer TK-Anlage SOLLTE beachtet werden, dass sie neben digitalen auch analoge Teilnehmeranschlüsse anbieten sollte. Darüber hinaus SOLLTEN vorhandene Kommunikationssysteme und -komponenten bei der Beschaffung berücksichtigt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3702">
+<title>NET.4.1.A14 Notfallvorsorge für TK-Anlagen (S)</title>
+<para>Es SOLLTE ein Notfallplan für die TK-Anlage erstellt werden. Dieser SOLLTE in das Notfallkonzept der Institution integriert werden. Es SOLLTEN regelmäßig Notfallübungen bezüglich der TK-Anlagen durchgeführt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3703">
+<title>NET.4.1.A15 Notrufe bei einem Ausfall der TK-Anlage (S)</title>
+<para>Es SOLLTE sichergestellt werden, dass auch bei einem Ausfall der TK-Anlage Notrufe aus der Institution abgesetzt werden können. Die Notrufmöglichkeiten SOLLTEN von allen Räumen aus auf ausreichend kurzen Wegen erreichbar sein.</para>
+</section>
+<section xml:id="scroll-bookmark-3704">
+<title>NET.4.1.A16 Sicherung von Endgeräten in frei zugänglichen Räumen (S)</title>
+<para>Der Funktionsumfang der Endgeräte, die in frei zugänglichen Räumen aufgestellt werden sollen, SOLLTE eingeschränkt werden. Ist dies nicht möglich, SOLLTE das Endgerät in geeigneter Weise vor unbefugtem Zugriff geschützt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3705">
+<title>NET.4.1.A17 Wartung von TK-Anlagen (S)</title>
+<para>Die Geräte zur Wartung und Konfiguration der TK-Anlage SOLLTEN mit Passwörtern bzw. PINs abgesichert sein.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3706">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para>Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</para>
+<section xml:id="scroll-bookmark-3707">
+<title>NET.4.1.A18 Erhöhter Zugangsschutz (H)</title>
+<para>Die TK-Anlage SOLLTE in einem separaten sowie geeignet gesicherten Raum untergebracht sein. Der Zutritt und Zugang zur TK-Anlage SOLLTE nur einem eingeschränkten Personenkreis möglich sein. Externe SOLLTEN NUR beaufsichtigt Zugang zur Anlage erhalten.</para>
+</section>
+<section xml:id="scroll-bookmark-3708">
+<title>NET.4.1.A19 Redundanter Anschluss (H)</title>
+<para>Der Anschluss der TK-Anlage SOLLTE redundant ausgelegt sein. Bei IP-basierten TK-Anlagen SOLLTE ein zusätzlicher PSTN-Anschluss vorhanden sein.</para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3709">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-3710">
+<title>Wissenswertes</title>
+<para>Das BSI hat im Rahmen der Technischen Leitlinien die „BSI-TL-02013 für organisationsinterne Telekommunikationssysteme mit erhöhtem Schutzbedarf“ veröffentlicht.</para>
+</section>
+</section>

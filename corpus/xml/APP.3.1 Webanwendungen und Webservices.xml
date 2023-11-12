@@ -1,0 +1,241 @@
+<title>APP.3.1 Webanwendungen und Webservices</title>
+<section xml:id="scroll-bookmark-1596">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-1597">
+<title>Einleitung</title>
+<para>Webanwendungen bieten bestimmte Funktionen und dynamische (sich verändernde) Inhalte. Dazu nutzen Webanwendungen die Internetprotokolle HTTP (Hypertext Transfer Protocol) oder HTTPS. Bei HTTPS wird die Verbindung durch das Protokoll TLS (Transport Layer Security) kryptografisch abgesichert. Webanwendungen stellen auf einem Server Dokumente und Bedienoberflächen, z. B. in Form von Eingabemasken, bereit und liefern diese auf Anfrage an entsprechende Programme auf den Clients aus, wie z. B. an Webbrowser.</para>
+<para>Webservices sind Anwendungen, die das HTTP(S)-Protokoll verwenden, um Daten für andere Anwendungen bereitzustellen. In der Regel werden sie nicht unmittelbar durch Benutzende angesteuert.</para>
+<para>Um eine Webanwendung oder einen Webservice zu betreiben, sind in der Regel mehrere Komponenten notwendig. Üblich sind Webserver, um Daten auszuliefern und Applikationsserver, um die eigentliche Anwendung oder den Webservice zu betreiben. Außerdem werden zusätzliche Hintergrundsysteme benötigt, die oft als Datenquellen über unterschiedliche Schnittstellen angebunden sind, z. B. Datenbanken oder Verzeichnisdienste.</para>
+<para>Webanwendungen und Webservices werden sowohl in öffentlichen Datennetzen als auch in lokalen Netzen einer Institution (Intranet) eingesetzt, um Daten und Anwendungen bereitzustellen. In der Regel müssen sich Clients authentisieren, um auf eine Webanwendung oder einen Webservice zugreifen zu können.</para>
+</section>
+<section xml:id="scroll-bookmark-1598">
+<title>Zielsetzung</title>
+<para>Ziel dieses Bausteins ist es, Webanwendungen und Webservices sicher einzusetzen sowie Informationen zu schützen, die durch sie verarbeitet werden.</para>
+</section>
+<section xml:id="scroll-bookmark-1599">
+<title>Abgrenzung und Modellierung</title>
+<para>Der Baustein ist auf jede Webanwendung und jeden Webservice anzuwenden, die im Informationsverbund eingesetzt werden.</para>
+<para>Anforderungen an Webserver und an die redaktionelle Planung eines Webauftritts werden in diesem Baustein nicht behandelt. Sie sind im Baustein APP.3.2 <emphasis role="italics">Webserver</emphasis> zu finden. Die Entwicklung von Webanwendungen wird im Baustein CON.10 <emphasis role="italics">Entwicklung von Webanwendungen</emphasis> behandelt.</para>
+<para>Webservice-Schnittstellen werden oft via Representational State Transfer (REST) und Simple Object Access Protocol (SOAP) realisiert. In diesem Baustein werden nur REST-basierte Webservices betrachten. Der Fokus liegt dabei auf der Lebenszyklusphase „Betrieb“. Sicherheitsanforderungen, die sich beispielsweise aus der Planung und Konzeption sowie Aussonderung und Notfallvorsorge ergeben, werden in diesem Baustein nicht betrachtet, sondern müssen gesondert im Rahmen einer Risikoanalyse ermittelt werden.</para>
+<para>Allgemeine Anforderungen an die Auswahl von Software werden im Baustein APP.6 <emphasis role="italics">Allgemeine Software </emphasis>betrachtet.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1600">
+<title>Gefährdungslage</title>
+<para>Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein APP.3.1 <emphasis role="italics">Webanwendungen und Webservices</emphasis> von besonderer Bedeutung.</para>
+<section xml:id="scroll-bookmark-1601">
+<title>Unzureichende Protokollierung von sicherheitsrelevanten Ereignissen</title>
+<para>Wenn sicherheitsrelevante Ereignisse von der Webanwendung oder dem Webservice unzureichend protokolliert werden, können diese unter Umständen zu einem späteren Zeitpunkt nur schwer nachvollzogen werden. Die Ursachen für ein Ereignis sind dann möglicherweise nicht mehr ermittelbar. So können z. B. kritische Fehler oder unerlaubte Änderungen in der Konfiguration der Webanwendung übersehen werden.</para>
+</section>
+<section xml:id="scroll-bookmark-1602">
+<title>Offenlegung sicherheitsrelevanter Informationen bei Webanwendungen und Webservices</title>
+<para>Webseiten und Daten, die von einer Webanwendung oder einem Webservice generiert und ausgeliefert werden, können Informationen zu den Hintergrundsystemen enthalten, z. B. Angaben zu Datenbanken oder Versionsständen von Frameworks. Diese Informationen können es bei Angriffen erleichtern, gezielt Webanwendungen oder Webservices anzugreifen.</para>
+</section>
+<section xml:id="scroll-bookmark-1603">
+<title>Missbrauch einer Webanwendung durch automatisierte Nutzung</title>
+<para>Wenn Funktionen einer Webanwendung oder eines Webservices automatisiert genutzt werden, können so zahlreiche Vorgänge in kurzer Zeit ausgeführt werden. Mithilfe eines wiederholt durchgeführten Login-Prozesses kann so z. B. versucht werden, gültige Kombinationen von Konten und Passwörtern zu erraten (Brute-Force). Außerdem kann eine Liste mit gültigen Konten erzeugt werden (Enumeration), falls die Webanwendung oder der Webservice Informationen über vorhandene Konten zurück gibt. Darüber hinaus können wiederholte Aufrufe von ressourcenintensiven Funktionen wie z. B. komplexen Datenbankabfragen für Denial-of-Service-Angriffe auf Anwendungsebene missbraucht werden.</para>
+</section>
+<section xml:id="scroll-bookmark-1604">
+<title>Unzureichende Authentisierung</title>
+<para>Oft sollen spezielle Funktionen einer Webanwendung oder eines Webservices nur bestimmten Gruppen vorbehalten bleiben. Die entsprechenden Personen erhalten dann z. B. Konten, die exklusiv mit den notwendigen Zugriffsrechten ausgestattet sind. Unter diesen Konten authentisieren sich die Benutzenden zu Beginn jeder Sitzung in der Webanwendung oder dem Webservice, z. B. mit Kontoname und Passwort. Wird diese Authentisierung nicht korrekt konfiguriert, kann sie möglicherweise umgangen werden. Außerdem kann eine Webanwendung oder ein Webservice so konfiguriert werden, dass Zugangsdaten auf dem Webserver unsicher gespeichert werden. Im Falle eines erfolgreichen Angriffs verfügen Angreifende dann über große Mengen von Zugangsdaten, die sie auch an anderen Stellen einsetzen könnten.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1605">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins APP.3.1 <emphasis role="italics">Webanwendungen und Webservice</emphasis> aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para>Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.<?linebreak?>
+</para>
+<section xml:id="scroll-bookmark-1606">
+<title>Basis-Anforderungen</title>
+<para>Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</para>
+<section xml:id="scroll-bookmark-1607">
+<title>APP.3.1.A1 Authentisierung (B)</title>
+<para>Der IT-Betrieb MUSS Webanwendungen und Webservices so konfigurieren, dass sich Clients gegenüber der Webanwendung oder dem Webservice authentisieren müssen, wenn diese auf geschützte Ressourcen zugreifen wollen. Dafür MUSS eine angemessene Authentisierungsmethode ausgewählt werden. Der Auswahlprozess SOLLTE dokumentiert werden.</para>
+<para>Der IT-Betrieb MUSS geeignete Grenzwerte für fehlgeschlagene Anmeldeversuche festlegen.</para>
+</section>
+<section xml:id="scroll-bookmark-1608">
+<title>APP.3.1.A2 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1609">
+<title>APP.3.1.A3 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1610">
+<title>APP.3.1.A4 Kontrolliertes Einbinden von Dateien und Inhalten (B)</title>
+<para>Falls eine Webanwendung oder ein Webservice eine Upload-Funktion für Dateien anbietet, MUSS diese Funktion durch den IT-Betrieb so weit wie möglich eingeschränkt werden. Insbesondere MÜSSEN die erlaubte Dateigröße, erlaubte Dateitypen und erlaubte Speicherorte festgelegt werden. Es MUSS festgelegt werden, welche Clients die Funktion verwenden dürfen. Auch MÜSSEN Zugriffs- und Ausführungsrechte restriktiv gesetzt werden. Zudem MUSS sichergestellt werden, dass Clients Dateien nur im vorgegebenen erlaubten Speicherort speichern können.</para>
+</section>
+<section xml:id="scroll-bookmark-1611">
+<title>APP.3.1.A5 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1612">
+<title>APP.3.1.A6 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1613">
+<title>APP.3.1.A7 Schutz vor unerlaubter automatisierter Nutzung (B)</title>
+<para>Der IT-Betrieb MUSS sicherstellen, dass Webanwendungen und Webservices vor unberechtigter automatisierter Nutzung geschützt werden. Dabei MUSS jedoch berücksichtigt werden, wie sich die Schutzmechanismen auf die Nutzungsmöglichkeiten berechtigter Clients auswirken. Wenn die Webanwendung RSS-Feeds oder andere Funktionen enthält, die explizit für die automatisierte Nutzung vorgesehen sind, MUSS dies ebenfalls bei der Konfiguration der Schutzmechanismen berücksichtigt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-1614">
+<title>APP.3.1.A14 Schutz vertraulicher Daten (B)</title>
+<para>Der IT-Betrieb MUSS sicherstellen, dass Zugangsdaten zur Webanwendung oder zum Webservice serverseitig mithilfe von sicheren kryptografischen Algorithmen vor unbefugtem Zugriff geschützt werden. Dazu MÜSSEN Salted Hash-Verfahren verwendet werden.</para>
+<para>Die Dateien mit den Quelltexten der Webanwendung oder des Webservices MÜSSEN vor unerlaubten Abrufen geschützt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-1615">
+<title>APP.3.1.A16 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1616">
+<title>APP.3.1.A19 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1617">
+<title>Standard-Anforderungen</title>
+<para>Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</para>
+<section xml:id="scroll-bookmark-1618">
+<title>APP.3.1.A8 Systemarchitektur (S) [Beschaffungsstelle] </title>
+<para>Sicherheitsaspekte SOLLTEN bereits während der Planung von Webanwendungen und Webservices betrachtet werden. Auch SOLLTE darauf geachtet werden, dass die Architektur der Webanwendung oder des Webservice die Geschäftslogik der Institution exakt erfasst und korrekt umsetzt.</para>
+</section>
+<section xml:id="scroll-bookmark-1619">
+<title>APP.3.1.A9 Beschaffung von Webanwendungen und Webservices (S)</title>
+<para>Zusätzlich zu den allgemeinen Aspekten der Beschaffung von Software SOLLTE die Institution mindestens folgendes bei der Beschaffung von Webanwendungen und Webservices berücksichtigen:</para>
+<itemizedlist>
+<listitem>
+<para>sichere Eingabevalidierung und Ausgabekodierung,</para>
+</listitem>
+<listitem>
+<para>sicheres Session-Management,</para>
+</listitem>
+<listitem>
+<para>sichere kryptografische Verfahren,</para>
+</listitem>
+<listitem>
+<para>sichere Authentisierungsverfahren,</para>
+</listitem>
+<listitem>
+<para>sichere Verfahren zum serverseitigen Speichern von Zugangsdaten,</para>
+</listitem>
+<listitem>
+<para>geeignetes Berechtigungsmanagement,</para>
+</listitem>
+<listitem>
+<para>ausreichende Protokollierungsmöglichkeiten,</para>
+</listitem>
+<listitem>
+<para>regelmäßige Sicherheitsupdates durch den Entwickelnden der Software,</para>
+</listitem>
+<listitem>
+<para>Schutzmechanismen vor verbreiteten Angriffen auf Webanwendungen und Webservices sowie</para>
+</listitem>
+<listitem>
+<para>Zugriff auf den Quelltext der Webanwendung oder des Webservices.</para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-1620">
+<title>APP.3.1.A10 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1621">
+<title>APP.3.1.A11 Sichere Anbindung von Hintergrundsystemen (S)</title>
+<para>Der Zugriff auf Hintergrundsysteme, auf denen Funktionen und Daten ausgelagert werden, SOLLTE ausschließlich über definierte Schnittstellen und von definierten IT-Systemen aus möglich sein. Bei der Kommunikation über Netz- und Standortgrenzen hinweg SOLLTE der Datenverkehr authentisiert und verschlüsselt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-1622">
+<title>APP.3.1.A12 Sichere Konfiguration (S)</title>
+<para>Webanwendungen und Webservices SOLLTEN so konfiguriert sein, dass auf ihre Ressourcen und Funktionen ausschließlich über die vorgesehenen, abgesicherten Kommunikationspfade zugegriffen werden kann. Der Zugriff auf nicht benötigte Ressourcen und Funktionen SOLLTE deaktiviert werden. Falls dies nicht möglich ist, SOLLTE der Zugriff soweit wie möglich eingeschränkt werden. Folgendes SOLLTE bei der Konfiguration von Webanwendungen und Webservices umgesetzt werden:</para>
+<itemizedlist>
+<listitem>
+<para>Deaktivieren nicht benötigter HTTP-Methoden,</para>
+</listitem>
+<listitem>
+<para>Konfigurieren der Zeichenkodierung,</para>
+</listitem>
+<listitem>
+<para>Vermeiden von sicherheitsrelevanten Informationen in Fehlermeldungen und Antworten,</para>
+</listitem>
+<listitem>
+<para>Speichern von Konfigurationsdateien außerhalb des Web-Root-Verzeichnisses sowie</para>
+</listitem>
+<listitem>
+<para>Festlegen von Grenzwerten für Zugriffsversuche.</para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-1623">
+<title>APP.3.1.A13 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1624">
+<title>APP.3.1.A15 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1625">
+<title>APP.3.1.A17 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1626">
+<title>APP.3.1.A18 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1627">
+<title>APP.3.1.A21 Sichere HTTP-Konfiguration bei Webanwendungen (S)</title>
+<para>Zum Schutz vor Clickjacking, Cross-Site-Scripting und anderen Angriffen SOLLTE der IT-Betrieb geeignete HTTP-Response-Header setzen. Dazu SOLLTEN mindestens die folgenden HTTP-Header verwendet werden:</para>
+<itemizedlist>
+<listitem>
+<para>Content-Security-Policy,</para>
+</listitem>
+<listitem>
+<para>Strict-Transport-Security,</para>
+</listitem>
+<listitem>
+<para>Content-Type,</para>
+</listitem>
+<listitem>
+<para>X-Content-Type-Options sowie</para>
+</listitem>
+<listitem>
+<para>Cache-Control.</para>
+</listitem>
+</itemizedlist>
+<para>Die verwendeten HTTP-Header SOLLTEN so restriktiv wie möglich sein.</para>
+<para>Cookies SOLLTEN grundsätzlich mit den Attributen <emphasis role="italics">secure</emphasis>, <emphasis role="italics">SameSite</emphasis> und <emphasis role="italics">httponly</emphasis> gesetzt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-1628">
+<title>APP.3.1.A22 Penetrationstest und Revision (S)</title>
+<para>Webanwendungen und Webservices SOLLTEN regelmäßig auf Sicherheitsprobleme hin überprüft werden. Insbesondere SOLLTEN regelmäßig Revisionen durchgeführt werden. Die Ergebnisse SOLLTEN nachvollziehbar dokumentiert, ausreichend geschützt und vertraulich behandelt werden. Abweichungen SOLLTE nachgegangen werden. Die Ergebnisse SOLLTEN dem ISB vorgelegt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-1629">
+<title>APP.3.1.A23 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1630">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para>Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</para>
+<section xml:id="scroll-bookmark-1631">
+<title>APP.3.1.A20 Einsatz von Web Application Firewalls (H)</title>
+<para>Institutionen SOLLTEN Web Application Firewalls (WAF) einsetzen. Die Konfiguration der eingesetzten WAF SOLLTE auf die zu schützende Webanwendung oder den Webservice angepasst werden. Nach jedem Update der Webanwendung oder des Webservices SOLLTE die Konfiguration der WAF geprüft werden.</para>
+</section>
+<section xml:id="scroll-bookmark-1632">
+<title>APP.3.1.A24 ENTFALLEN (H)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-1633">
+<title>APP.3.1.A25 ENTFALLEN (H)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-1634">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-1635">
+<title>Wissenswertes</title>
+<para>Das Open Web Application Security Projekt (OWASP) stellt auf seiner Webseite Hinweise zur Absicherung von Webanwendungen und Webservices zur Verfügung.</para>
+<para>Das Bundesamt für Sicherheit in der Informationstechnik (BSI) stellt im Dokument „Kryptographische Verfahren: Empfehlungen und Schlüssellängen: BSI TR-02102“ Hinweise zur Anwendung kryptografischer Verfahren zur Verfügung.</para>
+<para><?linebreak?>
+</para>
+</section>
+</section>

@@ -1,0 +1,136 @@
+<title>NET.4.2 VoIP</title>
+<section xml:id="scroll-bookmark-3712">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-3713">
+<title>Einleitung</title>
+<para>Voice over IP (VoIP) bezeichnet das Telefonieren über Datennetze, insbesondere über das Internet. Um Signalisierungsinformationen zu übertragen, beispielsweise bei einem Anruf, werden spezielle Signalisierungsprotokolle eingesetzt. Die eigentlichen Nutzdaten wie Sprache oder Video werden mit Hilfe eines Medientransportprotokolls übermittelt. Beide Protokolle werden jeweils benötigt, um eine Multimediaverbindung aufzubauen und aufrechtzuerhalten. Bei einigen Verfahren wird nur ein Protokoll sowohl für die Signalisierung als auch für den Medientransport benötigt.</para>
+</section>
+<section xml:id="scroll-bookmark-3714">
+<title>Zielsetzung</title>
+<para>Dieser Baustein betrachtet die Sicherheitsaspekte der Endgeräte und Vermittlungseinheiten (Middleware) von VoIP. Die hier beschriebenen Komponenten gleichen hinsichtlich ihrer Funktionalität den im Baustein NET 4.1 <emphasis role="italics">TK-Anlagen</emphasis> beschriebenen Telekommunikationsanlagen.</para>
+</section>
+<section xml:id="scroll-bookmark-3715">
+<title>Abgrenzung und Modellierung</title>
+<para>Der Baustein NET.4.2 <emphasis role="italics">VoIP</emphasis> ist auf alle Kommunikationsnetze anzuwenden, in denen VoIP eingesetzt wird. Da VoIP über Datennetze betrieben wird, sind zusätzlich zu diesem Baustein die Anforderungen der Bausteine NET.1.1 <emphasis role="italics">Netzarchitektur- und Design</emphasis> oder NET.3.2 <emphasis role="italics">Firewall</emphasis> geeignet mit zu berücksichtigen.</para>
+<para>In diesem Baustein werden die Sicherheitsaspekte von VoIP-Komponenten und der Sprachübertragung über VoIP betrachtet. Tauschen leitungsvermittelnde TK-Anlagen Informationen untereinander über ein Datennetz aus, ist dieser Baustein ebenfalls anzuwenden.</para>
+<para>Die spezifischen Gefährdungen und Anforderungen von klassischen TK-Anlagen sowie Hybrid-Anlagen werden in dem Baustein NET 4.1 <emphasis role="italics">TK-Anlagen</emphasis> betrachtet.</para>
+<para>Oft wird VoIP-Software nicht auf eigens dafür vorgesehene Hardware betrieben, sondern auf Standard-IT. Werden Softphones auf Clients installiert, sollten die Anforderungen des Bausteins SYS.2.1 <emphasis role="italics">Allgemeiner Client</emphasis> sowie der betriebssystemspezifischen Bausteine berücksichtigt werden. Wird Software für VoIP auf Servern betrieben, sollten neben den Anforderungen der betriebssystemspezifischen Bausteine die Anforderungen des Bausteins SYS.1.1 <emphasis role="italics">Allgemeiner Server</emphasis> erfüllt werden.</para>
+<para>VoIP sollte grundsätzlich im Rahmen der Bausteine ORP.4 <emphasis role="italics">Identitäts- und Berechtigungsmanagement</emphasis>, OPS.1.1.3 <emphasis role="italics">Patch- und Änderungsmanagement</emphasis>, OPS.1.1.5 <emphasis role="italics">Protokollierung</emphasis>, sowie OPS.1.1.2 <emphasis role="italics">O</emphasis><emphasis role="italics">rdnungsgemäße IT-Administration</emphasis> mit berücksichtigt werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3716">
+<title>Gefährdungslage</title>
+<para>Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein NET.4.2 <emphasis role="italics">VoIP</emphasis> von besonderer Bedeutung.</para>
+<section xml:id="scroll-bookmark-3717">
+<title>Fehlerhafte Konfiguration der VoIP-Middleware</title>
+<para>Eine VoIP-basierte Telefonanlage kann in ähnlicher Weise von Fehlkonfigurationen betroffen sein wie eine leitungsvermittelnde Telefonlösung. So könnten beispielsweise Telefonbenutzenden falsche Telefonnummern zugeordnet werden oder die gesamte Telefoninfrastruktur könnte ausfallen. Auch tendenziell unkritische Fehler, wie ein falsch geschriebener Name im Telefonbuch, können nicht ausgeschlossen werden.</para>
+<para>Wird mittels VoIP kommuniziert, sind in der Regel mehrere IT-Systeme beteiligt. Wird SIP als Initialisierungsprotokoll eingesetzt, werden meist Systeme wie <emphasis role="italics">Registrare</emphasis>, <emphasis role="italics">SIP-Proxy-Server</emphasis> und <emphasis role="italics">Location-Server</emphasis> für die Kommunikation benötigt. Ändert sich die VoIP-Infrastruktur, müssen alle IT-Systeme angepasst werden. Dadurch können leicht Konfigurationsfehler entstehen. Auch wenn sich alle Dienste auf einem Server befinden, müssen diese häufig einzeln konfiguriert werden. Wird nur ein System fehlerhaft geändert, kann die gesamte Telefoninfrastruktur möglicherweise nicht mehr genutzt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3718">
+<title>Fehlerhafte Konfiguration der VoIP-Komponenten</title>
+<para>Unabhängig davon, ob es sich bei VoIP-Komponenten um dedizierte Hardware („Appliances“) oder softwarebasierte Systeme handelt, ist die Konfiguration entscheidend für die fehlerfreie Funktion des Systems. Neben den Einstellungen zur Signalisierung, die bei der Planung festgelegt wurden, spielt das Übertragungsverfahren für die Medienströme eine wichtige Rolle. Durch ein Kompressionsverfahren kann die Größe der Datenpakete mit den Sprachinformationen verkleinert werden.</para>
+<para>Durch die fehlerhafte Konfiguration des Übertragungsverfahrens können Probleme bei der Übertragung auftreten. Wird ein ungeeignetes Verfahren eingesetzt und werden Sprachinformationen zu stark komprimiert, verschlechtert sich oft die Sprachqualität. Wird hingegen ein Verfahren gewählt, das eine zu geringe Kompression vornimmt, wird der Nachrichtenstrom nicht ausreichend vermindert und das Datennetz kann überlastet werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3719">
+<title>Abhören von Telefongesprächen</title>
+<para>Wenn Telefongespräche oder Daten unverschlüsselt übertragen werden, könnten Angreifende grundsätzlich Informationen mithören oder mitlesen. So könnten sie beispielsweise die Telefonkabel direkt anzapfen oder an einer zwischen den Gesprächsteilnehmern vermittelnden TK-Anlage lauschen. Bei VoIP können Telefongespräche und Datenübertragungen sogar einfacher als bei klassischen TK-Anlagen abgehört werden. Alle Sprachinformationen werden innerhalb eines Medienstroms, beispielsweise mit dem Realtime Transport Protocol (RTP), übertragen. Durch Techniken wie Spoofing und Sniffing stehen bei VoIP den Angreifenden auch alle Möglichkeiten von Angriffen in Datennetzen zur Verfügung.</para>
+<para>Bei vielen TK-Anlagen können Anrufende den Empfangenden Nachrichten hinterlassen, wenn diese zum Zeitpunkt des Anrufs telefonisch nicht erreichbar sind. Einige Anrufbeantworter, vor allem bei VoIP-Anlagen, verschicken diese Informationen als Audio-Datei in einer E-Mail. Der Inhalt dieser E-Mail könnte direkt von einem Angreifenden abgefangen und angehört werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3720">
+<title>Missbrauch frei zugänglicher Telefonanschlüsse</title>
+<para>Oft werden Telefone betrieben, die keinen Benutzenden persönlich zugeordnet sind. Einige dieser Telefone, wie zum Beispiel solche in Druckerräumen, sind nur einem eingeschränkten Personenkreis zugänglich. Andererseits sind Telefone häufig in Bereichen zu finden, die für Besuchende frei zugänglich sind. Dazu zählen beispielsweise Parkhäuser oder Bereiche vor Zugangskontrollsystemen. Besitzen diese Telefone ein elektronisches Telefonbuch, in dem interne Telefonnummern gespeichert sind, könnten diese Nummern ungewollt nach außen gelangen.</para>
+<para>Beim Einsatz von VoIP-Telefonen in frei zugänglichen Bereichen können weitere Aspekte relevant sein. Denn sie haben einen hohen Software-Anteil und werden häufig in Datennetzen betrieben, die auch für andere IT-Anwendungen genutzt werden. Angreifende könnten deshalb durch den direkten Zugriff auf Geräteinformationen versuchen, Schwachstellen in der VoIP-Software auszunutzen oder selbst schädliche Software zu installieren.</para>
+<para>VoIP-Telefone müssen an ein Datennetz angeschlossen sein. Angreifende könnten an diesen Netzanschluss ein mobiles IT-System anschließen und so unter Umständen auf das von außen durch eine Firewall geschützte interne Netz zugreifen. Diesen Zugang können sie möglicherweise für Angriffe auf die Vertraulichkeit, Integrität und Verfügbarkeit ausnutzen.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3721">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins NET.4.2 <emphasis role="italics">VoIP</emphasis> aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para>Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</para>
+<section xml:id="scroll-bookmark-3722">
+<title>Basis-Anforderungen</title>
+<para>Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</para>
+<section xml:id="scroll-bookmark-3723">
+<title>NET.4.2.A1 Planung des VoIP-Einsatzes (B)</title>
+<para>Die Bedingungen, unter denen VoIP eingesetzt werden soll, MÜSSEN festgelegt werden. Es MUSS unter anderem entschieden werden, ob vollständig oder partiell auf VoIP umgestiegen werden soll. Besondere Anforderungen an die Verfügbarkeit von VoIP oder an die Vertraulichkeit und Integrität der Telefonate bzw. der Signalisierungsinformationen SOLLTEN vorab ermittelt werden. Geeignete Signalisierungs- und Medientransportprotokolle MÜSSEN vor dem Einsatz ausgewählt werden.</para>
+<para>Es SOLLTE entschieden werden, ob und wie die VoIP-Infrastruktur an öffentliche (Daten-)Netze angebunden werden soll. Die Kapazitäten und das Design von vorhandenen Datennetzen SOLLTEN bei der Planung berücksichtigt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3724">
+<title>NET.4.2.A2 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-3725">
+<title>NET.4.2.A3 Sichere Administration und Konfiguration von VoIP-Endgeräten (B)</title>
+<para>Nicht benötigte Funktionen der Endgeräte MÜSSEN deaktiviert werden. Die Konfigurationseinstellungen DÜRFEN NICHT unberechtigt geändert werden. Alle Sicherheitsfunktionen der Endgeräte SOLLTEN vor dem produktiven Einsatz getestet werden. Die eingesetzten Sicherheitsmechanismen und die verwendeten Parameter SOLLTEN dokumentiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3726">
+<title>NET.4.2.A4 Einschränkung der Erreichbarkeit über VoIP (B)</title>
+<para>Es MUSS entschieden werden, wie externe Gesprächspartner und -partnerinnen auf die VoIP-Architektur zugreifen können. Es MUSS verhindert werden, dass IT-Systeme aus unsicheren Netzen direkte Datenverbindungen auf die VoIP-Komponenten der Institution aufbauen können. Wenn alle ein- und ausgehenden Verbindungen über ein zentrales IT-System abgewickelt werden sollen, SOLLTE sichergestellt werden, dass alle Signalisierungs- und Sprachinformationen zwischen dem öffentlichen und dem privaten Datennetz nur über dieses autorisierte IT-System ausgetauscht werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3727">
+<title>NET.4.2.A5 Sichere Konfiguration der VoIP-Middleware (B)</title>
+<para>Die VoIP-Komponenten MÜSSEN so konfiguriert sein, dass sie den Schutzbedarf angemessen erfüllen. Die Default-Konfigurationen der VoIP-Middleware MÜSSEN vor der produktiven Inbetriebnahme angepasst werden. Alle Installations- und Konfigurationsschritte SOLLTEN so dokumentiert werden, dass die Installation und Konfiguration durch sachkundige Dritte anhand der Dokumentation nachvollzogen und wiederholt werden können. Alle nicht benötigten Dienste der VoIP-Middleware MÜSSEN deaktiviert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3728">
+<title>NET.4.2.A6 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3729">
+<title>Standard-Anforderungen</title>
+<para>Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</para>
+<section xml:id="scroll-bookmark-3730">
+<title>NET.4.2.A7 Erstellung einer Sicherheitsrichtlinie für VoIP (S)</title>
+<para>Die zentralen sicherheitstechnischen Anforderungen an VoIP sowie das zu erreichende Sicherheitsniveau SOLLTEN in der institutionsweiten Sicherheitsrichtlinie aufgenommen werden. In dieser Sicherheitsrichtlinie SOLLTEN alle allgemeinen sicherheitstechnischen Vorgaben konkretisiert werden. Außerdem SOLLTEN in der Richtlinie die Vorgaben für den Betrieb und die Nutzung der VoIP-Komponenten geregelt sein. Hierbei SOLLTEN auch die verschiedenen VoIP-Funktionen, wie zum Beispiel Voicemails, betrachtet werden. Die VoIP-Sicherheitsrichtlinie SOLLTE allen beteiligten Personen und Gruppen zugänglich und bekannt sein.</para>
+</section>
+<section xml:id="scroll-bookmark-3731">
+<title>NET.4.2.A8 Verschlüsselung von VoIP (S)</title>
+<para>Es SOLLTE entschieden werden, ob und welche Sprach- und Signalisierungsinformationen verschlüsselt werden sollen. Generell SOLLTEN alle VoIP-Datenpakete, die das gesicherte LAN verlassen, durch geeignete Sicherheitsmechanismen geschützt werden. Die Benutzenden SOLLTEN über die Nutzung der VoIP-Verschlüsselung informiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3732">
+<title>NET.4.2.A9 Geeignete Auswahl von VoIP-Komponenten (S)</title>
+<para>Bevor VoIP-Komponenten beschafft werden, SOLLTE eine Anforderungsliste erstellt werden. Anhand der Anforderungsliste SOLLTEN die am Markt erhältlichen Produkte bewertet werden. Diese Anforderungsliste SOLLTE alle Merkmale zur Erreichung des angestrebten Sicherheitsniveaus umfassen. Es SOLLTE geregelt werden, wie die am Markt erhältlichen Produkte gemäß der Anforderungsliste bewertet werden können.</para>
+</section>
+<section xml:id="scroll-bookmark-3733">
+<title>NET.4.2.A10 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-3734">
+<title>NET.4.2.A11 Sicherer Umgang mit VoIP-Endgeräten (S) [Benutzende] </title>
+<para>Benutzende, die VoIP-Endgeräte einsetzen, SOLLTEN über die grundlegenden VoIP-Gefährdungen und Sicherheitsmaßnahmen informiert sein. Außerdem SOLLTEN sie geeignete Passwörter zur Absicherung von Voicemails auswählen.</para>
+</section>
+<section xml:id="scroll-bookmark-3735">
+<title>NET.4.2.A12 Sichere Außerbetriebnahme von VoIP-Komponenten (S)</title>
+<para>Wenn VoIP-Komponenten außer Betrieb genommen oder ersetzt werden, SOLLTEN alle sicherheitsrelevanten Informationen von den Geräten gelöscht werden. Nach dem Löschvorgang SOLLTE überprüft werden, ob die Daten auch tatsächlich erfolgreich entfernt wurden. Vertrauliche Informationen SOLLTEN auch von Backup-Medien gelöscht werden. Alle Beschriftungen, insbesondere der Endgeräte, SOLLTEN vor der Entsorgung entfernt werden. Es SOLLTE frühzeitig mit Herstellenden, Vertreibenden beziehungsweise Service-Unternehmen geklärt werden, welche Maßnahmen zur Löschung sicherheitsrelevanter Informationen mit den Vertrags- und Garantiebedingungen vereinbar sind.</para>
+</section>
+<section xml:id="scroll-bookmark-3736">
+<title>NET.4.2.A13 Anforderungen an eine Firewall für den Einsatz von VoIP (S)</title>
+<para>Es SOLLTE überprüft werden, ob die bestehende Firewall für den Einsatz von VoIP angepasst werden kann. Ist dies nicht der Fall, SOLLTE eine zusätzliche Firewall hierfür beschafft und installiert werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3737">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para>Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</para>
+<section xml:id="scroll-bookmark-3738">
+<title>NET.4.2.A14 Verschlüsselung der Signalisierung (H)</title>
+<para>Die Integrität und Vertraulichkeit der Signalisierungsinformationen SOLLTE durch geeignete kryptografische Verfahren gewährleistet werden. Nicht nur die Nutzdaten, sondern auch die Authentisierungsdaten SOLLTEN durchgängig verschlüsselt werden. Der Zugriff auf das VoIP-Gateway SOLLTE durch VoIP-Adressen und H.323-Identitäten so weit wie möglich eingeschränkt werden. Es SOLLTEN zusätzlich Ende-zu-Ende-Sicherheitsmechanismen für den Medientransport und die Signalisierung benutzt werden. Es SOLLTE dokumentiert werden, wie die Signalisierung geschützt wird.</para>
+</section>
+<section xml:id="scroll-bookmark-3739">
+<title>NET.4.2.A15 Sicherer Medientransport mit SRTP (H)</title>
+<para>Mediendaten und Informationen zur Steuerung dieser Daten, die über das Real-Time Transport Protocol (RTP) übertragen werden, SOLLTEN in geeigneter Weise geschützt werden. Die Nutzdaten SOLLTEN durch den Einsatz von Secure Real-Time Transport Protocol (SRTP) beziehungsweise Secure Real-Time Control Protocol (SRTCP) geschützt werden. Die sicherheitsrelevanten Optionen der Implementierung des Protokolls SOLLTEN dokumentiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-3740">
+<title>NET.4.2.A16 Trennung des Daten- und VoIP-Netzes (H)</title>
+<para>Das VoIP-Netz SOLLTE in geeigneter Weise vom Datennetz getrennt werden. Es SOLLTE geregelt werden, wie mit Geräten umzugehen ist, die auf das VoIP- und Datennetz zugreifen müssen. VoIP-Endgeräte in einem VoIP-Netz SOLLTEN NUR die vorgesehenen VoIP-Verbindungen zu anderen IT-Systemen aufbauen können.</para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3741">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-3742">
+<title>Wissenswertes</title>
+<para>Das BSI hat im Rahmen der Technischen Leitlinien die „BSI-TL-02013 für organisationsinterne Telekommunikationssysteme mit erhöhtem Schutzbedarf" veröffentlicht.</para>
+<para>Das National Institute of Standards and Technology (NIST) hat im Rahmen seiner Special Publications die NIST Special Publication 800-5 zu „Security Considerations for Voice Over IP Systems" veröffentlicht.</para>
+</section>
+</section>

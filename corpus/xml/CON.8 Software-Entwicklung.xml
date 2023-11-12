@@ -1,0 +1,302 @@
+<title>CON.8 Software-Entwicklung</title>
+<section xml:id="scroll-bookmark-434">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-435">
+<title>Einleitung</title>
+<para>Viele Institutionen stehen vor Herausforderungen, die sie nicht mehr hinreichend mit einem fertigen, unangepassten Softwareprodukt lösen können. Sie benötigen hierzu Software-Lösungen, die auf ihre individuellen Anforderungen hin angepasst sind. Beispiele hierfür sind hochspezifische Software-Lösungen für branchenspezialisierte (wie zur Steuerung von Produktionsanlagen) oder an die eigenen Geschäftsprozesse angepasste IT-Anwendungen (wie Content-Management-Systeme oder Identity-Management-Systeme). Aber auch Altsysteme, die nicht mehr vom ursprünglichen herstellendem Unternehmen weitergepflegt werden, können individuell weiterentwickelt werden.</para>
+<para>Hierbei kann (Individual-) Software durch die Institution selbst oder von einem Dritten entwickelt werden. Die Software-Entwicklung nimmt dabei eine zentrale Rolle ein, wenn aus den Anforderungen der Institution ein Programm-Code entwickelt bzw. angepasst wird. Hierbei ist es von essentieller Bedeutung, dass die Informationssicherheit über den gesamten Software-Entwicklungsprozess hinweg berücksichtigt wird und nicht erst in einer späteren Phase. Nur auf diese Weise kann die Informationssicherheit der zu entwickelnden Software-Lösung nachhaltig gewährleistet werden.</para>
+<para>Software kann dabei im Rahmen von klassischen, in sich abgeschlossenen Projekten entwickelt werden, oder aber als kontinuierliche Tätigkeit ohne festes Ende. In beiden Fällen werden in der Praxis sehr häufig Werkzeuge aus dem Projektmanagement benutzt, um die Software-Entwicklung zu koordinieren und zu steuern. Deswegen wird in diesem Baustein der Begriff Projekt vermehrt verwendet und auch nicht durchgehend zwischen einer projektbasierten und kontinuierlichen Entwicklung unterschieden, da sich die damit verbundenen Vorgehensweisen und Werkzeuge ähneln.</para>
+</section>
+<section xml:id="scroll-bookmark-436">
+<title>Zielsetzung</title>
+<para>Der Baustein beschäftigt sich mit allen relevanten Sicherheitsaspekten, die von Institutionen bei der Eigenentwicklung von Software zu beachten sind. Hierzu wird betrachtet, wie eine Institution die Software-Entwicklung vorbereiten und durchführen kann. Es werden entsprechende Gefährdungen identifiziert und Anforderungen formuliert.</para>
+</section>
+<section xml:id="scroll-bookmark-437">
+<title>Abgrenzung und Modellierung</title>
+<para>Der Baustein CON.8 <emphasis role="italics">Software-Entwicklung </emphasis>ist für jedes Entwicklungsvorhaben im Informationsverbund anzuwenden, wenn Software entwickelt werden soll.</para>
+<para>Wird Software entwickelt, liegt sehr häufig ein auftraggebendes und auftragnehmendes Verhältnis vor. Im IT-Grundschutz spiegelt sich dieser Sachverhalt wider, indem der Baustein APP.7 <emphasis role="italics">Entwicklung von Individualsoftware </emphasis>die auftraggebende Seite und der Baustein CON.8 <emphasis role="italics">Software-Entwicklung</emphasis> die auftragnehmende Seite umfassen. Die Anforderungen dieses Bausteins sind somit von Auftragnehmenden zu erfüllen. Die für die Software-Entwicklung relevanten Anforderungen (funktionale und nicht-funktionale Anforderungen, Anforderungen an die sichere Vorgehensweise sowie das Sicherheitsprofil) werden vom Auftraggebenden im Rahmen des Bausteins APP.7 <emphasis role="italics">Entwicklung von Individualsoftware</emphasis> erhoben.</para>
+<para>Der Baustein stellt keine vollständige Anleitung oder generelle Vorgehensweise für die Entwicklung von Software dar, sondern er konzentriert sich auf die relevanten Aspekte der Informationssicherheit bei der Software-Entwicklung. Der Baustein umfasst ferner keine Aspekte zum Patch- und Änderungsmanagement. Hierzu ist der Baustein OPS.1.1.3 <emphasis role="italics">Patch- und Änderungsmanagement</emphasis> anzuwenden.</para>
+<para>Die Abnahme und hiermit verbundenen Tests von eigenentwickelter bzw. beauftragter Software werden in dem Baustein OPS.1.1.6 <emphasis role="italics">Software-Tests und Freigaben </emphasis>geregelt. Darüber hinaus gehende Aspekte zu Tests im Rahmen der Software-Entwicklung werden in diesem Baustein CON.8 <emphasis role="italics">Software-Entwicklung</emphasis> behandelt.</para>
+<para>Der Baustein ORP.5 <emphasis role="italics">Compliance Management (Anforderungsmanagement) </emphasis>muss mit betrachtet werden, da über diesen Baustein geregelt wird, wie die gesetzlichen und institutsinterne Vorgaben, sowie Anforderungen der Kundschaft berücksichtigt werden.</para>
+<para>Umfasst die Software-Entwicklung kryptographische Aspekte, dann sind die relevanten Anforderungen aus dem Baustein CON.1 <emphasis role="italics">Kryptokonzept</emphasis> zu berücksichtigen.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-438">
+<title>Gefährdungslage</title>
+<para>Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein CON.8 <emphasis role="italics">Software-Entwicklung</emphasis><emphasis role="italics"> </emphasis>von besonderer Bedeutung.</para>
+<section xml:id="scroll-bookmark-439">
+<title>Auswahl eines ungeeigneten Vorgehensmodells</title>
+<para>Vorgehensmodelle strukturieren und planen den Ablauf der Software-Entwicklung, indem bestimmte Handlungsschritte und deren Abfolge vorgegeben werden. Wird ein ungeeignetes Vorgehensmodell bei der Software-Entwicklung ausgewählt, kann der Verlauf der Entwicklung und das damit verbundene Entwicklungsprojekt erheblich gestört werden. Je nachdem, wie das gewählte Modell ausgeprägt und wie umfangreich das Entwicklungsvorhaben ist, könnten entweder wichtige Aspekte vernachlässigt oder irrelevante Aspekte übermäßig fokussiert werden. Beide genannten Probleme erhöhen den Arbeitsaufwand im Projektmanagement und schränken die produktive Arbeit ein.</para>
+<para>Wird gar kein Vorgehensmodell verwendet, erhöht sich die Gefahr, dass relevante Aspekte, die insbesondere die Informationssicherheit betreffen, in der Software-Entwicklung nicht in geeigneter Art und Weise berücksichtigt werden. Dies kann dazu führen, dass relevante Sicherheitsfunktionen überhaupt nicht implementiert oder getestet werden, sodass die entwickelte Software nicht den Sicherheitsanforderungen entspricht.</para>
+</section>
+<section xml:id="scroll-bookmark-440">
+<title>Auswahl einer ungeeigneten Entwicklungsumgebung</title>
+<para>Wird eine Entwicklungsumgebung ungeeignet oder von den Mitarbeitenden individuell ausgewählt, können dringend benötigte Funktionen fehlen oder nicht in ausreichender Form implementiert sein. Weiterhin kann eine ungeeignete Entwicklungsumgebung auch Fehler oder Schwachstellen aufweisen, die erhebliche Störungen im Verlauf der Software-Entwicklung verursachen können.</para>
+<para>Wenn keine bestimmte Entwicklungsumgebung ausgewählt und vorgegeben wird, arbeiten verschiedene Entwickelnde möglicherweise mit unterschiedlichen, selbst gewählten Werkzeugen an der Software und können dadurch Kompatibilitätsprobleme verursachen. Beispielweise können unterschiedliche Compiler solche Kompatibilitätsprobleme auslösen.</para>
+</section>
+<section xml:id="scroll-bookmark-441">
+<title>Fehlende oder unzureichende Qualitätssicherung des Entwicklungsprozesses</title>
+<para>Durch eine fehlende oder unzureichende Qualitätssicherung während der Software-Entwicklung kann sich das Entwicklungsvorhaben verzögern oder sogar gänzlich scheitern. Wenn nicht geprüft wird, ob die eigenentwickelte Software sicher implementiert wird, drohen Schwachstellen in der ausgelieferten Software.</para>
+<para>Ist die Qualitätssicherung nicht fest im Entwicklungsprozess verankert, können Fehler und Manipulationen in der Konzeption oder Implementierung unter Umständen nicht erkannt werden. Dabei sollte die Aufmerksamkeit nicht nur selbst entwickelten Bestandteilen, sondern gerade auch externen Beiträgen und übernommenen Bestandteilen gelten.</para>
+</section>
+<section xml:id="scroll-bookmark-442">
+<title>Fehlende oder unzureichende Dokumentation</title>
+<para>Wird die Software in der Konzeptions- oder Entwicklungsphase nicht oder nur unzureichend dokumentiert, kann dies dazu führen, dass eventuelle Fehler nur verzögert oder gar nicht diagnostiziert und behoben werden können. Wird die Entwicklung ungeeignet dokumentiert, kann die Software außerdem später nur mit hohem Aufwand aktualisiert, angepasst oder erweitert werden.</para>
+<para>Bei unzureichender Administrations- oder Benutzendendokumentation könnte die Software im produktiven Betrieb fehlerhaft verwaltet oder bedient werden. Dies kann beispielsweise den IT-Betrieb stören, falsche Arbeitsergebnisse verursachen oder den Arbeitsablauf verzögern.</para>
+</section>
+<section xml:id="scroll-bookmark-443">
+<title>Unzureichend gesicherter Einsatz von Entwicklungsumgebungen</title>
+<para>Wenn die Entwicklungsumgebung unzureichend gesichert wird, kann die zu produzierende Software möglicherweise manipuliert werden. Solche Manipulationen können dadurch nachträglich nur schwer erkannt werden.</para>
+<para>Wenn nicht bekannt ist, welche Benutzenden zu welchem Zeitpunkt auf die Entwicklungsumgebung zugreifen können und konnten, kann die Software anonym manipuliert werden. Sofern die manipulierten Teile der Software entdeckt werden, kann dann unter Umständen nicht nachvollzogen werden, welche Benutzenden sie manipuliert haben.</para>
+<para>Bei einer fehlenden oder unzureichenden Versionsverwaltung des Quellcodes ist es nicht möglich, Änderungen zuverlässig nachzuvollziehen sowie vorherige und bereits funktionierende Versionen der Software wiederherzustellen.</para>
+<para>Wenn Quellcodes unzureichend vor versehentlichen oder absichtlichen Änderungen geschützt werden, können Teile eines Quellcodes oder sogar der gesamte Quellcode beschädigt werden und die bereits eingebrachte Arbeitsleistung verloren gehen.</para>
+<para>Wird der Quellcode bzw. die Versionsverwaltung nicht hinreichend vor einem Datenverlust geschützt, folgen daraus verschiedene Gefährdungen, unabhängig davon, ob der Datenverlust z. B. durch einen technischen Defekt oder durch menschliches Versagen ausgelöst wird. Möglicherweise kann die Software überhaupt nicht mehr weiterentwickelt werden, da der Datenbestand gänzlich fehlt, oder es ist nur ein veralteter und möglicherweise fehlerhafter Zwischenstand verfügbar, der nur mit sehr hohen Aufwänden verwendet werden kann.</para>
+</section>
+<section xml:id="scroll-bookmark-444">
+<title>Software-Konzeptionsfehler</title>
+<para>Je umfangreicher eine Software vom Funktionsumfang wird, umso umfangreicher wird häufig auch ihr Programm-Code. Wenn der Programm-Code nicht durch geeignete Maßnahmen strukturiert wird und wenn er nicht auf einer angemessenen Software-Architektur basiert, dann kann er zumeist nur sehr schwer gewartet werden. So können Sicherheitslücken nur schwer geschlossen oder veraltete Programm-Teile nur mit sehr hohen Aufwand ausgetauscht werden, wenn sich z. B. der Schutzbedarf der verarbeiteten Daten ändert und somit auch die Sicherheitsanforderungen an die Software.</para>
+<para>Software-Konzeptionsfehler erschweren hierbei nicht nur die Wartung der Software, sondern sie können selbst zu Sicherheitslücken und Gefährdungen führen. Ist der Programm-Code nicht sinnvoll strukturiert und die Software-Architektur nicht nachvollziehbar dokumentiert, dann können konzeptionelle Fehler in Software-Tests nur sehr schwer identifiziert werden. In Folge dessen können auf den unterschiedlichsten Ebenen der Software Sicherheitslücken bestehen.</para>
+<para>Software-Konzeptionsfehler sind in der Praxis häufig historisch bedingt, indem z. B. Altsysteme für Aufgaben und Umgebungen eingesetzt werden, für diese sie zuerst gar nicht konzeptioniert worden sind. Auch wurden bei der Software-Entwicklung von sehr alten Anwendungen Aspekte wie Wartbarkeit und Modifizierbarkeit nicht in dem erforderlichen Maße berücksichtigt, wie es heute dem Stand der Technik entspricht.</para>
+</section>
+<section xml:id="scroll-bookmark-445">
+<title>Fehlendes oder unzureichendes Test- und Freigabeverfahren</title>
+<para>Wird neue Software nicht ausreichend getestet und freigegeben, können Fehler in der Software nicht erkannt werden. Solche Fehler gefährden nicht nur den produktiven Einsatz und die Informationssicherheit der neuen Software selbst, sondern unter Umständen auch andere Anwendungen und IT-Systeme in der Produktivumgebung.</para>
+<para>Werden Sicherheitsfunktionen bzw. die grundlegenden Sicherheitsanforderungen nicht getestet, ist nicht sichergestellt, dass die entwickelte Software den Sicherheitsanforderungen der einsetzenden Institution genügt. In Folge dessen könnten schützenswerte Informationen offengelegt, manipuliert oder zerstört werden, indem z. B. unbefugte Dritte aufgrund mangelhafter Authentifizierungsfunktionen auf die Software zugreifen.</para>
+</section>
+<section xml:id="scroll-bookmark-446">
+<title>Software-Tests mit Produktivdaten</title>
+<para>Wenn neue Software mit Produktivdaten getestet wird, könnten eventuell nicht befugte Personen hierbei vertrauliche Informationen einsehen, wie besonders schützenswerte personenbezogene Daten.</para>
+<para>Wird nicht mit Kopien der Produktivdaten getestet, sondern mit den Originalen (z. B. bei Datenbanksystemen) entstehen noch umfangreichere Gefährdungen:</para>
+<itemizedlist>
+<listitem>
+<para>Fehlfunktionen von Software während des Testens können dazu führen, dass neben der Vertraulichkeit der Produktivdaten auch deren Integrität oder Verfügbarkeit beeinträchtigt wird.</para>
+</listitem>
+<listitem>
+<para>Ungewollte Veränderungen an Produktivdaten können auch dadurch entstehen, dass die Software fehlerhaft getestet oder bedient wird. Möglicherweise wird diese Veränderung nicht zeitnah festgestellt. Solche Fehler können sich auch auf andere IT-Anwendungen auswirken, die auf die gleichen Datenbestände zugreifen.</para>
+</listitem>
+</itemizedlist>
+<para>Diese Umstände werden sehr häufig dadurch verschärft, dass während die Software getestet wird, nicht der Schutz der Testdaten im Vordergrund steht, sondern, ob die Software sich wie gewünscht, bzw. durch die Anforderungen definiert, verhält.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-447">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins CON.8 <emphasis role="italics">Software-Entwicklung</emphasis> aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para>Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</para>
+<section xml:id="scroll-bookmark-448">
+<title>Basis-Anforderungen</title>
+<para>Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</para>
+<section xml:id="scroll-bookmark-449">
+<title>CON.8.A2 Auswahl eines Vorgehensmodells (B)</title>
+<para>Ein geeignetes Vorgehensmodell zur Software-Entwicklung MUSS festgelegt werden. Anhand des gewählten Vorgehensmodells MUSS ein Ablaufplan für die Software-Entwicklung erstellt werden. Die Sicherheitsanforderungen der Auftraggebenden an die Vorgehensweise MÜSSEN im Vorgehensmodell integriert werden.</para>
+<para>Das ausgewählte Vorgehensmodell, einschließlich der festgelegten Sicherheitsanforderungen, MUSS eingehalten werden.</para>
+<para>Das Personal SOLLTE in der Methodik des gewählten Vorgehensmodells geschult sein.</para>
+</section>
+<section xml:id="scroll-bookmark-450">
+<title>CON.8.A3 Auswahl einer Entwicklungsumgebung (B)</title>
+<para>Eine Liste der erforderlichen und optionalen Auswahlkriterien für eine Entwicklungsumgebung MUSS von Fachverantwortlichen für die Software-Entwicklung erstellt werden. Die Entwicklungsumgebung MUSS anhand der vorgegebenen Kriterien ausgewählt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-451">
+<title>CON.8.A4 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-452">
+<title>CON.8.A5 Sicheres Systemdesign (B)</title>
+<para>Folgende Grundregeln des sicheren Systemdesigns MÜSSEN in der zu entwickelnden Software berücksichtigt werden:</para>
+<itemizedlist>
+<listitem>
+<para>Grundsätzlich MÜSSEN alle Eingabedaten vor der Weiterverarbeitung geprüft und validiert werden.</para>
+</listitem>
+<listitem>
+<para>Bei Client-Server-Anwendungen MÜSSEN die Daten grundsätzlich auf dem Server validiert werden.</para>
+</listitem>
+<listitem>
+<para>Die Standardeinstellungen der Software MÜSSEN derart voreingestellt sein, dass ein sicherer Betrieb der Software ermöglicht wird.</para>
+</listitem>
+<listitem>
+<para>Bei Fehlern oder Ausfällen von Komponenten des Systems DÜRFEN NICHT schützenswerte Informationen preisgegeben werden.</para>
+</listitem>
+<listitem>
+<para>Die Software MUSS mit möglichst geringen Privilegien ausgeführt werden können.</para>
+</listitem>
+<listitem>
+<para>Schützenswerte Daten MÜSSEN entsprechend der Vorgaben des Kryptokonzepts verschlüsselt übertragen und gespeichert werden.</para>
+</listitem>
+<listitem>
+<para>Zur Benutzenden-Authentisierung und Authentifizierung MÜSSEN vertrauenswürdige Mechanismen verwendet werden, die den Sicherheitsanforderungen an die Anwendung entsprechen.</para>
+</listitem>
+<listitem>
+<para>Falls zur Authentifizierung Passwörter gespeichert werden, MÜSSEN diese mit einem sicheren Hashverfahren gespeichert werden.</para>
+</listitem>
+<listitem>
+<para>Sicherheitsrelevante Ereignisse MÜSSEN in der Art protokolliert werden, dass sie im Nachgang ausgewertet werden können.</para>
+</listitem>
+<listitem>
+<para>Informationen, die für den Produktivbetrieb nicht relevant sind (z. B. Kommentare mit Zugangsdaten für die Entwicklungsumgebung), SOLLTEN in ausgeliefertem Programmcode und ausgelieferten Konfigurationsdateien entfernt werden.</para>
+</listitem>
+</itemizedlist>
+<para>Das Systemdesign MUSS dokumentiert werden. Es MUSS überprüft werden, ob alle Sicherheitsanforderungen an das Systemdesign erfüllt wurden.</para>
+</section>
+<section xml:id="scroll-bookmark-453">
+<title>CON.8.A6 Verwendung von externen Bibliotheken aus vertrauenswürdigen Quellen (B)</title>
+<para>Wird im Rahmen des Entwicklungs- und Implementierungsprozesses auf externe Bibliotheken zurückgegriffen, MÜSSEN diese aus vertrauenswürdigen Quellen bezogen werden. Bevor externe Bibliotheken verwendet werden, MUSS deren Integrität sichergestellt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-454">
+<title>CON.8.A7 Durchführung von entwicklungsbegleitenden Software-Tests (B) [Testende, Entwickelnde]</title>
+<para>Schon bevor die Software im Freigabeprozess getestet und freigegeben wird, MÜSSEN entwicklungsbegleitende Software-Tests durchgeführt und der Quellcode auf Fehler gesichtet werden. Hierbei SOLLTEN bereits die Fachverantwortlichen des Auftraggebenden oder der beauftragenden Fachabteilung beteiligt werden.</para>
+<para>Die entwicklungsbegleitenden Tests MÜSSEN die funktionalen und nichtfunktionalen Anforderungen der Software umfassen. Die Software-Tests MÜSSEN dabei auch Negativtests abdecken. Zusätzlich MÜSSEN auch alle kritischen Grenzwerte der Eingabe sowie der Datentypen überprüft werden.</para>
+<para>Testdaten SOLLTEN dafür sorgfältig ausgewählt und geschützt werden. Darüber hinaus SOLLTE eine automatische statische Code-Analyse durchgeführt werden.</para>
+<para>Die Software MUSS in einer Test- und Entwicklungsumgebung getestet werden, die getrennt von der Produktionsumgebung ist. Außerdem MUSS getestet werden, ob die Systemvoraussetzungen für die vorgesehene Software ausreichend dimensioniert sind.</para>
+</section>
+<section xml:id="scroll-bookmark-455">
+<title>CON.8.A8 Bereitstellung von Patches, Updates und Änderungen (B) [Entwickelnde]</title>
+<para>Es MUSS sichergestellt sein, dass sicherheitskritische Patches und Updates für die entwickelte Software zeitnah durch die Entwickelnden bereitgestellt werden. Werden für verwendete externe Bibliotheken sicherheitskritische Updates bereitgestellt, dann MÜSSEN die Entwickelnden ihre Software hierauf anpassen und ihrerseits entsprechende Patches und Updates zur Verfügung stellen.</para>
+<para>Für die Installations-, Update- oder Patchdateien MÜSSEN vom Entwickelnden Checksummen oder digitale Signaturen bereitgestellt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-456">
+<title>CON.8.A9 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-457">
+<title>CON.8.A10 Versionsverwaltung des Quellcodes (B) [Entwickelnde]</title>
+<para>Der Quellcode des Entwicklungsprojekts MUSS über eine geeignete Versionsverwaltung verwaltet werden. Die Institution MUSS den Zugriff auf die Versionsverwaltung regeln und festlegen, wann Änderungen am Quellcode durch die Entwickelnden als eigene Version in der Versionsverwaltung gespeichert werden sollen. Es MUSS sichergestellt sein, dass durch die Versionsverwaltung alle Änderungen am Quellcode nachvollzogen und rückgängig gemacht werden können.</para>
+<para>Die Versionsverwaltung MUSS in dem Datensicherungskonzept berücksichtigt werden. Die Versionsverwaltung DARF NICHT ohne Datensicherung erfolgen.</para>
+</section>
+<section xml:id="scroll-bookmark-458">
+<title>CON.8.A20 Überprüfung von externen Komponenten (B)</title>
+<para>Unbekannte externe Komponenten (bzw. Programm-Bibliotheken), deren Sicherheit nicht durch etablierte und anerkannte Peer-Reviews oder vergleichbares sichergestellt werden kann, MÜSSEN auf Schwachstellen überprüft werden. Alle externen Komponenten MÜSSEN auf potentielle Konflikte überprüft werden.</para>
+<para>Die Integrität von externen Komponenten MUSS durch Prüfsummen oder kryptographische Zertifikate überprüft werden.</para>
+<para>Darüber hinaus SOLLTEN keine veralteten Versionen von externen Komponenten in aktuellen Entwicklungsprojekten verwendet werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-459">
+<title>Standard-Anforderungen</title>
+<para>Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</para>
+<section xml:id="scroll-bookmark-460">
+<title>CON.8.A1 Definition von Rollen und Zuständigkeiten (S) [Zentrale Verwaltung]</title>
+<para>Für den Software-Entwicklungsprozess SOLLTE eine gesamtzuständige Person ein benannt werden. Außerdem SOLLTEN die Rollen und Zuständigkeiten für alle Aktivitäten im Rahmen der Software-Entwicklung festgelegt werden. Die Rollen SOLLTEN dabei fachlich die nachfolgenden Themen abdecken:</para>
+<itemizedlist>
+<listitem>
+<para>Requirements-Engineering (Anforderungsmanagement) und Änderungsmanagement,</para>
+</listitem>
+<listitem>
+<para>Software-Entwurf und -Architektur,</para>
+</listitem>
+<listitem>
+<para>Informationssicherheit in der Software-Entwicklung,</para>
+</listitem>
+<listitem>
+<para>Software-Implementierung in dem für das Entwicklungsvorhaben relevanten Bereichen, sowie</para>
+</listitem>
+<listitem>
+<para>Software-Tests.</para>
+</listitem>
+</itemizedlist>
+<para>Für jedes Entwicklungsvorhaben SOLLTE eine zuständige Person für die Informationssicherheit benannt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-461">
+<title>CON.8.A11 Erstellung einer Richtlinie für die Software-Entwicklung (S)</title>
+<para>Es SOLLTE eine Richtlinie für die Software-Entwicklung erstellt und aktuell gehalten werden. Die Richtlinie SOLLTE neben Namenskonventionen auch Vorgaben zu Elementen beinhalten, die verwendet bzw. nicht verwendet werden dürfen. Die relevanten Anforderungen aus diesem Baustein SOLLTEN in die Richtlinie aufgenommen werden. Die Richtlinie SOLLTE für die Entwickelnden verbindlich sein.</para>
+</section>
+<section xml:id="scroll-bookmark-462">
+<title>CON.8.A12 Ausführliche Dokumentation (S)</title>
+<para>Es SOLLTEN ausreichende Projekt-, Funktions- und Schnittstellendokumentationen erstellt und aktuell gehalten werden. Die Betriebsdokumentation SOLLTE konkrete Sicherheitshinweise für die Installation und Konfiguration für Administration, sowie für die Benutzung des Produktes beinhalten.</para>
+<para>Die Software-Entwicklung SOLLTE so dokumentiert sein, dass Fachleute mithilfe der Dokumentation den Programm-Code nachvollziehen und weiterentwickeln können. Die Dokumentation SOLLTE dabei auch die Software-Architektur und Bedrohungsmodellierung umfassen.</para>
+<para>Die Aspekte zur Dokumentation SOLLTEN im Vorgehensmodell zur Software-Entwicklung berücksichtigt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-463">
+<title>CON.8.A13 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-464">
+<title>CON.8.A14 Schulung des Entwicklungsteams zur Informationssicherheit (S)</title>
+<para>Die Entwickelnden und die übrigen Mitglieder des Entwicklungsteams SOLLTEN zu generellen Informationssicherheitsaspekten und zu den jeweils speziell für sie relevanten Aspekten geschult sein:</para>
+<itemizedlist>
+<listitem>
+<para>Anforderungsanalyse,</para>
+</listitem>
+<listitem>
+<para>Projektmanagement allgemein sowie speziell bei der Software-Entwicklung,</para>
+</listitem>
+<listitem>
+<para>Risikomanagement bzw. Bedrohungsmodellierung in der Software-Entwicklung,</para>
+</listitem>
+<listitem>
+<para>Qualitätsmanagement und Qualitätssicherung,</para>
+</listitem>
+<listitem>
+<para>Modelle und Methoden für die Software-Entwicklung,</para>
+</listitem>
+<listitem>
+<para>Software-Architektur,</para>
+</listitem>
+<listitem>
+<para>Software-Tests,</para>
+</listitem>
+<listitem>
+<para>Änderungsmanagement sowie</para>
+</listitem>
+<listitem>
+<para>Informationssicherheit, Sicherheitsvorgaben in der Institution und Sicherheitsaspekte in speziellen Bereichen.</para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-465">
+<title>CON.8.A15 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-466">
+<title>CON.8.A16 Geeignete Steuerung der Software-Entwicklung (S)</title>
+<para>Bei einer Software-Entwicklung SOLLTE ein geeignetes Steuerungs- bzw. Projektmanagementmodell auf Basis des ausgewählten Vorgehensmodells verwendet werden. Das Steuerungs- bzw. Projektmanagementmodell SOLLTE in die Richtlinie zur Software Entwicklung integriert werden. Dabei SOLLTEN insbesondere die benötigten Qualifikationen beim Personal und die Abdeckung aller relevanten Phasen während des Lebenszyklus der Software berücksichtigt werden. Für das Vorgehensmodell SOLLTE ein geeignetes Risikomanagement festgelegt werden. Außerdem SOLLTEN geeignete Qualitätsziele für das Entwicklungsprojekt definiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-467">
+<title>CON.8.A21 Bedrohungsmodellierung (S)</title>
+<para>In der Entwurfsphase der Software-Entwicklung SOLLTE eine Bedrohungsmodellierung durchgeführt werden. Hierzu SOLLTEN auf Basis des Sicherheitsprofils, des Anforderungskatalogs und der geplanten Einsatzumgebung bzw. Einsatzszenarios potentielle Bedrohungen identifiziert werden. Die Bedrohungen SOLLTEN hinsichtlich ihrer Eintrittswahrscheinlichkeit und Auswirkung bewertet werden.</para>
+</section>
+<section xml:id="scroll-bookmark-468">
+<title>CON.8.A22 Sicherer Software-Entwurf (S)</title>
+<para>Der Software-Entwurf SOLLTE den Anforderungskatalog, das Sicherheitsprofil und die Ergebnisse der Bedrohungsmodellierung berücksichtigen. Im Rahmen des sicheren Software-Entwurfs SOLLTE eine sichere Software-Architektur entwickelt werden, auf deren Grundlage der Quellcode der Anwendung zu entwickeln ist. Hierbei SOLLTEN möglichst zukünftige Standards und Angriffstechniken berücksichtigt werden, damit die zu entwickelnde Software auch zukünftig leicht gewartet werden kann.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-469">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para>Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</para>
+<section xml:id="scroll-bookmark-470">
+<title>CON.8.A17 Auswahl vertrauenswürdiger Entwicklungswerkzeuge (H)</title>
+<para>Zur Entwicklung der Software SOLLTEN nur Werkzeuge mit nachgewiesenen Sicherheitseigenschaften verwendet werden. An die herstellenden Unternehmen von Hardware oder Software SOLLTEN hinreichende Anforderungen zur Sicherheit ihrer Werkzeuge gestellt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-471">
+<title>CON.8.A18 Regelmäßige Sicherheitsaudits für die Entwicklungsumgebung (H)</title>
+<para>Es SOLLTEN regelmäßige Sicherheitsaudits der Software-Entwicklungsumgebung und der Software-Testumgebung durchgeführt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-472">
+<title>CON.8.A19 Regelmäßige Integritätsprüfung der Entwicklungsumgebung (H) [IT-Betrieb]</title>
+<para>Die Integrität der Entwicklungsumgebung SOLLTE regelmäßig mit kryptographischen Mechanismen entsprechend dem Stand der Technik geprüft werden. Die Prüfsummendateien und das Prüfprogramm selbst SOLLTEN ausreichend vor Manipulationen geschützt sein. Wichtige Hinweise auf einen Integritätsverlust SOLLTEN nicht in einer Fülle irrelevanter Warnmeldungen (false positives) untergehen.</para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-473">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-474">
+<title>Wissenswertes</title>
+<para>Die International Organization for Standardization (ISO) stellt Anforderungen zur Software-Entwicklung unter anderem in diesen Normen:</para>
+<itemizedlist>
+<listitem>
+<para>ISO/IEC 27001:2013 Apendix A.14.2 „Security in development and support processes“ - Anforderungen an die Sicherheit in Entwicklungs- und Unterstützungsprozessen,</para>
+</listitem>
+<listitem>
+<para>ISO/IEC 25000:2014 „Systems and software Quality Requirements and Evaluation - Guide to SQuaRE“ - ein genereller Überlick über die SQuaRE-Normen-Reihe,</para>
+</listitem>
+<listitem>
+<para>ISO/IEC 25001:2014 „Planning and management“ - Anforderungen an die Planung und das Management" sowie</para>
+</listitem>
+<listitem>
+<para>ISO/IEC 25010:2011 „System and software quality models“ - Anforderungen an ein Qualitätsmodell und Leitlinien.</para>
+</listitem>
+</itemizedlist>
+<para>Das Information Security Forum (ISF) macht in seinem Standard „The Standard of Good Practice for Information Security“ im Kapitel „SD System Development“ Vorgaben an die sichere Software-Entwicklung.</para>
+<para>Das National Institute of Standards and Technologie gibt in seiner Special Publication 800-160 „Systems Security Engineering, Considerations for a Multidisciplinary Approach in the Engineering of Trustworthy Secure Systems“ Anforderungen an ein sicheres Systemdesign.</para>
+<para>Die Fachgruppe „Vorgehensmodelle für die betriebliche Anwendungsentwicklung“ der Gesellschaft für Informatik gibt in ihren Publikationen einen Überblick über aktuelle Informationen zur Anwendungsentwicklung.</para>
+<para>Weiterführende Informationen zur Bedrohungsmodellierung können dem wissenschaftlichen Artikel „Bedrohungsmodellierung (Threat Modeling) in der Softwareentwicklung“ entnommen werden. Der Artikel wurde zu der Konferenz „Sicherheit 2010: Sicherheit, Schutz und Zuverlässigkeit)“ der Gesellschaft für Information veröffentlicht.</para>
+</section>
+</section>

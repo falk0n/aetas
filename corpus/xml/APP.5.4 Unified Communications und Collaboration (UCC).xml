@@ -1,0 +1,389 @@
+<title>APP.5.4 Unified Communications und Collaboration (UCC)</title>
+<section xml:id="scroll-bookmark-2024">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-2025">
+<title>Einleitung</title>
+<para><emphasis role="color:#000000">Unified Communications bezeichnet einen Dienst, der verschiedene Kommunikationsdienste in einer Anwendung und in der Regel auch einem Softclient vereint. Damit wird der Anteil der traditionellen Telefonie in der persönlichen digitalen Kommunikation reduziert. Die möglichen Kommunikationswege werden um zusätzliche Dienste wie Video, diverse Formen von Chats und Erreichbarkeitsanzeigen erweitert.</emphasis></para>
+<para><emphasis role="color:#000000">Eine Kommunikationsbeziehung zwischen zwei oder mehr Teilnehmenden wird unabhängig vom benutzten Dienst als Konversation bezeichnet.</emphasis></para>
+<para><emphasis role="color:#000000">Die häufig bei Unified Communications und Collaboration (UCC) genannte Zusammenarbeit (Collaboration) geht noch einen Schritt weiter. Während damit in der Vergangenheit häufig nur Dienste wie Screen Sharing und (digitales) Whiteboarding bezeichnet wurden, stellen UCC-Dienste viele weitere Funktionen zur Verfügung. Insbesondere beim Zusammenarbeiten von Teams hat sich eine Anzahl von Anwendungen etabliert, die häufig als Cloud-Dienst benutzt werden und neben Telefonie, Erreichbarkeitsanzeige, klassischen Chats, Video-Anrufen und Konferenzen auch Team-Chatbereiche sowie gemeinsame Dateiablagen beinhalten. Hinzukommen (offene) Schnittstellen, wodurch zusätzliche Anwendungen integriert werden können, so dass der Gesamtdienst funktional gegebenenfalls sehr umfangreich wird.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2026">
+<title>Zielsetzung</title>
+<para><emphasis role="color:#000000">Ziel dieses Bausteins ist es, die Informationssicherheit als integralen Bestandteil beim erweiterten Kommunikationsspektrum von UCC-Diensten zu etablieren, ein Bewusstsein für die potenzielle Gefährdungslage dieser Anwendungen zu schaffen und Ansätze zur Vermeidung von Gefährdungen anzubieten.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2027">
+<title>Abgrenzung und Modellierung</title>
+<para><emphasis role="color:#000000">Der Baustein APP.5.4 <emphasis role="italics">Unified Communications und Collaboration (UCC)</emphasis> ist auf alle IT-Systeme und Kommunikationsnetze sowie Anwendungen anzuwenden, mit denen UCC-Dienste betrieben werden. Da UCC über Datennetze betrieben wird, sind zusätzlich zu diesem Baustein die Anforderungen der Bausteine NET.1.1 <emphasis role="italics">Netzarchitektur- und Design</emphasis> und NET.3.2 <emphasis role="italics">Firewall</emphasis> zu berücksichtigen.</emphasis></para>
+<para><emphasis role="color:#000000">Da sich der Geltungsbereich von Kommunikationsdiensten durch UCC zunehmend erweitert, gibt es eine besonders große Zahl von Überschneidungen mit anderen Bausteinen.</emphasis></para>
+<para><emphasis role="color:#000000">Dieser Baustein behandelt die folgenden Inhalte:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">die UCC-Dienste sowie Interaktion und Wechselwirkungen unterschiedlicher Dienste</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">die (Soft-) Clients, die bereitgestellt werden, um diese Dienste zu benutzen und deren Funktionsumfang</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">die zugehörigen Infrastrukturkomponenten, sofern diese nicht bereits durch andere Bausteine abgedeckt sind</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Themen, die sich aus dem (aus Sicht der Benutzenden) fließenden Übergang zwischen der UCC-Umgebung und weiteren Anwendungen ergeben</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Folgende Inhalte sind ebenfalls von Bedeutung und werden an anderer Stelle behandelt:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Falls über eine dedizierte TK-Anlage telefoniert wird, muss der Baustein NET.4.1 <emphasis role="italics">TK-Anlagen</emphasis> angewendet werden.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Für Voice over IP (VoIP) als ein elementarer Dienst bei UCC-Diensten muss der Baustein NET.4.2 <emphasis role="italics">VoIP</emphasis> angewendet werden.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Für die zentralen Server sowie diverse Endgeräte und Clients müssen die Bausteine SYS.1.1 <emphasis role="italics">Allgemeiner Server</emphasis> und SYS.2.1 <emphasis role="italics">Allgemeiner Client</emphasis> sowie gegebenenfalls spezifische Bausteine angewendet werden.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Für die zugrundeliegenden Netze muss der Baustein NET.1.1 <emphasis role="italics">Netzarchitektur und -design</emphasis> angewendet werden.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Falls UCC-Dienste aus der Cloud bereitgestellt werden, ist der Baustein OPS.2.2 <emphasis role="italics">Cloud-Nutzung</emphasis> anzuwenden.<?linebreak?>
+</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Um Dateiablagen abzusichern, die im Rahmen der UCC-Dienste bereitgestellt werden, sind insbesondere die Bausteine APP.3.3 <emphasis role="italics">Fileserver</emphasis> und SYS.1.8 <emphasis role="italics">Speicherlösungen</emphasis> anzuwenden.<?linebreak?>
+</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Dieser Baustein behandelt <emphasis role="strong">nicht </emphasis>die folgenden Inhalte:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Der E-Mail-Dienst ist in der Regel nicht Teil der UCC-Dienste. Hier ist der Baustein APP.5.3 <emphasis role="italics">Allgemeiner E-Mail-Client und -Server</emphasis> anzuwenden.<?linebreak?>
+</emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2028">
+<title>Gefährdungslage</title>
+<para><emphasis role="color:#000000">Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein APP.5.4 <emphasis role="italics">Unified Communications und Collaboration (UCC</emphasis>) von besonderer Bedeutung.</emphasis></para>
+<section xml:id="scroll-bookmark-2029">
+<title>Eingeschränkte Verfügbarkeit von UCC-Diensten</title>
+<para><emphasis role="color:#000000">UCC-Dienste unterliegen häufig erhöhten Anforderungen an die Verfügbarkeit und gleichzeitig hängt die Funktionstüchtigkeit von UCC-Diensten von weiteren IT-Systemen und Anwendungen ab.</emphasis></para>
+<para><emphasis role="color:#000000">Falls die Datennetze, die von UCC-Diensten verwendet werden, nicht voll funktionsfähig sind, kann das die Verfügbarkeit der UCC-Dienste beeinträchtigen. So können beispielsweise Störungen im Datennetz oder bei der Internetverbindung die Qualität der Kommunikation einschränken, was eine verzögerte Sprachverständigung, Artefakte im Videobild oder den Abbruch der Verbindung verursachen kann.</emphasis></para>
+<para><emphasis role="color:#000000">Abhängigkeiten zwischen kritischen IT-Systemen können auch die Funktionsfähigkeit von weiteren Diensten oder Organisationseinheiten behindern. Wenn beispielsweise UCC als Kommunikationsplattform zwingend erforderlich ist, um das Netz wiederaufzubauen, das Netz aber benötigt wird, damit die UCC-Dienste funktionieren, dann blockieren sich beide und können nicht wiederhergestellt werden.</emphasis></para>
+<para><emphasis role="color:#000000">Häufig werden UCC-Dienste als Cloud-Dienst benutzt oder bei einem Dienstleistungsunternehmen betrieben, wodurch Störungen bei externen Netzen oder beim Dienstleistungsunternehmen zu eingeschränkter Verfügbarkeit der UCC-Dienste führen können. Gleiches gilt für den Authentisierungsdienst, über den sich die Benutzenden an den UCC-Diensten anmelden. Fällt der Authentisierungsdienst aus, können die UCC-Dienste oft nicht mehr verwendet werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2030">
+<title>Unzureichende Planung von UCC</title>
+<para><emphasis role="color:#000000">Wenn UCC nicht so geplant wird, wie es auch tatsächlich benutzt werden soll, kann dies Auswirkungen auf die Funktionalität aller UCC-Dienste haben. Werden UCC-Komponenten verändert oder vermehrt benutzt, z. B. durch eine erhöhte Anzahl von Benutzenden, kann eine ursprünglich geeignete Planung unzureichend werden.</emphasis></para>
+<para><emphasis role="color:#000000">Je nach Bereitstellungsart und benutzten Diensten können sich die Anforderungen der UCC-Komponenten an die Netze stark unterscheiden. Eine auf Sprachkommunikation fokussierte UCC-Komponente im eigenen Netz kann beispielsweise andere Anforderungen an Internet- und WAN-Verbindungen stellen als ein Cloud-Dienst, der auch mobil benutzt werden soll. Werden die Netze nicht so geplant, dass sie UCC-Dienste berücksichtigen, sind die UCC-Dienste nicht ausreichend benutzbar.</emphasis></para>
+<para><emphasis role="color:#000000">Entsprechende Gefährdungen gibt es auch für die zu berücksichtigenden Endgeräte. Besonders die Videokommunikation und die zugehörigen Funktionen stellen zum Teil sehr hohe Anforderungen an die Clients. Insbesondere bei Thin Clients kann dies zu Problemen führen, da UCC-Dienste häufig ganz oder teilweise auf dem Endgerät ausgeführt werden, um Kommunikationsdatenströme zu optimieren. Clients mit unzureichender Rechenleistung können beispielsweise Aussetzer oder Artefakte bei der Videokommunikation bedingen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2031">
+<title>Fehlerhafte Konfiguration von UCC</title>
+<para><emphasis role="color:#000000">Eine große Zahl von Funktionen und Diensten bedeutet oft auch eine Vielzahl von Konfigurationsmöglichkeiten. Dabei können Fehlkonfigurationen auftreten.</emphasis></para>
+<para><emphasis role="color:#000000">Benutzende können oder müssen ihre UCC-Clients teilweise selbst konfigurieren. Dies kann Benutzende aufgrund der Vielzahl von Konfigurationsmöglichkeiten überfordern und fehlerhafte Konfigurationen verursachen. Wenn beispielsweise im Büro und im Homeoffice verschiedene Headsets verwendet werden, muss die Konfiguration gegebenenfalls angepasst werden. Fehlkonfigurationen können dazu führen, dass Benutzende in Besprechungen nicht hör- oder sichtbar sind oder selbst keinen Ton hören. Darüber hinaus können ungewollt Informationen preisgegeben werden, wenn Raumsysteme so konfiguriert sind, dass eingehende Kommunikationsanfragen automatisch angenommen werden.</emphasis></para>
+<para><emphasis role="color:#000000">Ebenso können durch ein unzureichendes Identitäts- und Berechtigungskonzept Fehler auftreten, wenn UCC-Dienste konfiguriert werden. Administrierende, die im Rahmen der Einrichtung von neuen Konten ebenfalls zentrale Routing-Einstellungen ändern, können hierdurch eine gravierende Fehlkonfiguration verursachen. Diese kann dazu führen, dass Daten verloren gehen, oder der UCC-Dienst ausfällt.</emphasis></para>
+<para><emphasis role="color:#000000">Zu den Fehlkonfigurationen durch ein unzureichendes Identitäts- und Berechtigungskonzept gehören auch unzureichend eingeschränkte Berechtigungen von externen Teilnehmenden. Können diese beispielsweise unberechtigt auf Inhalte von Konversationen zugreifen, so können Informationen abfließen oder manipuliert werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2032">
+<title>Unbefugte oder missbräuchliche Benutzung der Administrationsrechte eines UCC-Dienstes</title>
+<para><emphasis role="color:#000000">Durch die zugewiesenen Administrationsrechte können Administrierende die UCC-Dienste gegebenenfalls tiefgreifend ändern. Werden Administrationsrechte unbefugt oder missbräuchlich benutzt, kann dies weitreichende Folgen haben. Beispielsweise können Administrationsrechte dazu benutzt werden, um einen privaten Bereich, wie einen Chat oder eine Dateiablage, der ursprünglich nur für einen begrenzten Personenkreis zugänglich war, für alle Benutzenden des UCC-Dienstes freizugeben. Hierdurch können schützenswerte Informationen durch unbefugte Personen eingesehen und gegebenenfalls verändert werden.</emphasis></para>
+<para><emphasis role="color:#000000">Weiterhin können durch vorsätzlich veränderte Routing-Konfigurationen die UCC-Dienste nicht oder nur eingeschränkt zur Verfügung stehen. Falls beispielsweise sämtliche ausgehende Anrufe durch zentrale IT-Systeme blockiert werden, kann der Dienst Telefonie nicht mehr benutzt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2033">
+<title>Preisgabe von schützenswerten Informationen</title>
+<para><emphasis role="color:#000000">Moderne UCC-Clients verfügen über eine Vielfalt an Funktionen und sind daher für viele Benutzende unübersichtlich. Dies begünstigt Fehlbedienungen, die dazu führen können, dass Informationen nicht regelkonform weitergegeben werden. Wird versehentlich ein falscher Kontakt ausgewählt, erhält dieser gegebenenfalls per Chat ungewollt schützenswerte Informationen. Ein weiteres Szenario ist, ungewollt Informationen bei einer Bildschirmfreigabe preiszugeben, wenn beispielsweise versehentlich der E-Mail-Client statt der vorgesehenen Präsentation freigegeben wird.</emphasis></para>
+<para><emphasis role="color:#000000">Vielen Benutzenden ist nicht bewusst, dass die UCC-Dienste Daten, die beispielsweise innerhalb von privaten Chats gesendet werden, in einer Cloud abspeichern. So können unbewusst Ablagerichtlinien der Institution verletzt werden. Gleiches gilt für Dateien, in denen Konversationen aufgezeichnet wurden.</emphasis></para>
+<para><emphasis role="color:#000000">Teambereiche verfügen zwar in der Regel über einen definierten Kreis von Benutzenden und entsprechende Zugriffsbeschränkungen, jedoch ist vielen Benutzenden nicht bewusst, dass die Zugriffsrechte und Mitgliedschaften nachträglich modifiziert werden können. Dadurch können weitere Personen auf alle zuvor dort abgelegten Dateien zugreifen. Darüber hinaus werden häufig öffentliche Teambereiche erstellt, denen weitere Personen ohne explizite Erlaubnis beitreten können. Dadurch können gegebenenfalls Daten von unberechtigten Personen eingesehen werden. Beispielsweise kann ein Teambereich eines Projekts ausschließlich aus internen Benutzenden bestehen. Teilnehmende laden nun interne Dokumente hoch, da alle Teammitglieder intern sind. Wenn im weiteren Projektverlauf externe Personen in den Bereich eingeladen werden, können sie auf alle bisherigen Dokumente zugreifen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2034">
+<title>Preisgabe von personenbezogenen Informationen</title>
+<para><emphasis role="color:#000000">UCC-Dienste erheben an vielen Stellen Daten, die auch anderen Benutzenden angezeigt werden. Dies kann dazu führen, dass personenbezogene Informationen ungewollt preisgegeben werden.</emphasis></para>
+<para><emphasis role="color:#000000">Unter anderem kann die Verfügbarkeit von Benutzenden sichtbar sein. Auch Zeitstempel an Beiträgen in Chats bis hin zu umfangreichen Auswertungen über Gespräche, Aktivitäten oder Inhalte für einzelne Benutzende können Teil einer UCC-Komponente sein. Dabei können sogar Personenprofile durch die UCC-Dienste gebildet werden. Auch Personen ohne erweiterte Berechtigungen erhalten häufig Zugriff auf diese Auswertungen. Dadurch können sie Rückschlüsse auf Arbeitszeiten und -inhalte sowie persönliche Beziehungen anderer Personen ziehen und diese beispielsweise zur Leistungsüberwachung verwenden.</emphasis></para>
+<para><emphasis role="color:#000000">Werden bei mobilem Arbeiten virtuelle Konferenzen benutzt, können ungewollt private Informationen an die Teilnehmenden der Konferenz übermittelt werden. Dazu zählen beispielsweise Personen, die durch das Videobild laufen, persönliche Gegenstände im Hintergrund einer Videoübertragung oder Geräusche und Stimmen aus dem privaten Umfeld.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2035">
+<title>Wechselwirkungen bei UCC-Diensten</title>
+<para><emphasis role="color:#000000">UCC-Dienste können untereinander Wechselwirkungen verursachen, welche die Funktionalität einschränken.</emphasis></para>
+<para><emphasis role="color:#000000">Um das Benutzungserlebnis zu verbessern, werden verschiedene Dienste häufig in einer Benutzungsoberfläche verknüpft. Dies kann jedoch zu Abhängigkeiten zwischen den Diensten führen. Wird beispielsweise der Videokonferenzdienst in eine Oberfläche zur Teamkollaboration integriert, kann der Videodienstes nicht mehr verwendet werden, falls die Oberfläche ausfällt.</emphasis></para>
+<para><emphasis role="color:#000000">UCC-Dienste benutzen häufig gemeinsame Ressourcen. Dies kann zu Konflikten führen, welche die Funktionalität beeinträchtigen. Werden Headsets beispielsweise von einer Telefonie- und einer Videokonferenzanwendung gleichzeitig verwendet, können die Headsets durch eine Anwendung blockiert werden und dann nicht mehr für die andere Anwendung zur Verfügung stehen.</emphasis></para>
+<para><emphasis role="color:#000000">Manche Anwendungen haben sehr hohe Ressourcenanforderungen. Wenn mehrere UCC-Dienste gleichzeitig auf einem IT-System ausgeführt werden, kann dies dazu führen, dass der Client überfordert ist und das IT-System ausfällt oder abstürzt. Wenn beispielsweise mehrere Videokonferenzanwendungen parallel im Hintergrund ausgeführt werden, kann die resultierende Auslastung des Arbeitsspeichers den Client stark beeinträchtigen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2036">
+<title>Zugriff auf Applikationen oder Ressourcen durch Freigabe der Steuerung</title>
+<para><emphasis role="color:#000000">Werden den Teilnehmenden innerhalb einer Konversation Desktop- oder Bildschirminhalte angezeigt, kann die Steuerung durch den Freigebenden an andere Benutzende übertragen werden. Dies kann jedoch dazu führen, dass der Freigebende die Kontrolle über weitere Handlungen verliert.</emphasis></para>
+<para><emphasis role="color:#000000">Da die Funktion zwar häufig vorhanden ist, in der Regel aber nur selten benutzt wird, sind viele Benutzende mit der Bedienung nicht vertraut, akzeptieren die Freigabe und verlieren dann die Kontrolle über ihren Client. Beispielsweise können Benutzende die Steuerung ihrer Maus freigeben, ohne zu wissen, wie die Freigabe beendet werden kann. Dadurch können Teilnehmende der Konversation möglicherweise auf weitere Anwendungen des Clients zugreifen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2037">
+<title>Vorspiegelung falscher Identitäten</title>
+<para><emphasis role="color:#000000">Dadurch, dass neue UCC-Dienste eingeführt werden und Externe neue Möglichkeiten erhalten, Kontakt aufzunehmen, ergeben sich neue Wege für Angreifende, die sich als vertrauenswürdige Kommunikationspartner und -partnerin ausgeben wollen, um so an vertrauliche Informationen zu gelangen.</emphasis></para>
+<para><emphasis role="color:#000000">Die Komplexität von UCC-Diensten erhöht die Wahrscheinlichkeit für Fehlbedienungen oder unbewusste Verletzungen von Sicherheitsrichtlinien durch die Benutzenden. Hyperlinks zu schädlichen Inhalten können beispielsweise geöffnet werden, weil die UCC-Dienste als interne Plattform mit erhöhter Vertrauenswürdigkeit wahrgenommen werden.</emphasis></para>
+<para><emphasis role="color:#000000">Häufig sind sich die Benutzenden nicht darüber bewusst, dass sie auch von unbekannten Externen kontaktiert werden können. Dadurch sind sie anfälliger für Social Engineering, beispielsweise über einen Chat oder eine Einladung zu einer Konversation.</emphasis></para>
+<para><emphasis role="color:#000000">Weiterhin können Angreifende ihre angezeigten Namen, ihre Stimme oder ihr Aussehen manipulieren. Dadurch kann sich zum Beispiel eine externe Person über die vermeintlich interne Kommunikationsplattform als vorgesetzte Person ausgeben, um so vertrauliche Informationen oder Dokumente direkt über den Chat zu erhalten.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2038">
+<title>Anforderungen</title>
+<para><emphasis role="color:#000000">Im Folgenden sind die spezifischen Anforderungen des Bausteins APP.5.4 <emphasis role="italics">Unified Communications und Collaboration (UCC)</emphasis> aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</emphasis></para>
+<para><emphasis role="color:#000000">Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</emphasis></para>
+<para><emphasis role="color:#000000">Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</emphasis></para>
+<section xml:id="scroll-bookmark-2039">
+<title>Basis-Anforderungen</title>
+<para><emphasis role="color:#000000">Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-2040">
+<title>APP.5.4.A1 Planung von UCC (B)</title>
+<para><emphasis role="color:#000000">Es MUSS umfassend und detailliert geplant werden, wie und für welchen Zweck UCC eingesetzt werden soll. Die Planung MUSS insbesondere die Wechselwirkungen der UCC-Dienste berücksichtigen und mindestens folgende Aspekte beinhalten:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Einsatzzwecke der vorgesehenen UCC-Dienste</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Funktionale Anforderungen an UCC als Gesamtheit und an die einzelnen UCC-Dienste</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Anforderungen zur Absicherung von UCC</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Festlegung zu Informationen und Daten, die über UCC übertragen werden dürfen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Analyse der Kommunikation und der Abhängigkeiten von UCC-Diensten untereinander</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Produkt- und Dienstauswahl ausgehend von den definierten Anforderungen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Aufstellen von organisatorischen Regelungen, um die UCC-Dienste zu benutzen</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Bei der Planung MUSS berücksichtigt werden, wie UCC in die IT-Infrastruktur der Institution integriert wird. Hierbei MUSS insbesondere betrachtet werden, ob und wie die Systeme der UCC-Dienste innerhalb des Netzes separiert werden sollen und welche Schnittstellen zu weiteren benutzten Anwendungen notwendig sind.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2041">
+<title>APP.5.4.A2 Berücksichtigung von UCC in der Netzplanung (B)</title>
+<para><emphasis role="color:#000000">Bevor UCC-Dienste eingeführt werden, MUSS geprüft werden, ob das Netz die UCC-spezifischen Leistungsparameter erfüllt. Falls die Leistungsparameter nicht erfüllt werden, MUSS festgelegt werden, wie hiermit umgegangen wird.</emphasis></para>
+<para><emphasis role="color:#000000">Sollen UCC-Dienste benutzt werden, SOLLTEN im Rahmen der allgemeinen Netzplanung insbesondere folgende Aspekte berücksichtigt werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Erfüllung der UCC-spezifischen Leistungsparameter wie Paketverlust, Jitter und Latenz</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Netzkapazitäten (Bandbreite) für die festgelegte Benutzung der UCC-Dienste wie Videokonferenzen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Berücksichtigung von Power over Ethernet (PoE) für stationäre Endgeräte</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Verfügbarkeit von WLAN für mobile Endgeräte</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Falls die UCC-Dienste erweitert werden, SOLLTEN diese Aspekte erneut geprüft werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2042">
+<title>APP.5.4.A3 Initiales und regelmäßiges Testen der UCC-Dienste (B)</title>
+<para><emphasis role="color:#000000">Für die UCC-Dienste MÜSSEN initial Tests durchgeführt werden, die verifizieren, dass die UCC-Komponenten untereinander und mit anderen UCC-Diensten interferenzfrei funktionieren. Ebenfalls MÜSSEN Tests mit ausgewählten Benutzenden durchgeführt werden, um insbesondere Wechselwirkungen mit anderen Anwendungen zu überprüfen.</emphasis></para>
+<para><emphasis role="color:#000000">Diese Tests SOLLTEN wiederholt werden, wenn die UCC-Dienste erweitert oder verändert werden.</emphasis></para>
+<para><emphasis role="color:#000000">Zusätzlich SOLLTE die Konfiguration der UCC-Dienste in regelmäßigen Abständen auf Plausibilität und Konformität für die festgelegten Einsatzzwecke überprüft werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2043">
+<title>APP.5.4.A4 Deaktivierung nicht benötigter Funktionen und Dienste (B)</title>
+<para><emphasis role="color:#000000">UCC-Dienste DÜRFEN NUR mit dem geringsten notwendigen Funktionsumfang betrieben werden. Die verfügbaren Funktionen und Dienste MÜSSEN entsprechend der definierten Einsatzzwecke ausgewählt werden. Dabei MÜSSEN gegebenenfalls auftretende Wechselwirkungen zwischen den verschiedenen Komponenten eines UCC-Dienstes berücksichtigt werden. Außerdem MÜSSEN insbesondere die folgenden Dienste und Funktionen auf Notwendigkeit geprüft und gegebenenfalls deaktiviert oder eingeschränkt werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Speicherung von personenbezogenen Daten durch die UCC-Komponenten</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Zugriff und Verarbeitung von personenbezogenen Daten durch Benutzende und den UCC-Dienst</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Benutzbarkeit von Funktionen wie Chat, Erreichbarkeitsstatus, Dateiablagen oder Team-Bereiche durch externe Teilnehmende</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Senden von Daten und Dateien an externe UCC-Dienste</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Konversationsbezogene Log-Daten DÜRFEN NUR in minimal notwendigem Umfang gespeichert werden. Funktionen und Dienste, die auf (dauerhaft) gespeicherte Log-Daten zugreifen, MÜSSEN auf ihre Notwendigkeit geprüft und gegebenenfalls deaktiviert werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2044">
+<title>APP.5.4.A5 Rollen- und Berechtigungskonzept für UCC (B)</title>
+<para><emphasis role="color:#000000">Das Rollen- und Berechtigungskonzept MUSS um UCC-spezifische Definitionen von Rollen und Berechtigungen ergänzt werden. Solche Definitionen MÜSSEN sowohl für alle internen Benutzenden als auch für die externen Benutzenden getroffen werden. Es MÜSSEN folgende Aspekte berücksichtigt werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Berechtigungen zur zielgerichteten Benutzung von UCC-Diensten gemäß festgelegter Einsatzzwecke</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Berechtigungen zur Anpassung der Konfiguration von Konversationen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Berechtigungen für spezielle Funktionen von UCC-Diensten wie Aufzeichnung von Konversationen und Zugriff auf Dateiablagen eines UCC-Dienstes</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Darüber hinaus MÜSSEN die Berechtigungen der Konten ebenfalls auf das notwendige Minimum reduziert werden. Dienste, die nur für einen Teil der Benutzenden zur Verfügung stehen, DÜRFEN NICHT für die restlichen Benutzenden zugänglich sein.</emphasis></para>
+<para><emphasis role="color:#000000">Zudem SOLLTEN nur Benutzende mit einer entsprechenden Berechtigung auf Daten wie Aufzeichnungen oder Dateiablagen zugreifen können.</emphasis></para>
+<para><emphasis role="color:#000000">Die Festlegungen MÜSSEN festgehalten, regelmäßig und anlassbezogen geprüft und aktualisiert werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2045">
+<title>APP.5.4.A6 Verschlüsselung von UCC-Daten (B)</title>
+<para><emphasis role="color:#000000">Sämtliche Kommunikation über unzureichend vertrauenswürdige Netze MUSS mit sicheren Verfahren verschlüsselt werden, sofern dies durch die jeweilige UCC-Komponente unterstützt wird. Falls eine Verschlüsselung für einzelne UCC-Komponenten oder einzelne Konversationen nicht möglich ist, MUSS die Festlegung, welche Informationen über diese UCC-Komponenten übertragen werden dürfen, geprüft und gegebenenfalls angepasst werden.</emphasis></para>
+<para><emphasis role="color:#000000">Insbesondere MUSS bei anwendungsübergreifender Kommunikation festgelegt werden, für welche Konversationen die Medienströme und die Signalisierung und welche weiteren Daten wie Chat oder Dateitransfer verschlüsselt übertragen werden müssen.</emphasis></para>
+<para><emphasis role="color:#000000">Dateiablagen, die persistente personenbezogene oder vertrauliche Daten enthalten, MÜSSEN mit Hilfe von sicheren Verschlüsselungsmechanismen abgesichert werden. Hierbei MÜSSEN sowohl interne Dateiablagen der UCC-Dienste als auch über Schnittstellen angebundene externe Dateiablagen berücksichtigt werden.</emphasis></para>
+<para><emphasis role="color:#000000">Die Benutzenden MÜSSEN zudem über den Status der Verschlüsselung innerhalb von Konversationen informiert werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2046">
+<title>APP.5.4.A7 Regelungen für eine sichere Benutzung der UCC-Dienste (B)</title>
+<para><emphasis role="color:#000000">Konversationen, die mit Hilfe von UCC durchgeführt werden, MÜSSEN abgesichert werden. Hierbei MÜSSEN folgende Aspekte berücksichtigt werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Auswahl der Teilnehmenden entsprechend dem Inhalt der Konversation</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">zusätzliche Absicherung von geplanten Konversationen über Mechanismen wie PIN oder ein Passwort</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Zuweisung von Moderationsrechten an ausgewählte Benutzende der einladenden Institution</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Regelungen zum Umgang mit Aufzeichnungen von Konversationen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Regelungen für Endgeräte, die von mehreren Benutzenden verwendet werden</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Die Benutzenden MÜSSEN über Funktionen informiert werden, über die Konversationen abgesichert werden können. Ebenso MÜSSEN die Benutzenden dafür sensibilisiert werden, wie die UCC-Dienste sicher benutzt werden, insbesondere für externe Chats oder Videokonferenzen.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2047">
+<title>Standard-Anforderungen</title>
+<para><emphasis role="color:#000000">Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-2048">
+<title>APP.5.4.A8 Einsatz eines Session Border Controller am Provider-Übergang (S)</title>
+<para><emphasis role="color:#000000">Für die UCC-Kommunikation über eingeschränkt vertrauenswürdige Netze SOLLTE mindestens für Sprachdienste ein Session Border Controller (SBC) am Netzübergang bzw. beim Übergang zum SIP-Provider eingesetzt werden. Der SBC SOLLTE als Verschlüsselungsendpunkt die Signalisierung und die Medienströme terminieren. Der SBC SOLLTE für die Signalisierung und die Medienströme Filterfunktionen unterstützen, die die jeweiligen Konversationen zusätzlich absichern.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2049">
+<title>APP.5.4.A9 Sichere Konfiguration von UCC (S)</title>
+<para><emphasis role="color:#000000">Um UCC sicher zu konfigurieren, SOLLTEN mindestens die folgenden Aspekte berücksichtigt werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Verschlüsselung von Signalisierungs- und Mediendaten auch auf vertrauenswürdigen Übertragungsstrecken</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Absicherung von gespeicherten Daten, insbesondere Festlegung für Zugriffsberechtigung auf Aufzeichnungen von Konversationen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Einschränkung der zur Verfügung stehenden Dienste auf ausschließlich interne Benutzende</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Einschränkung der Übertragung von Erreichbarkeitsinformationen</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Gespeicherte Daten SOLLTEN verschlüsselt werden. Auf gespeicherte Daten SOLLTEN Benutzende nur nach vorheriger Authentisierung zugreifen können.</emphasis></para>
+<para><emphasis role="color:#000000">Der IT-Betrieb SOLLTE sichere Einstellungen vorgeben, die verwendet werden, wenn Konversationen erstellt werden. Für textbasierte Konversationen SOLLTE ein Malware-Schutz aktiviert werden.</emphasis></para>
+<para><emphasis role="color:#000000">Die Umsetzung SOLLTE festgehalten, regelmäßig und anlassbezogen auf Einhaltung der Vorgaben geprüft und angepasst werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2050">
+<title>APP.5.4.A10 Absicherung und Einschränkung von Auswertungen von Inhalten (S)</title>
+<para>Die Art einer (automatischen) Auswertung von Konversationsinhalten SOLLTE schon im Vorfeld sorgfältig geprüft werden und ihr Nutzen gegen den Schutzbedarf abgewogen werden. Es SOLLTE die Möglichkeit bestehen, entsprechende Funktionen entweder vollständig oder pro Konversation zu deaktivieren und eine inhaltliche Auswertung der Kommunikation zu verhindern. Besondere Beachtung SOLLTEN KI-Funktionen und die Übertragung von Daten an Onlinedienste erhalten.</para>
+<para>Werden Inhalte über den Zweck der Konversation hinausgehend ausgewertet, MUSS dazu auch eine Zustimmung der an der Konversation teilnehmenden Personen eingeholt werden.</para>
+<para>Werden während der Auswertung von Konversationen persistente Daten erzeugt, SOLLTEN für diese geeignete Schutzmaßnahmen umgesetzt werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2051">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para><emphasis role="color:#000000">Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</emphasis></para>
+<section xml:id="scroll-bookmark-2052">
+<title>APP.5.4.A11 Sicherstellung der Verfügbarkeit von Kommunikationsdiensten (H)</title>
+<para><emphasis role="color:#000000">Die Verfügbarkeit von UCC-Diensten SOLLTE insbesondere durch folgende technische Maßnahmen sichergestellt werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">redundante Auslegung zentraler Server und Dienste</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Benutzung von Call Admission Control (CAC) zur Qualitätssicherung von Telefonie und Video-Diensten</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">möglichst autark funktionierende UCC-Dienste</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Darüber hinaus SOLLTE bei Cloud-basierten UCC-Diensten der Cloud-Provider sowie der Internet-Provider ausfallsicher an das eigene Netz angebunden werden.</emphasis></para>
+<para><emphasis role="color:#000000">Zudem SOLLTE ein SIP-Provider, der Rufnummern bereitstellt und den Übergang ins öffentliche Telefonnetz bildet, hochverfügbar an das eigene Netz angebunden werden.</emphasis></para>
+<para><emphasis role="color:#000000">Die Verfügbarkeit SOLLTE durch ein Monitoring der UCC-Dienste überwacht werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2053">
+<title>APP.5.4.A12 Einbindung von UCC in die Notfallplanung (H)</title>
+<para><emphasis role="color:#000000">Ausgehend von einer Business Impact Analyse SOLLTE geprüft werden, welche UCC-Dienste in der Notfallplanung berücksichtigt werden sollen. Hierbei SOLLTEN in Notfallsituationen für einzelne UCC-Dienste alternative Anwendungen bereitgestellt werden. Insbesondere SOLLTE für die Benutzenden die Erreichbarkeit von wichtigen Diensten wie der Notruf gewährleistet werden.</emphasis></para>
+<para><emphasis role="color:#000000">Zudem SOLLTE ein Notfallplan für die UCC-Dienste erstellt werden, in dem notwendige Konfigurationen sowie Routing-Anpassungen, die über den Telefonie-Provider realisiert werden, behandelt werden.</emphasis></para>
+<para><emphasis role="color:#000000">Ebenso SOLLTE der Wiederanlauf der UCC-Komponenten und -Dienste unter Berücksichtigung der Wechselwirkungen innerhalb der UCC-Dienste festgelegt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2054">
+<title>APP.5.4.A13 Sichere Administration von SIP-Trunks (H)</title>
+<para><emphasis role="color:#000000">Wenn SIP-Trunks administriert werden, SOLLTE für folgende Tätigkeiten ein 4-Augen-Prinzip angewendet werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Änderungen an Routing-Konfigurationen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Änderungen an Parametern, die im Rahmen von Call Admission Control benutzt werden</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Änderungen hinsichtlich der Verschlüsselung sowohl in Richtung des eigenen Netzes als auch in Richtung des Provider-Netzes</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Änderungen an weiteren sicherheitsrelevanten Konfigurationen wie der lokalen Speicherung von Verbindungsdaten</emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-2055">
+<title>APP.5.4.A14 Ende-zu-Ende-Verschlüsselung (H)</title>
+<para><emphasis role="color:#000000">Für UCC-Kommunikation SOLLTE eine sichere Ende-zu-Ende-Verschlüsselung benutzt werden. Die Ende-zu-Ende-Verschlüsselung SOLLTE sich sowohl auf die Signalisierung als auch auf die Mediendaten von Audio- und Videokommunikation mit zwei oder mehr Teilnehmenden erstrecken.</emphasis></para>
+<para><emphasis role="color:#000000">Bei Konversationen zwischen UCC-Diensten von verschiedenen Herstellenden SOLLTEN die übertragenen Informationen eingeschränkt werden, sofern eine Ende-zu-Ende-Verschlüsselung nach Stand der Technik nicht möglich ist.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2056">
+<title>APP.5.4.A15 Einschränkung von KI-Funktionen (H)</title>
+<para><emphasis role="color:#000000">Die Benutzung von KI-Funktionen SOLLTE deaktiviert oder auf ein Minimum reduziert werden. Ist eine permanente Deaktivierung nicht möglich oder erwünscht, SOLLTE festgelegt werden, dass Benutzende der UCC-Dienste zu Beginn einer Konversation zielgerichtet KI-Funktionen deaktivieren, falls dies möglich ist.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2057">
+<title>APP.5.4.A16 Einsatz eines SBC an weiteren Netzübergängen (H)</title>
+<para><emphasis role="color:#000000">Ergänzend zu einem SBC am Netzübergang zum Provider, SOLLTEN weitere SBC an internen Netzübergängen eingesetzt werden. Hierbei SOLLTEN insbesondere Netzübergänge zwischen Netzsegmenten mit unterschiedlichem Schutzbedarf berücksichtigt werden.</emphasis></para>
+<para><emphasis role="color:#000000">Der SBC SOLLTE sicherstellen, dass die Verschlüsselungsmechanismen an den SBC-gesicherten Netzsegmentübergängen anforderungskonform realisiert werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2058">
+<title>APP.5.4.A17 Einschränkung der Benutzung von UCC-Diensten (H)</title>
+<para><emphasis role="color:#000000">Folgende Aspekte SOLLTEN mindestens berücksichtigt werden, um die UCC-Dienste sowie die übertragenen Daten zusätzlich abzusichern:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Einschränkung der Dienste entsprechend des Schutzbedarfs der übertragenen Informationen</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Benutzung einer Multi-Faktor-Authentisierung für Benutzende</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Deaktivierung von Funktionen für externe Benutzende</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Deaktivierung der Speicherung von Metadaten</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Einschränkung der Sichtbarkeit von kommunikationsbezogenen Daten für Administrierende</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Darüber hinaus SOLLTEN zusätzliche technische und organisatorische Vorkehrungen getroffen werden, um Konversationen über die Vergabe von PINs bzw. Passwörtern hinaus abzusichern.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-2059">
+<title>APP.5.4.A18 Einbindung von UCC in ein Sicherheitsmonitoring (H)</title>
+<para><emphasis role="color:#000000">Die zentralen UCC-Komponenten SOLLTEN durch ein Sicherheitsmonitoring überwacht werden. Dies SOLLTE mindestens für Komponenten umgesetzt werden, die wie Multipoint Control Units Verschlüsselungsendpunkte realisieren oder die wie SBCs an Vertrauensgrenzen positioniert sind.</emphasis></para>
+<para><emphasis role="color:#000000">Wird für die IT der Institution ein System zur zentralen Detektion und automatisierten Echtzeitüberprüfung von Ereignismeldungen eingesetzt, SOLLTEN die zentralen UCC-Komponenten hierin eingebunden werden.</emphasis></para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2060">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-2061">
+<title>Wissenswertes</title>
+<para><emphasis role="color:#000000">Für die Auswahl von Verschlüsselungsverfahren und Schlüssellängen sollte die technische Richtlinie „BSI-TR-02102: Kryptographische Verfahren: Empfehlungen und Schlüssellängen“ des BSI beachtet werden.</emphasis></para>
+<para><?linebreak?>
+</para>
+<para><?linebreak?>
+</para>
+<para><?linebreak?>
+</para>
+</section>
+</section>

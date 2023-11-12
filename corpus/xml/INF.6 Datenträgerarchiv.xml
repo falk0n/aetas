@@ -1,0 +1,100 @@
+<title>INF.6 Datenträgerarchiv</title>
+<section xml:id="scroll-bookmark-3933">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-3934">
+<title>Einleitung</title>
+<para><emphasis role="color:#000000">Datenträgerarchive sind abgeschlossene Räumlichkeiten innerhalb einer Institution, in denen Datenträger jeder Art gelagert werden. Dazu gehören neben Datenträgern, auf denen digitale Informationen abgespeichert sind, auch Papierdokumente, Filme oder sonstige Medien.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3935">
+<title>Zielsetzung</title>
+<para><emphasis role="color:#000000">In diesem Baustein werden die typischen Gefährdungen und Anforderungen bezüglich der Informationssicherheit für ein Datenträgerarchiv beschrieben. Ziel ist der Schutz der Informationen, die sich auf den dort archivierten Datenträgern und weiteren Medien befinden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3936">
+<title>Abgrenzung und Modellierung</title>
+<para><emphasis role="color:#000000">Der Baustein INF.6 <emphasis role="italics">Datenträgerarchiv</emphasis> ist für alle Räume anzuwenden, die als Archiv von Datenträgern genutzt werden.</emphasis></para>
+<para><emphasis role="color:#000000">Dieser Baustein betrachtet technische und nichttechnische Sicherheitsanforderungen für Datenträgerarchive. Empfehlungen zur korrekten Archivierung werden in diesem Baustein nicht behandelt. Hinweise dazu finden sich im Baustein OPS.1.2.2 <emphasis role="italics">Archivierung</emphasis>.</emphasis></para>
+<para><emphasis role="color:#000000">Im Rahmen des IT-Grundschutzes werden an die Archivräume hinsichtlich des Brandschutzes keine erhöhten Anforderungen gestellt. Zusätzliche Anforderungen an den Brandschutz können aber durch die Behältnisse erfüllt werden, in denen die Datenträger aufbewahrt werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3937">
+<title>Gefährdungslage</title>
+<para><emphasis role="color:#000000">Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein INF.6 <emphasis role="italics">Datenträgerarchiv</emphasis> von besonderer Bedeutung.<?linebreak?>
+</emphasis></para>
+<section xml:id="scroll-bookmark-3938">
+<title>Unzulässige Temperatur und Luftfeuchtigkeit</title>
+<para><emphasis role="color:#000000">Bei der Lagerung von digitalen Langzeitspeichermedien können Temperaturschwankungen oder zu hohe Luftfeuchtigkeit zu Datenfehlern und reduzierter Speicherdauer führen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3939">
+<title>Fehlende oder unzureichende Regelungen</title>
+<para><emphasis role="color:#000000">Wenn Mitarbeitende die Fenster und Türen nach Verlassen des Datenträgerarchivs nicht schließen oder verschließen, können Datenträger oder andere Informationen entwendet werden. Sensible Informationen könnten dann von unberechtigten Personen eingesehen oder weitergegeben werden. Wenn Mitarbeitenden die entsprechenden Regelungen nicht hinreichend bekannt sind, können Sicherheitslücken auftreten. Regelungen lediglich festzulegen ist nicht ausreichend. Sie müssen beachtet werden, damit der Betrieb störungsfrei ist. Viele Probleme entstehen, wenn Regelungen zwar vorhanden, aber nicht bekannt sind.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3940">
+<title>Unbefugter Zutritt zu schutzbedürftigen Räumen</title>
+<para><emphasis role="color:#000000">Fehlen Zutrittskontrollen oder sind diese unzureichend, können unberechtigte Personen ein Datenträgerarchiv betreten und schützenswerte Informationen einsehen, entwenden oder manipulieren. Dadurch kann die Verfügbarkeit, Vertraulichkeit und Integrität der archivierten Informationen beeinträchtigt werden. Selbst wenn keine unmittelbaren Schäden zu erkennen sind, kann der Betriebsablauf gestört werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3941">
+<title>Diebstahl</title>
+<para><emphasis role="color:#000000">Da viele Datenträger sehr handlich sind, ist es umso leichter, sie unbemerkt in eine Tasche oder unter die Kleidung zu stecken und mitzunehmen. Gibt es keine Kopien von den Informationen, sind die auf den gestohlenen Datenträgern abgespeicherten Informationen verloren. Darüber hinaus könnten die Personen, die Datenträger entwendet haben, vertrauliche Informationen einsehen und offenlegen. Dadurch können weitere Schäden entstehen. Diese wiegen in den meisten Fällen deutlich schwerer als die Kosten von ersatzweise angeschafften Datenträgern.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3942">
+<title>Anforderungen</title>
+<para><emphasis role="color:#000000">Im Folgenden sind die spezifischen Anforderungen des Bausteins INF.6 <emphasis role="italics">Datenträgerarchiv</emphasis><emphasis role="italics"> </emphasis>aufgeführt. </emphasis><emphasis role="color:#000000">Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</emphasis></para>
+<para><emphasis role="color:#000000">Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</emphasis></para>
+<para><emphasis role="color:#000000">Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</emphasis></para>
+<section xml:id="scroll-bookmark-3943">
+<title>Basis-Anforderungen</title>
+<para><emphasis role="color:#000000">Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-3944">
+<title>INF.6.A1 Handfeuerlöscher (B) [Brandschutzbeauftragte]</title>
+<para><emphasis role="color:#000000">Im Brandfall MÜSSEN im Datenträgerarchiv geeignete Handfeuerlöscher leicht erreichbar sein. Diese Handfeuerlöscher MÜSSEN regelmäßig inspiziert und gewartet werden. Mitarbeitende, die in der Nähe eines Datenträgerarchivs tätig sind, MÜSSEN in die Benutzung der Handfeuerlöscher eingewiesen werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3945">
+<title>INF.6.A2 Zutrittsregelung und -kontrolle (B) [Haustechnik]</title>
+<para><emphasis role="color:#000000">Der Zutritt zum Datenträgerarchiv DARF NUR für befugte Personen möglich sein. Der Zutritt MUSS auf ein Mindestmaß an Mitarbeitenden reduziert sein. Daher MUSS der Zutritt geregelt und kontrolliert werden. Für die Zutrittskontrolle MUSS ein Konzept entwickelt werden. Die darin festgelegten Maßnahmen für die Zutrittskontrolle SOLLTEN regelmäßig daraufhin überprüft werden, ob sie noch wirksam sind. Um es zu erschweren bzw. zu verhindern, dass eine Zutrittskontrolle umgangen wird, MUSS der komplette Raum einen dem Schutzbedarf genügenden mechanischen Widerstand aufweisen, der keinesfalls unter RC2 (gemäß DIN EN 1627) liegen darf.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3946">
+<title>INF.6.A3 Schutz vor Staub und anderer Verschmutzung (B)</title>
+<para><emphasis role="color:#000000">Es MUSS sichergestellt werden, dass die Datenträger im Datenträgerarchiv ausreichend vor Staub und Verschmutzung geschützt sind. Die Anforderungen dafür MÜSSEN bereits in der Planungsphase analysiert werden. Es MUSS in Datenträgerarchiven ein striktes Rauchverbot eingehalten werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3947">
+<title>INF.6.A4 Geschlossene Fenster und abgeschlossene Türen (B) [Mitarbeitende]</title>
+<para><emphasis role="color:#000000">In einem Datenträgerarchiv SOLLTEN, wenn möglich, keine Fenster vorhanden sein. Gibt es dennoch Fenster, MÜSSEN diese beim Verlassen des Datenträgerarchivs geschlossen werden. Ebenso MUSS beim Verlassen die Tür verschlossen werden. Auch Brand- und Rauchschutztüren MÜSSEN geschlossen werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3948">
+<title>Standard-Anforderungen</title>
+<para><emphasis role="color:#000000">Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-3949">
+<title>INF.6.A5 Verwendung von Schutzschränken (S) [Mitarbeitende]</title>
+<para><emphasis role="color:#000000">Die Datenträger und Medien in Datenträgerarchiven SOLLTEN in geeigneten Schutzschränken gelagert werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3950">
+<title>INF.6.A6 Vermeidung von wasserführenden Leitungen (S) [Haustechnik]</title>
+<para><emphasis role="color:#000000">In Datenträgerarchiven SOLLTEN unnötige wasserführende Leitungen generell vermieden werden. Sind dennoch Wasserleitungen durch das Datenträgerarchiv hinweg verlegt, SOLLTEN diese regelmäßig daraufhin überprüft werden, ob sie noch dicht sind. Zudem SOLLTEN Vorkehrungen getroffen werden, um frühzeitig erkennen zu können, ob dort Wasser austritt. Für ein Datenträgerarchiv mit Hochverfügbarkeitsanforderungen SOLLTE es Reaktionspläne geben, die genau vorgeben, wer im Fall eines Lecks informiert werden muss und wie grundsätzlich vorzugehen ist.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3951">
+<title>INF.6.A7 Einhaltung von klimatischen Bedingungen (S) [Haustechnik]</title>
+<para><emphasis role="color:#000000">Es SOLLTE sichergestellt werden, dass die zulässigen Höchst- und Tiefstwerte für Temperatur und Luftfeuchtigkeit sowie der Schwebstoffanteil in der Raumluft im Datenträgerarchiv eingehalten werden. Die Werte von Lufttemperatur und -feuchte SOLLTEN mehrmals im Jahr für die Dauer von einer Woche aufgezeichnet und dokumentiert werden. Dabei festgestellte Abweichungen vom Sollwert SOLLTEN zeitnah behoben werden. Die eingesetzten Klimageräte SOLLTEN regelmäßig gewartet werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3952">
+<title>INF.6.A8 Sichere Türen und Fenster (S) [Planende]</title>
+<para><emphasis role="color:#000000">Sicherungsmaßnahmen wie Fenster, Türen und Wände SOLLTEN bezüglich Einbruch, Brand und Rauch gleichwertig und angemessen sein. Abhängig vom Schutzbedarf SOLLTE eine geeignete Widerstandsklasse gemäß der DIN EN 1627 erfüllt werden. Alle Sicherheitstüren und -fenster SOLLTEN regelmäßig daraufhin überprüft werden, ob sie noch entsprechend funktionieren. Der komplette Raum SOLLTE einen dem Schutzbedarf genügenden mechanischen Widerstand aufweisen, der keinesfalls unter RC3 (gemäß DIN EN 1627) liegt.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3953">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para><emphasis role="color:#000000">Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</emphasis></para>
+<section xml:id="scroll-bookmark-3954">
+<title>INF.6.A9 Gefahrenmeldeanlage (H) [Haustechnik]</title>
+<para><emphasis role="color:#000000">Es SOLLTE in Datenträgerarchiven eine angemessene Gefahrenmeldeanlage eingerichtet werden. Diese Gefahrenmeldeanlage SOLLTE regelmäßig geprüft und gewartet werden. Es SOLLTE sichergestellt sein, dass diejenigen Personen, die Gefahrenmeldungen empfangen in der Lage sind, auf Alarmmeldungen angemessen zu reagieren.</emphasis></para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3955">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-3956">
+<title>Wissenswertes</title>
+<para><emphasis role="color:#000000">Das Deutsche Institut für Normung macht in seiner Norm „DIN EN 1627:2021-11“ Vorgaben zur physischen Sicherheit von Gebäuden und Räumen.</emphasis></para>
+</section>
+</section>

@@ -1,0 +1,176 @@
+<title>INF.9 Mobiler Arbeitsplatz</title>
+<section xml:id="scroll-bookmark-4009">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-4010">
+<title>Einleitung</title>
+<para><emphasis role="color:#000000">Eine gute Netzabdeckung sowie leistungsfähige IT-Geräte, wie z. B. Laptops, Smartphones oder Tablets, ermöglichen es Mitarbeitenden, nahezu an jedem Platz bzw. von überall zu arbeiten. Das bedeutet, dass dienstliche Aufgaben häufig nicht mehr nur in den Räumen und Gebäuden der Institution erfüllt werden, sondern an wechselnden Arbeitsplätzen in unterschiedlichen Umgebungen, z. B. in Hotelzimmern, in Zügen oder bei der Kundschaft. Die dabei verarbeiteten Informationen müssen angemessen geschützt werden.</emphasis></para>
+<para><emphasis role="color:#000000">Das mobile Arbeiten verändert einerseits die Dauer, Lage und Verteilung der Arbeitszeiten. Andererseits erhöht es die Anforderungen an die Informationssicherheit, da in Umgebungen mit mobilen Arbeitsplätzen keine sichere IT-Infrastruktur vorausgesetzt werden kann, so wie sie in einer Büroumgebung anzutreffen ist.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4011">
+<title>Zielsetzung</title>
+<para><emphasis role="color:#000000">Der Baustein beschreibt Sicherheitsanforderungen an mobile Arbeitsplätze. Ziel ist es, für solche Arbeitsplätze eine mit einem Büroraum vergleichbare Sicherheitssituation zu schaffen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4012">
+<title>Abgrenzung und Modellierung</title>
+<para><emphasis role="color:#000000">Der Baustein INF.9 <emphasis role="italics">Mobiler Arbeitsplatz</emphasis> ist für alle Räume anzuwenden, die häufig als mobiler Arbeitsplatz genutzt werden.</emphasis></para>
+<para><emphasis role="color:#000000">Der Baustein enthält grundsätzliche Anforderungen, die zu beachten und zu erfüllen sind, wenn Mitarbeitende nicht nur innerhalb der Institution arbeiten, sondern auch häufiger an wechselnden Arbeitsplätzen außerhalb.</emphasis></para>
+<para><emphasis role="color:#000000">Der Baustein bildet vor allem die organisatorischen, technischen und personellen Anforderungen an die vollständige oder teilweise mobile Arbeit ab. Um IT-Systeme, Datenträger oder Unterlagen, die beim mobilen Arbeiten genutzt werden, abzusichern, müssen alle relevanten Bausteine wie z. B. SYS.3.1 <emphasis role="italics">Laptops</emphasis>, SYS.3.2 <emphasis role="italics">Allgemeine Smartphones und Tablets,</emphasis> SYS.4.5 <emphasis role="italics">Wechseldatenträger</emphasis>, NET.3.3 <emphasis role="italics">VPN </emphasis>sowie SYS.2.1 <emphasis role="italics">Allgemeiner Client </emphasis>gesondert berücksichtigt werden.</emphasis></para>
+<para><emphasis role="color:#000000">Sicherheitsanforderungen an Bildschirmarbeitsplätze außerhalb von Gebäuden der Institution, die von der Institution fest eingerichtet werden (Telearbeitsplätze), sind nicht Gegenstand des vorliegenden Bausteins. Diese werden im Baustein OPS.1.2.4 <emphasis role="italics">Telearbeit </emphasis>beschrieben. Ebenso wird nicht auf Sicherheitsanforderungen an die Infrastruktur des Telearbeitsplatzes eingegangen. Dieses Thema wird im Baustein INF.8 <emphasis role="italics">Häuslicher Arbeitsplatz</emphasis> behandelt.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4013">
+<title>Gefährdungslage</title>
+<para><emphasis role="color:#000000">Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein INF.9 <emphasis role="italics">Mobiler Arbeitsplatz</emphasis> von besonderer Bedeutung.<?linebreak?>
+</emphasis></para>
+<section xml:id="scroll-bookmark-4014">
+<title>Fehlende oder unzureichende Regelungen für mobile Arbeitsplätze</title>
+<para><emphasis role="color:#000000">Ist das mobile Arbeiten nicht oder nur unzureichend geregelt, können der Institution unter anderem finanzielle Schäden entstehen. Ist beispielsweise nicht geregelt, welche Informationen außerhalb der Institution transportiert und bearbeitet werden dürfen und welche Schutzvorkehrungen dabei zu beachten sind, können vertrauliche Informationen in fremde Hände gelangen. Diese können dann von unbefugten Personen möglicherweise gegen die Institution verwendet werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4015">
+<title>Beeinträchtigung durch wechselnde Einsatzumgebung</title>
+<para><emphasis role="color:#000000">Da mobile Datenträger und Endgeräte in sehr unterschiedlichen Umgebungen eingesetzt werden, sind sie vielen Gefährdungen ausgesetzt. Dazu gehören beispielsweise schädigende Umwelteinflüsse wie z. B. zu hohe oder zu niedrige Temperaturen, Staub oder Feuchtigkeit. Auch Transportschäden können auftreten.</emphasis></para>
+<para><emphasis role="color:#000000">Neben diesen Einflüssen ist auch die Einsatzumgebung mit ihrem unterschiedlichen Sicherheitsniveau zu berücksichtigten. Smartphones, Tablets, Laptops und ähnliche mobile Endgeräte sind nicht nur beweglich, sondern können auch mit anderen IT-Systemen kommunizieren. Dabei können beispielsweise Schadprogramme übertragen oder schützenswerte Informationen kopiert werden. Auch können eventuell Aufgaben nicht mehr erfüllt, Termine mit der Kundschaft nicht wahrgenommen oder IT-Systeme beschädigt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4016">
+<title>Manipulation oder Zerstörung von IT-Systemen, Zubehör, Informationen und Software am mobilen Arbeitsplatz</title>
+<para><emphasis role="color:#000000">IT-Systeme, Zubehör, Informationen und Software, die mobil genutzt werden, können unter Umständen einfacher manipuliert oder zerstört werden als in der Institution. Der mobile Arbeitsplatz ist oft für Dritte zugänglich. Auch sind hier die zentralen Schutzmaßnahmen der Institution nicht vorhanden, wie z. B. Pfortendienste. Werden IT-Systeme, Zubehör, Informationen oder Software manipuliert oder zerstört, sind die Mitarbeitenden am mobilen Arbeitsplatz oft nur noch eingeschränkt arbeitsfähig. Des Weiteren müssen womöglich zerstörte IT-Komponenten oder Softwarelösungen ersetzt werden, was sowohl finanzielle als auch zeitliche Ressourcen erfordert.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4017">
+<title>Verzögerungen durch temporär eingeschränkte Erreichbarkeit</title>
+<para><emphasis role="color:#000000">Meist haben die Mitarbeitenden am mobilen Arbeitsplatz keine festen Arbeitszeiten und sind unterwegs auch schwerer zu erreichen. Dadurch kann sich der Informationsfluss deutlich verzögern. Selbst wenn die Informationen per E-Mail übermittelt werden, verkürzt sich nicht zwingend die Reaktionszeit, da nicht sichergestellt werden kann, dass die mobil Mitarbeitenden die E-Mails zeitnah lesen. Die temporär eingeschränkte Erreichbarkeit wirkt sich dabei je nach Situation und Institution unterschiedlich aus, kann aber die Verfügbarkeit von Informationen stark einschränken.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4018">
+<title>Ungesicherter Akten- und Datenträgertransport</title>
+<para><emphasis role="color:#000000">Wenn Dokumente, Datenträger oder Akten zwischen der Institution und den mobilen Arbeitsplätzen transportiert werden, können diese Informationen und Daten verlorengehen oder auch von unbefugten Personen entwendet, gelesen oder manipuliert werden. Dadurch können der Institution größere finanzielle Schäden entstehen. Der Akten- und Datenträgertransport kann auf verschiedene Arten unzureichend gesichert sein:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Werden Unikate transportiert und fehlt eine entsprechende Datensicherung, können Ziele und Aufgaben nicht wie geplant erreicht werden, wenn das Unikat verloren geht.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Fallen unverschlüsselte Datenträger in falsche Hände, kann dies zu einem schwerwiegenden Verlust der Vertraulichkeit führen.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">Ist unterwegs kein ausreichender Zugriffsschutz vorhanden, können Akten oder Datenträger unbemerkt kopiert oder manipuliert werden.</emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-4019">
+<title>Ungeeignete Entsorgung der Datenträger und Dokumente</title>
+<para><emphasis role="color:#000000">Ist es am mobilen Arbeitsplatz nicht möglich, Datenträger und Dokumente in geeigneter Weise zu entsorgen, wandern diese meist in den Hausmüll. Auch dort, wo unterwegs gearbeitet wird, werfen Mitarbeitende Entwürfe und andere vermeintlich unnütze Dokumente häufig direkt in den nächsten Papierkorb. Oder sie lassen sie einfach liegen, sei es im Hotel oder in der Bahn. Wenn jedoch Datenträger oder Dokumente nicht geeignet entsorgt werden, können Dritte daraus wertvolle Informationen entnehmen, die sich gezielt für Erpressungsversuche oder zur Wirtschaftsspionage missbrauchen lassen. Die Folgen reichen vom Wissensverlust bis zur Existenzgefährdung der Institution, z. B. wenn dadurch wichtige Aufträge nicht zustande kommen oder Partnerschaften scheitern.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4020">
+<title>Vertraulichkeitsverlust schützenswerter Informationen</title>
+<para><emphasis role="color:#000000">Am mobilen Arbeitsplatz können Dritte einfacher auf vertrauliche Informationen zugreifen, die sich auf Festplatten, auf austauschbaren Speichermedien oder auf Papier befinden, besonders dann, wenn sie dabei professionell agieren. Auch können sie Kommunikationsverbindungen abhören. Werden Informationen unberechtigt gelesen oder preisgegeben, hat das jedoch schwerwiegende Folgen für die gesamte Institution. Unter anderem kann der Verlust der Vertraulichkeit dazu führen, dass die Institution gegen Gesetze verstößt oder dass Wettbewerbsnachteile und finanzielle Schäden entstehen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4021">
+<title>Diebstahl oder Verlust von Datenträgern oder Dokumenten</title>
+<para><emphasis role="color:#000000">Der mobile Arbeitsplatz ist nicht so gut abgesichert wie der Arbeitsplatz in einem Unternehmen oder in einer Behörde. Dienstliche IT-Systeme und Dokumente können daher z. B. während einer Bahnfahrt, aus einem Hotelzimmer oder aus externen Konferenzräumen leichter gestohlen werden.</emphasis></para>
+<para><emphasis role="color:#000000">Zudem können mobile IT-Systeme oder IT-Komponenten verloren gehen. Neben dem rein materiellen Schaden durch den unmittelbaren Verlust des mobilen IT-Systems kann zudem ein weiterer finanzieller Schaden entstehen, etwa wenn schützenswerte Daten wie z. B. E-Mails, Notizen von Besprechungen, Adressen oder sonstige Dokumente offengelegt werden. Auch könnte der Ruf der Institution geschädigt werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4022">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins INF.9 <emphasis role="italics">Mobiler Arbeitsplatz</emphasis> aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para>Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig</emphasis> sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</para>
+<section xml:id="scroll-bookmark-4023">
+<title>Basis-Anforderungen</title>
+<para><emphasis role="color:#000000">Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-4024">
+<title>INF.9.A1 Geeignete Auswahl und Nutzung eines mobilen Arbeitsplatzes (B) [IT-Betrieb] </title>
+<para><emphasis role="color:#000000">Die Institution MUSS ihren Mitarbeitenden vorschreiben, wie mobile Arbeitsplätze in geeigneter Weise ausgewählt und benutzt werden sollen. Es MÜSSEN Eigenschaften definiert werden, die für einen mobilen Arbeitsplatz wünschenswert sind. Es MÜSSEN aber auch Ausschlusskriterien definiert werden, die gegen einen mobilen Arbeitsplatz sprechen. Mindestens MUSS geregelt werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">unter welchen Arbeitsplatzbedingungen schützenswerte Informationen bearbeitet werden dürfen,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">wie sich Mitarbeitende am mobilen Arbeitsplatz vor ungewollter Einsichtnahme Dritter schützen,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">ob eine permanente Netz- und Stromversorgung gegeben sein muss sowie</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">welche Arbeitsplatzumgebungen komplett verboten sind.</emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-4025">
+<title>INF.9.A2 Regelungen für mobile Arbeitsplätze (B) [Personalabteilung] </title>
+<para><emphasis role="color:#000000">Für alle Arbeiten unterwegs MUSS geregelt werden, welche Informationen außerhalb der Institution transportiert und bearbeitet werden dürfen. Es MUSS zudem geregelt werden, welche Schutzvorkehrungen dabei zu treffen sind. Dabei MUSS auch geklärt werden, unter welchen Rahmenbedingungen Mitarbeitende mit mobilen IT-Systemen auf interne Informationen ihrer Institution zugreifen dürfen.</emphasis></para>
+<para><emphasis role="color:#000000">Die Mitnahme von IT-Komponenten und Datenträgern MUSS klar geregelt werden. So MUSS festgelegt werden, welche IT-Systeme und Datenträger mitgenommen werden dürfen, wer diese mitnehmen darf und welche grundlegenden Sicherheitsanforderungen dabei beachtet werden müssen. Es MUSS zudem protokolliert werden, wann und von wem welche mobilen Endgeräte außer Haus eingesetzt wurden.</emphasis></para>
+<para><emphasis role="color:#000000">Die Benutzenden von mobilen Endgeräten MÜSSEN für den Wert mobiler IT-Systeme und den Wert der darauf gespeicherten Informationen sensibilisiert werden. Sie MÜSSEN über die spezifischen Gefährdungen und Maßnahmen der von ihnen benutzten IT-Systeme aufgeklärt werden. Außerdem MÜSSEN sie darüber informiert werden, welche Art von Informationen auf mobilen IT-Systemen verarbeitet werden darf. Alle Benutzenden MÜSSEN auf die geltenden Regelungen hingewiesen werden, die von ihnen einzuhalten sind. Sie MÜSSEN entsprechend geschult werden</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4026">
+<title>INF.9.A3 Zutritts- und Zugriffsschutz (B) [Zentrale Verwaltung, Mitarbeitende] </title>
+<para><emphasis role="color:#000000">Den Mitarbeitenden MUSS bekannt gegeben werden, welche Regelungen und Maßnahmen zum Einbruch- und Zutrittsschutz am mobilen Arbeitsplatz zu beachten sind. Wenn der mobile Arbeitsplatz nicht besetzt ist, MÜSSEN Fenster und Türen abgeschlossen werden. Ist dies nicht möglich, z. B. im Zug, MÜSSEN die Mitarbeitenden alle Unterlagen und IT-Systeme an sicherer Stelle verwahren oder mitführen, wenn sie abwesend sind. Es MUSS sichergestellt werden, dass unbefugte Personen zu keiner Zeit auf dienstliche IT und Unterlagen zugreifen können. Wird der Arbeitsplatz nur kurz verlassen, MÜSSEN die eingesetzten IT-Systeme gesperrt werden, sodass sie nur nach erfolgreicher Authentisierung wieder benutzt werden können.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4027">
+<title>INF.9.A4 Arbeiten mit fremden IT-Systemen (B) [IT-Betrieb, Mitarbeitende] </title>
+<para><emphasis role="color:#000000">Die Institution MUSS regeln, wie Mitarbeitende mit institutionsfremden IT-Systemen arbeiten dürfen. Alle mobilen Mitarbeitenden MÜSSEN über die Gefahren fremder IT-Systeme aufgeklärt werden. Die Regelungen MÜSSEN vorgeben, ob und wie schützenswerte Informationen an fremden IT-Systemen bearbeitet werden dürfen. Sie MÜSSEN zudem festlegen, wie verhindert wird, dass nicht autorisierte Personen die Informationen einsehen können. Wenn Mitarbeitende mit fremden IT-Systemen arbeiten, MUSS grundsätzlich sichergestellt sein, dass alle währenddessen entstandenen temporären Daten gelöscht werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4028">
+<title>Standard-Anforderungen</title>
+<para><emphasis role="color:#000000">Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-4029">
+<title>INF.9.A5 Zeitnahe Verlustmeldung (S) [Mitarbeitende] </title>
+<para><emphasis role="color:#000000">Mitarbeitende SOLLTEN ihrer Institution umgehend melden, wenn Informationen, IT-Systeme oder Datenträger verlorengegangen sind oder gestohlen wurden. Dafür SOLLTE es klare Meldewege und Ansprechpartner innerhalb der Institution geben.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4030">
+<title>INF.9.A6 Entsorgung von vertraulichen Informationen (S) [Mitarbeitende] </title>
+<para><emphasis role="color:#000000">Vertrauliche Informationen SOLLTEN auch unterwegs sicher entsorgt werden. Bevor ausgediente oder defekte Datenträger und Dokumente vernichtet werden, MUSS überprüft werden, ob sie sensible Informationen enthalten. Ist dies der Fall, MÜSSEN die Datenträger und Dokumente wieder mit zurücktransportiert werden und auf institutseigenem Wege entsorgt oder vernichtet werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4031">
+<title>INF.9.A7 Rechtliche Rahmenbedingungen für das mobile Arbeiten (S) [Personalabteilung] </title>
+<para><emphasis role="color:#000000">Für das mobile Arbeiten SOLLTEN arbeitsrechtliche und arbeitsschutzrechtliche Rahmenbedingungen beachtet und geregelt werden. Alle relevanten Punkte SOLLTEN entweder durch Betriebsvereinbarungen oder durch zusätzlich zum Arbeitsvertrag getroffene individuelle Vereinbarungen zwischen dem mobilen Mitarbeitenden und der Institution geregelt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4032">
+<title>INF.9.A8 Sicherheitsrichtlinie für mobile Arbeitsplätze (S) [IT-Betrieb] </title>
+<para><emphasis role="color:#000000">Alle relevanten Sicherheitsanforderungen für mobile Arbeitsplätze SOLLTEN in einer für die mobilen Mitarbeitenden verpflichtenden Sicherheitsrichtlinie dokumentiert werden. Sie SOLLTE zudem mit den bereits vorhandenen Sicherheitsrichtlinien der Institution sowie mit allen relevanten Fachabteilungen abgestimmt werden. Die Sicherheitsrichtlinie für mobile Arbeitsplätze SOLLTE regelmäßig aktualisiert werden. Die Mitarbeitenden der Institution SOLLTEN hinsichtlich der aktuellen Sicherheitsrichtlinie sensibilisiert und geschult sein.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4033">
+<title>INF.9.A9 Verschlüsselung tragbarer IT-Systeme und Datenträger (S) [IT-Betrieb] </title>
+<para><emphasis role="color:#000000">Bei tragbaren IT-Systemen und Datenträgern SOLLTE sichergestellt werden, dass diese entsprechend den internen Richtlinien abgesichert sind. Mobile IT-Systeme und Datenträger SOLLTEN dabei verschlüsselt werden. Die kryptografischen Schlüssel SOLLTEN getrennt vom verschlüsselten Gerät aufbewahrt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4034">
+<title>INF.9.A12 Nutzung eines Bildschirmschutzes (S) [Mitarbeitende] </title>
+<para><emphasis role="color:#000000">Wenn IT-Systeme an mobilen Arbeitsplätzen genutzt werden, SOLLTEN die Mitarbeitenden einen Sichtschutz für die Bildschirme der IT-Systeme verwenden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4035">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para><emphasis role="color:#000000">Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</emphasis></para>
+<section xml:id="scroll-bookmark-4036">
+<title>INF.9.A10 Einsatz von Diebstahlsicherungen (H) [Mitarbeitende] </title>
+<para><emphasis role="color:#000000">Bietet das verwendete IT-System eine Diebstahlsicherung, SOLLTE sie benutzt werden. Die Diebstahlsicherungen SOLLTEN stets dort eingesetzt werden, wo ein erhöhter Publikumsverkehr herrscht oder die Fluktuation von Benutzenden sehr hoch ist. Dabei SOLLTEN die Mitarbeitenden immer beachten, dass der Schutz der auf den IT-Systemen gespeicherten Informationen meist einen höheren Wert besitzt als die Wiederanschaffungskosten des IT-Systems betragen. Die Beschaffungs- und Einsatzkriterien für Diebstahlsicherungen SOLLTEN an die Prozesse der Institution angepasst und dokumentiert werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-4037">
+<title>INF.9.A11 Verbot der Nutzung unsicherer Umgebungen (H) [IT-Betrieb] </title>
+<para><emphasis role="color:#000000">Es SOLLTEN Kriterien für die Arbeitsumgebung festgelegt werden, die mindestens erfüllt sein müssen, damit Informationen mit erhöhtem Schutzbedarf mobil bearbeitet werden dürfen. Die Kriterien SOLLTEN mindestens folgende Themenbereiche abdecken:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">Einsicht und Zugriff durch Dritte,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">geschlossene und, falls nötig, abschließbare oder bewachte Räume,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">gesicherte Kommunikationsmöglichkeiten sowie</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">eine ausreichende Stromversorgung.</emphasis></para>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-4038">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-4039">
+<title>Wissenswertes</title>
+<para><emphasis role="color:#000000">Die International Organization for Standardization (ISO) gibt in der Norm ISO/IEC 27001:2013 im Annex A.11.2 Vorgaben zur Ausrüstung bzw. Ausstattung von mobilen Arbeitsplätzen.</emphasis></para>
+<para><emphasis role="color:#000000">Die International Organization for Standardization (ISO) gibt in der Norm ISO/IEC 27001:2013 im Annex A.6.2.1. Vorgaben zur Erarbeitung einer Richtlinie für mobile Geräte.</emphasis></para>
+<para><emphasis role="color:#000000">Das Information Security Forum (ISF) macht in seinem Standard „The Standard of Good Practice for Information Security“ im Kapitel PA2 Vorgaben zum Umgang mit mobilen Endgeräten.</emphasis></para>
+<para><emphasis role="color:#000000">Das National Institute of Standards and Technology (NIST) hat im Rahmen seiner Special Publications die NIST Special Publication 800-46 zu „Remote Access and Bring Your Own Device (BYOD)“ veröffentlicht und macht Vorgaben zum Fernzugriff auf Handware.</emphasis></para>
+</section>
+</section>

@@ -1,0 +1,182 @@
+<title>SYS.1.2.3 Windows Server</title>
+<section xml:id="scroll-bookmark-2216">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-2217">
+<title>Einleitung</title>
+<para>Mit Windows Server bietet Microsoft ein Betriebssystem für Server an. Bei den Hauptversionen 2016, 2019 und 2022 von Windows Server handelt es sich um sogenannte Langzeit-Versionen (Long-Term Servicing Channel, LTSC), die jeweils auf der Codebasis des Client-Betriebssystems Windows 10 basieren. Wie bei Windows 10 liefert Microsoft auch mit Windows Server zunehmend cloudbasierte Funktionen und Anwendungen sowie Schnittstellen zur Microsoft Azure Cloud-Plattform mit aus.</para>
+</section>
+<section xml:id="scroll-bookmark-2218">
+<title>Zielsetzung</title>
+<para>Das Ziel dieses Bausteins ist der Schutz von Informationen, die durch Server-Systeme auf Basis von Windows Server 2016, 2019 und 2022 im Regelbetrieb verarbeitet, gespeichert und darüber übertragen werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2219">
+<title>Abgrenzung und Modellierung</title>
+<para>Der Baustein SYS.1.2.3 <emphasis role="italics">Windows Server </emphasis>ist auf alle Server-Systeme anzuwenden, auf denen das Betriebssystem Microsoft Windows Server in den Versionen 2016, 2019 oder 2022 eingesetzt wird. Für Windows Server 2012 ist stattdessen der Baustein SYS.1.2.2 <emphasis role="italics">Windows Server 2012 </emphasis>zu modellieren.</para>
+<para>Dieser Baustein konkretisiert und ergänzt die plattformunabhängigen Sicherheitsaspekte für Server, die im Bausteinen SYS.1.1 <emphasis role="italics">Allgemeiner Server</emphasis> behandelt werden, um Besonderheiten von Windows Server in den genannten Versionen. <emphasis role="color:#000000">Dementsprechend sind die beiden Bausteine immer gemeinsam anzuwenden.</emphasis></para>
+<para>In diesem Baustein geht es um die grundlegende Absicherung auf Betriebssystemebene mit bordeigenen Mitteln, unabhängig vom Einsatzzweck des Servers. Sicherheitsanforderungen möglicher Serverrollen und -funktionen wie beispielsweise Fileserver (APP.3.3 <emphasis role="italics">Fileserver</emphasis>) oder Webserver (APP.3.2 <emphasis role="italics">Webserver</emphasis>) sind Gegenstand eigener Bausteine, genauso wie das Thema Virtualisierung (SYS.1.5 <emphasis role="italics">Virtualisierung</emphasis>).</para>
+<para>Darüber hinaus sind im Funktionsumfang einiger Betriebssystemvarianten auch weitere Anwendungen vorinstalliert, wie etwa der Microsoft Internet Explorer als Browser. Für diese Anwendungen sind die entsprechenden Bausteine zu modellieren.</para>
+<para>Im Rahmen dieses Bausteins wird von einer Aufnahme als „Member Server“ in eine Active-Directory-Domäne ausgegangen, wie sie in Institutionen üblich ist. Besonderheiten von Stand-alone-Systemen werden nur punktuell dort erwähnt, wo die Unterschiede besonders relevant erscheinen. Anforderungen zum Thema Active Directory sind Bestandteil des Bausteins APP.2.2 <emphasis role="italics">Active Directory Domain Services</emphasis>. Für die Nutzung der teils mitgelieferten Funktionen und Anwendungen von Cloud-Diensten sowie Schnittstellen zwischen der Microsoft Azure Cloud-Plattform und Windows Server muss der Baustein OPS.2.2 <emphasis role="italics">Cloud-Nutzung</emphasis> angewendet werden, in dem auch Gefährdungen und generelle Anforderungen bei der Cloud-Nutzung behandelt werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2220">
+<title>Gefährdungslage</title>
+<para><emphasis role="color:#000000">Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein SYS.1.2.3 <emphasis role="italics">Windows Server</emphasis> von besonderer Bedeutung.</emphasis></para>
+<section xml:id="scroll-bookmark-2221">
+<title>Unbedachte Cloud-Nutzung</title>
+<para>Windows Server bietet an verschiedenen Stellen die Möglichkeit, Cloud-Dienste zu nutzen, ohne dass dafür Drittsoftware installiert werden muss. Hierzu gehören beispielsweise Microsoft Azure Online Backup oder die Online-Speicherung von BitLocker-Wiederherstellungsschlüsseln. Während Cloud-Dienste mögliche Vorteile, beispielsweise hinsichtlich der Verfügbarkeit, bieten können, bestehen bei unbedachtem Einsatz beispielsweise Risiken für die Vertraulichkeit sowie eine Abhängigkeit von Dienstleistenden. So können Daten über Cloud-Dienste in die Hände unberechtigter Dritter gelangen. Dabei kann es sich sowohl um Kriminelle als auch um staatliche Akteure handeln. Wird ein Cloud-Dienst durch den Anbieter beendet, kann dies erhebliche Auswirkungen auf die eigenen Geschäftsprozesse haben.</para>
+</section>
+<section xml:id="scroll-bookmark-2222">
+<title>Kompromittierung von Fernzugängen</title>
+<para>Da Windows Server über eine Vielzahl von Möglichkeiten verfügt, aus der Ferne verwaltet zu werden, können diese grundsätzlich auch missbraucht werden. Fernzugänge wie z. B. RDP- oder WinRM-Sitzungen können durch unsichere oder unsicher verwendete Protokolle, schwache Authentisierungsverfahren (z. B. schwache Passwörter) oder fehlerhafte Konfiguration für Dritte erreichbar sein. Hierdurch können der Server und die dort gespeicherten Informationen weitgehend kompromittiert werden. Oft können auf diese Weise auch weitere mit dem Server verbundene IT-Systeme kompromittiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2223">
+<title>Telemetrie von Windows Server</title>
+<para>Windows Server sendet standardmäßig sogenannte Diagnosedaten an den Hersteller Microsoft. Zusätzlich kann Microsoft über den in Windows Server integrierten Telemetriedienst gezielt Informationen von einem Server abfragen. Abhängig vom Telemetrie-Level schließt dies beispielsweise den Zugriff auf Absturzabbilder des Speichers (sog. „Crash Dumps“) sowie den Zugriff auf Betriebssystemereignisse auf dem Server mit ein. Es besteht die Gefahr, dass die Diagnose- und Telemetriedaten schützenswerte Informationen enthalten, die auf diesem Weg an Dritte gelangen können.</para>
+</section>
+<section xml:id="scroll-bookmark-2224">
+<title>Eingeschränkte Forensik bei der Nutzung des Virtual Secure Mode (VSM)</title>
+<para>Durch die Nutzung des Virtual Secure Mode (VSM) werden forensische Untersuchungen, z. B. zur Sicherheitsvorfallbehandlung, eingeschränkt oder erschwert. Prozesse, die durch den Secure Kernel oder den Isolated User Mode (IUM) geschützt werden, sind nicht mehr zugänglich. Beispielsweise können Speicherabbilder dieser Prozesse aufgrund kryptografischer Maßnahmen nicht ausgewertet werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2225">
+<title>Anforderungen</title>
+<para><emphasis role="color:#000000">Im Folgenden sind die spezifischen Anforderungen des Bausteins SYS.1.2.3 <emphasis role="italics">Windows Server </emphasis>aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</emphasis></para>
+<para><emphasis role="color:#000000">Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</emphasis></para>
+<para><emphasis role="color:#000000">Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. </emphasis>Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</para>
+<section xml:id="scroll-bookmark-2226">
+<title>Basis-Anforderungen</title>
+<para><emphasis role="color:#000000">Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-2227">
+<title>SYS.1.2.3.A1 Planung von Windows Server (B)</title>
+<para>Es MUSS eine begründete und dokumentierte Entscheidung für eine geeignete Edition von Windows Server getroffen werden. Der Einsatzzweck des Servers sowie die Einbindung ins Active Directory MÜSSEN dabei spezifiziert werden. Die Nutzung von mitgelieferten Cloud-Diensten im Betriebssystem MUSS grundsätzlich abgewogen und gründlich geplant werden. Wenn nicht benötigt, MUSS die Einrichtung von Microsoft-Konten auf dem Server blockiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2228">
+<title>SYS.1.2.3.A2 Sichere Installation von Windows Server (B)</title>
+<para>Wenn vom Funktionsumfang her ausreichend, MUSS die Server-Core-Variante installiert werden. Andernfalls MUSS begründet werden, warum die Server-Core-Variante nicht genügt.</para>
+</section>
+<section xml:id="scroll-bookmark-2229">
+<title>SYS.1.2.3.A3 Telemetrie- und Nutzungsdaten unter Windows Server (B)</title>
+<para>Um die Übertragung von Diagnose- und Nutzungsdaten an Microsoft stark zu reduzieren, MUSS das Telemetrie-Level 0 (Security) auf dem Windows Server konfiguriert werden. Wenn diese Einstellung nicht wirksam umgesetzt wird, dann MUSS durch geeignete Maßnahmen, etwa auf Netzebene, sichergestellt werden, dass die Daten nicht an den Hersteller übertragen werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2230">
+<title>Standard-Anforderungen</title>
+<para><emphasis role="color:#000000">Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-2231">
+<title>SYS.1.2.3.A4 Schutz vor Ausnutzung von Schwachstellen in Anwendungen (S)</title>
+<para>Maßnahmen zum Schutz vor Exploits SOLLTEN für alle Programme und Dienste aktiviert werden, die den Exploit-Schutz von Windows (vgl. Verweis in Kapitel 4.1 <emphasis role="italics">Wissenswertes</emphasis>) unterstützen.</para>
+</section>
+<section xml:id="scroll-bookmark-2232">
+<title>SYS.1.2.2.A5 Sichere Authentisierung und Autorisierung in Windows Server (S)</title>
+<para>In Windows Server SOLLTEN alle Konten von Benutzenden Mitglied der Sicherheitsgruppe „Protected Users“ sein. Konten für Dienste und Computer SOLLTEN NICHT Mitglied von „Protected Users“ sein. Dienste-Konten in Windows Server SOLLTEN Mitglied der Gruppe „Managed Service Account“ sein.</para>
+</section>
+<section xml:id="scroll-bookmark-2233">
+<title>SYS.1.2.3.A6 Sicherheit beim Fernzugriff über RDP (S)</title>
+<para>Die Auswirkungen auf die Konfiguration der lokalen Firewall SOLLTEN bei der Planung des Fernzugriffs berücksichtigt werden. Die Gruppe der Berechtigten und IT-Systeme für den Remote-Desktopzugriff (RDP) SOLLTE durch die Zuweisung entsprechender Berechtigungen festgelegt werden. Es SOLLTEN Mechanismen des Betriebssystems berücksichtigt werden, um die übertragenen Anmeldeinformationen zu schützen (z. B. <emphasis role="italics">Remote Credential Guard</emphasis> oder <emphasis role="italics">RestrictedAdmin</emphasis>). In komplexen Infrastrukturen SOLLTE das RDP-Zielsystem nur durch ein dazwischengeschaltetes RDP-Gateway erreicht werden können. Für die Verwendung von RDP SOLLTE eine Prüfung und deren Umsetzung sicherstellen, dass die nachfolgend aufgeführten Komfortfunktionen im Einklang mit dem Schutzbedarf des Zielsystems stehen:</para>
+<itemizedlist>
+<listitem>
+<para>die Verwendung der Zwischenablage,</para>
+</listitem>
+<listitem>
+<para>die Einbindung von Wechselmedien und Netzlaufwerken sowie</para>
+</listitem>
+<listitem>
+<para>die Nutzung der Dateiablagen, von weiteren Geräten und Ressourcen, wie z. B. Smartcard-Lesegeräten.</para>
+</listitem>
+</itemizedlist>
+<para>Die eingesetzten kryptografischen Protokolle und Algorithmen SOLLTEN den internen Vorgaben der Institution entsprechen.</para>
+<para>Sofern der Einsatz von Remote-Desktopzugriffen nicht vorgesehen ist, SOLLTEN diese vollständig deaktiviert werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2234">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para><emphasis role="color:#000000">Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</emphasis></para>
+<section xml:id="scroll-bookmark-2235">
+<title>SYS.1.2.3.A7 Verwendung der Windows PowerShell (H)</title>
+<para>Die PowerShell-Ausführung SOLLTE zentral protokolliert werden. Die erzeugten Protokolle SOLLTEN geeignet überwacht werden. Die Ausführung von PowerShell-Skripten SOLLTE mit dem Befehl <emphasis role="italics">Set-ExecutionPolicy AllSigned</emphasis> eingeschränkt werden, um zu verhindern, dass unsignierte Skripte (versehentlich) ausgeführt werden. Ältere Windows PowerShell-Versionen SOLLTEN deaktiviert werden. Der Einsatz des PowerShell Constrained Language Mode SOLLTE geprüft werden. Zur Einschränkung der Windows PowerShell SOLLTE bei Windows Server mithilfe von Just Enough Administration (JEA) eine rollenbasierte Administration implementiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2236">
+<title>SYS.1.2.3.A8 Nutzung des Virtual Secure Mode (VSM) (H)</title>
+<para>Bei der Nutzung des Virtual Secure Mode (VSM) SOLLTE berücksichtigt werden, dass forensische Untersuchungen, z. B. zur Sicherheitsvorfallbehandlung, eingeschränkt oder erschwert werden.</para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2237">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-2238">
+<title>Wissenswertes</title>
+<para>Der Hersteller Microsoft stellt unter anderem folgende weiterführende Informationen zu Windows Server bereit:</para>
+<itemizedlist>
+<listitem>
+<para>Windows Server - Dokumentation<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows-server/">https://docs.microsoft.com/en-us/windows-server/</link></para>
+</listitem>
+<listitem>
+<para>Neuerungen in Windows Server 2019:<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows-server/get-started-19/whats-new-19">https://docs.microsoft.com/en-us/windows-server/get-started-19/whats-new-19</link></para>
+</listitem>
+<listitem>
+<para>Neuerungen in Windows Server 2022:<?linebreak?>
+<emphasis role="underline"><link xlink:href="https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-2022">https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-2022</link></emphasis></para>
+</listitem>
+<listitem>
+<para>Vergleich der Standard- und Datacenter-Editionen von Windows Server 2019:<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows-server/get-started-19/editions-comparison-19">https://docs.microsoft.com/en-us/windows-server/get-started-19/editions-comparison-19</link></para>
+</listitem>
+<listitem>
+<para>Vergleich der Standard- und Datacenter-Editionen von Windows Server 2022:<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows-server/get-started/editions-comparison-windows-server-2022">https://docs.microsoft.com/en-us/windows-server/get-started/editions-comparison-windows-server-2022</link></para>
+</listitem>
+<listitem>
+<para>Fixed Lifecycle-Richtlinie<?linebreak?>
+<link xlink:href="https://support.microsoft.com/en-us/help/14085/fixed-lifecycle-policy">https://support.microsoft.com/en-us/help/14085/fixed-lifecycle-policy</link></para>
+</listitem>
+<listitem>
+<para>Entfernte oder zur Ersetzung vorgesehene Features in Windows Server 2019:<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows-server/get-started-19/removed-features-19">https://docs.microsoft.com/en-us/windows-server/get-started-19/removed-features-19</link></para>
+</listitem>
+<listitem>
+<para>Security and Assurance (Übersicht):<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows-server/security/security-and-assurance">https://docs.microsoft.com/en-us/windows-server/security/security-and-assurance</link></para>
+</listitem>
+<listitem>
+<para>Microsoft Security Compliance Toolkit 1.0:<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-compliance-toolkit-10">https://docs.microsoft.com/en-us/windows/security/threat-protection/security-compliance-toolkit-10</link></para>
+</listitem>
+<listitem>
+<para>Anpassen des Exploit-Schutzes<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/enable-exploit-protection">https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/enable-exploit-protection</link></para>
+</listitem>
+<listitem>
+<para>Schutz und Verwaltung von Anmeldeinformationen<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/credentials-protection-and-management">https://docs.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/credentials-protection-and-management</link></para>
+</listitem>
+<listitem>
+<para>Schützen von Remote Desktop Anmeldeinformationen mit Windows Defender Remote Credential Guard<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows/security/identity-protection/remote-credential-guard">https://docs.microsoft.com/en-us/windows/security/identity-protection/remote-credential-guard</link></para>
+</listitem>
+<listitem>
+<para>Konfigurieren von Windows-Diagnosedaten in Ihrer Organisation<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization">https://docs.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization</link></para>
+</listitem>
+<listitem>
+<para>Liste von Sicherheitsereignissen unter Windows Server:<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/appendix-l--events-to-monitor">https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/appendix-l--events-to-monitor</link></para>
+</listitem>
+<listitem>
+<para>Windows Server Guidance to protect against Speculative Execution:<?linebreak?>
+<link xlink:href="https://support.microsoft.com/en-us/help/4072698/windows-server-guidance-to-protect-against-speculative-execution">https://support.microsoft.com/en-us/help/4072698/windows-server-guidance-to-protect-against-speculative-execution</link></para>
+</listitem>
+<listitem>
+<para>Übersicht zur Windows-Authentifizierung<?linebreak?>
+<link xlink:href="https://docs.microsoft.com/en-us/windows-server/security/windows-authentication/windows-authentication-overview">https://docs.microsoft.com/en-us/windows-server/security/windows-authentication/windows-authentication-overview</link></para>
+</listitem>
+</itemizedlist>
+<para>Das Information Security Forum (ISF) macht in seinem Standard „The Standard of Good Practice for Information Security“, insbesondere in Area SY1.2 Server Configuration, Vorgaben für den Einsatz von Servern.</para>
+<para>Das National Institute of Standards and Technology (NIST) stellt das Dokument ,,Guide to General Server Security: NIST Special Publication 800-123“, Juli 2008 zur Verfügung.</para>
+<para>Das BSI stellt im Rahmen der Studie zu Systemaufbau, Protokollierung, Härtung und Sicherheitsfunktionen in Windows 10 (SiSyPHuS Win10), Empfehlungen zur sicheren Konfiguration und Deaktivierung von Telemetrie zur Verfügung, die auch auf Windows Server zutreffen:<?linebreak?>
+<link xlink:href="https://www.bsi.bund.de/DE/Service-Navi/Publikationen/Studien/SiSyPHuS_Win10/AP4/SiSyPHuS_AP4_node.html">https://www.bsi.bund.de/DE/Service-Navi/Publikationen/Studien/SiSyPHuS_Win10/AP4/SiSyPHuS_AP4_node.html</link></para>
+<para><emphasis role="color:#000000"><?linebreak?>
+</emphasis></para>
+</section>
+</section>

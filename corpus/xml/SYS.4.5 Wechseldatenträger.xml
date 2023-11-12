@@ -1,0 +1,173 @@
+<title>SYS.4.5 Wechseldatenträger</title>
+<section xml:id="scroll-bookmark-3103">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-3104">
+<title>Einleitung</title>
+<para><emphasis role="color:#000000">Wechseldatenträger werden oft eingesetzt, um Daten zu transportieren, zu speichern oder um mobil auf sie zugreifen zu können. Zu Wechseldatenträgern gehören externe Festplatten, CD-ROMs, DVDs, Speicherkarten, Magnetbänder und USB-Sticks.</emphasis></para>
+<para><emphasis role="color:#000000">Wechseldatenträger sind danach klassifizierbar, ob sie nur lesbar, einmalig beschreibbar oder wiederbeschreibbar sind. Unterschiede gibt es auch bei der Art der Datenspeicherung (analog oder digital) oder ihrer Bauform. So gibt es auswechselbare Datenträger (z. B. verbaute Festplatten) oder externe Datenspeicher (z. B. USB-Sticks).</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3105">
+<title>Zielsetzung</title>
+<para><emphasis role="color:#000000">In diesem Baustein wird aufgezeigt, wie Wechseldatenträger sicher genutzt werden können. Außerdem wird beschrieben, wie verhindert werden kann, dass über Wechseldatenträger unbeabsichtigt Informationen weitergegeben werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3106">
+<title>Abgrenzung und Modellierung</title>
+<para><emphasis role="color:#000000">Der Baustein SYS.4.5 <emphasis role="italics">Wechseldatenträger</emphasis> ist auf jeden Wechseldatenträger im Informationsverbund anzuwenden.</emphasis></para>
+<para><emphasis role="color:#000000">Dieser Baustein beschäftigt sich mit den Sicherheitseigenschaften von Wechseldatenträgern. Der Schutz der IT-Systeme, an denen die Wechseldatenträger angeschlossen werden können, wird in dem vorliegenden Baustein nicht berücksichtigt. Empfehlungen hierzu sind in den Bausteinen SYS.1.1 <emphasis role="italics">Allgemeiner Server</emphasis> und SYS.2.1 <emphasis role="italics">Allgemeiner Client</emphasis> sowie den betriebssystemspezifischen Bausteinen zu finden.</emphasis></para>
+<para><emphasis role="color:#000000">Wechseldatenträger speichern Daten elektronisch, magnetisch oder auf andere, nicht direkt wahrnehmbare Weise. Sie verarbeiten dabei selbst keine Daten. Die Anforderungen an solche Geräte, wie z. B. Smartphones und Tablets, werden im Baustein SYS.3.2.1<emphasis role="italics"> Allgemeine Smartphones und Tablets</emphasis> aufgeführt. Nicht zu den Wechseldatenträgern zählen auch Cloud-Speicher. Anforderungen an Cloud-Umgebungen sind im Baustein OPS.2.2 <emphasis role="italics">Cloud-Nutzung</emphasis> zu finden.</emphasis></para>
+<para><emphasis role="color:#000000">Wechseldatenträger können bei persönlichen Treffen oder auch per Versand ausgetauscht werden. Der sichere Austausch der eigentlichen Informationen wird in diesem Baustein nicht betrachtet. Dazu sind die Anforderungen des Bausteins CON.9 <emphasis role="italics">Informationsaustausch</emphasis> zu erfüllen.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3107">
+<title>Gefährdungslage</title>
+<para><emphasis role="color:#000000">Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein SYS.4.5 <emphasis role="italics">Wechseldatenträger</emphasis> von besonderer Bedeutung.</emphasis></para>
+<section xml:id="scroll-bookmark-3108">
+<title>Sorglosigkeit im Umgang mit Informationen</title>
+<para><emphasis role="color:#000000">Häufig gibt es in Institutionen zwar organisatorische Regelungen und technische Sicherheitsverfahren für Wechseldatenträger, diese werden jedoch oft durch einen sorglosen Umgang mit den Wechseldatenträgern umgangen. So kommt es etwa vor, dass Wechseldatenträger während einer Pause unbeaufsichtigt im Besprechungsraum zurück- oder auch im Zugabteil liegen gelassen werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3109">
+<title>Unzureichende Kenntnis über Regelungen</title>
+<para><emphasis role="color:#000000">Wenn die Regelungen für den korrekten Umgang mit Wechseldatenträgern nicht hinreichend bekannt sind, können sie sich auch nicht eingehalten werden. So können zahlreiche Gefährdungen hinsichtlich der Informationssicherheit eintreten, zum Beispiel, wenn nicht geprüfte USB-Sticks an die IT-Systeme der Institution angeschlossen werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3110">
+<title>Diebstahl oder Verlust von Wechseldatenträgern</title>
+<para><emphasis role="color:#000000">Bei Wechseldatenträgern ist das Risiko von Datenverlusten höher als bei stationären IT-Systemen. Ursachen für Datenverluste sind etwa Diebstahl oder verlorengegangene Geräte. Die auf den Wechseldatenträgern abgelegten Informationen sind in diesen Fällen oft unwiederbringlich verloren. Außerdem können die Informationen Externen in die Hände fallen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3111">
+<title>Defekte Datenträger</title>
+<para><emphasis role="color:#000000">Wechseldatenträger sind aufgrund ihrer Größe und Anwendungsbereiche anfällig für Beschädigungen, Fehler oder Ausfälle. Ursache sind beispielsweise ständig wechselnde Einsatzumgebungen oder mechanische Einwirkungen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3112">
+<title>Beeinträchtigung durch wechselnde Einsatzumgebung</title>
+<para><emphasis role="color:#000000">Wechseldatenträger werden in sehr unterschiedlichen Umgebungen eingesetzt und sind dadurch vielen Gefährdungen ausgesetzt. Dazu gehören beispielsweise schädigende Umwelteinflüsse wie zu hohe oder zu niedrige Temperaturen und Staub oder Feuchtigkeit. Hinzu kommen beispielsweise Transportschäden. Ein weiterer wichtiger Aspekt ist, dass Wechseldatenträger oft in Bereichen mit unterschiedlichem Sicherheitsniveau benutzt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3113">
+<title>Verbreitung von Schadsoftware</title>
+<para><emphasis role="color:#000000">Wechseldatenträger werden oft benutzt, um Daten zwischen verschiedenen Geräten und dem Arbeitsplatzrechner auszutauschen. Schadsoftware könnte Daten auf den Wechseldatenträgern kompromittieren und sich so auf die Arbeitsplatzrechner übertragen.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3114">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins <emphasis role="color:#000000">SYS.4.5 <emphasis role="italics">Wechseldatenträger</emphasis></emphasis> aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para><emphasis role="color:#000000">Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.<?linebreak?>
+</emphasis></para>
+<section xml:id="scroll-bookmark-3115">
+<title>Basis-Anforderungen</title>
+<para><emphasis role="color:#000000">Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-3116">
+<title>SYS.4.5.A1 Sensibilisierung zum sicheren Umgang mit Wechseldatenträgern (B) </title>
+<para><emphasis role="color:#000000">Alle Benutzenden MÜSSEN für den sicheren Umgang mit Wechseldatenträgern sensibilisiert werden. Die Institution MUSS insbesondere darauf hinweisen, wie die Benutzenden mit Wechseldatenträgern umgehen sollten, um einem Verlust oder Diebstahl vorzubeugen und eine lange Lebensdauer zu gewährleisten.</emphasis></para>
+<para><emphasis role="color:#000000">Die Institution MUSS die Benutzenden darüber informieren, dass sie keine Wechseldatenträger, die aus unbekannten Quellen stammen, an ihre IT-Systeme anschließen dürfen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3117">
+<title>SYS.4.5.A2 Verlust- und Manipulationsmeldung (B) [Benutzende]</title>
+<para><emphasis role="color:#000000">Die Benutzenden MÜSSEN umgehend melden, wenn ein Wechseldatenträger gestohlen oder verloren wurde oder der Verdacht einer Manipulation besteht. Die Benutzenden MÜSSEN bei ihrer Meldung angeben, welche Informationen auf dem Wechseldatenträger gespeichert sind. Hierfür MUSS es in der Institution klare Meldewege und Zuständigkeiten geben.</emphasis></para>
+<para><emphasis role="color:#000000">Die Institution MUSS festlegen, wie Wechseldatenträger behandelt werden sollen, die nach einem Verlust wiedergefunden wurden. Wiedergefundene Wechseldatenträger DÜRFEN NICHT ohne vorherige Überprüfung auf Manipulation und Schadsoftware verwendet werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3118">
+<title>SYS.4.5.A3 ENTFALLEN (B)</title>
+<para><emphasis role="color:#000000">Diese Anforderung ist entfallen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3119">
+<title>SYS.4.5.A10 Datenträgerverschlüsselung (B)</title>
+<para><emphasis role="color:#000000">Wenn Wechseldatenträger außerhalb eines sicheren Bereiches verwendet oder transportiert werden und dabei schutzbedürftige Daten enthalten, MÜSSEN die Daten mit einem sicheren Verfahren verschlüsselt werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3120">
+<title>SYS.4.5.A12 Schutz vor Schadsoftware (B) [Benutzende]</title>
+<para><emphasis role="color:#000000">Die Institution MUSS sicherstellen, dass nur Daten auf Wechseldatenträger übertragen werden, die auf Schadsoftware überprüft wurden. Bevor Daten von Wechseldatenträgern verarbeitet werden, MÜSSEN sie auf Schadsoftware überprüft werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3121">
+<title>Standard-Anforderungen</title>
+<para><emphasis role="color:#000000">Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</emphasis></para>
+<section xml:id="scroll-bookmark-3122">
+<title>SYS.4.5.A4 Erstellung einer Richtlinie zum sicheren Umgang mit Wechseldatenträgern (S)</title>
+<para><emphasis role="color:#000000">Es SOLLTE eine Richtlinie für den richtigen Umgang mit Wechseldatenträgern erstellt werden. Folgende grundlegenden Aspekte SOLLTEN dabei berücksichtigt werden:</emphasis></para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="color:#000000">welche Wechseldatenträger genutzt werden und wer diese einsetzen darf,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">welche Daten auf Wechseldatenträgern gespeichert werden dürfen und welche nicht,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">wie die auf Wechseldatenträgern gespeicherten Daten vor unbefugtem Zugriff, Manipulation und Verlust geschützt werden,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">wie die Daten auf den Wechseldatenträgern gelöscht werden sollen,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">mit welchen externen Institutionen Wechseldatenträger ausgetauscht werden dürfen und welche Sicherheitsregelungen dabei zu beachten sind,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">ob Wechseldatenträger an fremde IT-Systeme angeschlossen werden dürfen und was dabei zu beachten ist,</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">wie Wechseldatenträger zu versenden sind sowie</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="color:#000000">wie der Verbreitung von Schadsoftware über Wechseldatenträger vorgebeugt wird.</emphasis></para>
+</listitem>
+</itemizedlist>
+<para><emphasis role="color:#000000">Die Institution SOLLTE in der Sicherheitsrichtlinie festlegen, unter welchen Bedingungen Wechseldatenträger gelagert werden sollen. Insbesondere SOLLTE die Institution vorgeben, dass nur berechtigte Benutzende Zugang zu beschriebenen Wechseldatenträgern haben. Die Institution SOLLTE festlegen, dass Angaben des herstellenden Unternehmens zum Umgang mit Datenträgern berücksichtigt werden müssen.</emphasis></para>
+<para>Die Institution SOLLTE die Verwendung von privaten Wechseldatenträgern untersagen.</para>
+<para><emphasis role="color:#000000">Es SOLLTE regelmäßig überprüft werden, ob die Sicherheitsvorgaben für den Umgang mit Wechseldatenträgern aktuell sind.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3123">
+<title>SYS.4.5.A5 Regelung zur Mitnahme von Wechseldatenträgern (S)</title>
+<para><emphasis role="color:#000000">Es SOLLTE klare schriftliche Regeln dazu geben, ob, wie und zu welchen Anlässen Wechseldatenträger mitgenommen werden dürfen. Insbesondere SOLLTE festgelegt sein, welche Wechseldatenträger von wem außer Haus transportiert werden dürfen und welche Sicherheitsmaßnahmen dabei zu beachten sind.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3124">
+<title>SYS.4.5.A6 Datenträgerverwaltung (S) [Fachverantwortliche]</title>
+<para><emphasis role="color:#000000">Es SOLLTE eine Verwaltung für Wechseldatenträger geben. Die Wechseldatenträger SOLLTEN einheitlich gekennzeichnet werden. Die Verwaltung für Wechseldatenträger SOLLTE gewährleisten, dass Wechseldatenträger sachgerecht behandelt und aufbewahrt sowie ordnungsgemäß eingesetzt und transportiert werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3125">
+<title>SYS.4.5.A7 Sicheres Löschen der Wechseldatenträger vor und nach der Verwendung (S) [Fachverantwortliche]</title>
+<para><emphasis role="color:#000000">Bevor Wechseldatenträger weitergegeben, wiederverwendet oder ausgesondert werden, SOLLTEN sie in geeigneter Weise sicher gelöscht werden.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3126">
+<title>SYS.4.5.A8 ENTFALLEN (S)</title>
+<para><emphasis role="color:#000000">Diese Anforderung ist entfallen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3127">
+<title>SYS.4.5.A13 Kennzeichnung der Wechseldatenträger beim Versand (S) </title>
+<para><emphasis role="color:#000000">Wechseldatenträger, die versendet werden sollen, SOLLTEN so gekennzeichnet werden, dass die Absendenden und die Empfangenden sie sofort identifizieren können. Die Kennzeichnung der Wechseldatenträger oder deren Verpackung SOLLTE für die Empfangenden eindeutig sein. Die Kennzeichnung von Wechseldatenträgern mit schützenswerten Informationen SOLLTE für Außenstehende keine Rückschlüsse auf Art und Inhalte der Informationen zulassen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3128">
+<title>SYS.4.5.A17 Gewährleistung der Integrität und Verfügbarkeit bei Langzeitspeichern (S)</title>
+<para><emphasis role="color:#000000">Falls Wechseldatenträger verwendet werden, um Daten für lange Zeiträume zu speichern, SOLLTE die Institution sicherstellen, dass die verwendeten Wechseldatenträger geeignet sind, um die Integrität und Verfügbarkeit der Daten während des gesamten Nutzungszeitraums sicherzustellen. Die Integrität der Daten SOLLTE regelmäßig überprüft werden.</emphasis></para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3129">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para><emphasis role="color:#000000">Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</emphasis></para>
+<section xml:id="scroll-bookmark-3130">
+<title>SYS.4.5.A9 ENTFALLEN (H)</title>
+<para><emphasis role="color:#000000">Diese Anforderung ist entfallen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3131">
+<title>SYS.4.5.A11 Integritätsschutz durch Checksummen oder digitale Signaturen (H)</title>
+<para>Es SOLLTE ein Verfahren zum Schutz gegen zufällige oder vorsätzliche Veränderungen eingesetzt werden, mit dem die Integrität von vertraulichen Informationen sichergestellt wird. Die Verfahren zum Schutz vor Veränderungen SOLLTEN dem aktuellen Stand der Technik entsprechen.</para>
+</section>
+<section xml:id="scroll-bookmark-3132">
+<title>SYS.4.5.A14 Sichere Versandart und Verpackung (H) </title>
+<para><emphasis role="color:#000000">Die Institution SOLLTE überprüfen, wie vertrauliche Informationen bei einem Versand angemessen geschützt werden können. Es SOLLTE eine sichere Versandverpackung für Wechseldatenträger verwendet werden, bei der Manipulationen sofort zu erkennen sind. Die Institution SOLLTE alle Beteiligten auf notwendige Versand- und Verpackungsarten hinweisen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3133">
+<title>SYS.4.5.A15 Verwendung zertifizierter Wechseldatenträger (H)</title>
+<para><emphasis role="color:#000000">Die Institution SOLLTE nur Wechseldatenträger verwenden, die zertifiziert sind. Die Zertifizierung SOLLTE insbesondere eine integere Datenerhaltung sowie möglicherweise vorhandene Verschlüsselungsverfahren umfassen.</emphasis></para>
+</section>
+<section xml:id="scroll-bookmark-3134">
+<title>SYS.4.5.A16 Nutzung dedizierter IT-Systeme zur Datenprüfung (H)</title>
+<para><emphasis role="color:#000000">Die Institution SOLLTE dedizierte IT-Systeme als Datenschleuse verwenden, bei denen Daten von einem Wechseldatenträger auf einen anderen übertragen werden und dabei auf Schadsoftware untersucht werden.</emphasis></para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-3135">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-3136">
+<title>Wissenswertes</title>
+<para><emphasis role="color:#000000">Die International Organization for Standardization beschreibt in der Norm ISO/IEC 27001:2013 in Kapitel A.8.3 wie Wechseldatenträger sicher eingesetzt werden können.</emphasis></para>
+</section>
+</section>

@@ -1,0 +1,254 @@
+<title>SYS.1.8 Speicherlösungen</title>
+<section xml:id="scroll-bookmark-2422">
+<title>Beschreibung</title>
+<section xml:id="scroll-bookmark-2423">
+<title>Einleitung</title>
+<para>Das stetige Wachstum digitaler Informationen und die zunehmende Menge unstrukturierter Informationen führen dazu, dass innerhalb von Institutionen zentrale Speicherlösungen eingesetzt werden. Dabei unterliegen die Anforderungen an solche Speicherlösungen einem stetigen Wandel, der sich beispielsweise an folgenden Aspekten beobachten lässt:</para>
+<itemizedlist>
+<listitem>
+<para>Die Daten einer Institution sollen jederzeit, an jedem Ort und für unterschiedliche Anwendungsszenarien verfügbar sein. Dadurch gelten für moderne Speicherlösungen häufig gestiegene Verfügbarkeitsanforderungen.</para>
+</listitem>
+<listitem>
+<para>Die zunehmende Digitalisierung sämtlicher Informationen in einer Institution macht es notwendig, dass weitreichende rechtliche Vorgaben (Compliance-Anforderungen) beachtet und eingehalten werden müssen.</para>
+</listitem>
+<listitem>
+<para>Speicherlösungen sollen dynamisch an die sich stetig ändernden Anforderungen anpassbar sein und Speicherplatz zentral bereitstellen können.</para>
+</listitem>
+</itemizedlist>
+<para>In der Vergangenheit wurden Speicherlösungen oft umgesetzt, indem Speichermedien direkt an einen Server angeschlossen wurden. Diese sogenannten Direct-Attached-Storage-(DAS)-Systeme können die aktuellen und zukünftigen Anforderungen jedoch oft nicht mehr erfüllen. Daher sind die heute weitverbreiteten zentralen Speicherlösungen und deren Bestandteile notwendig, die sich wie folgt unterscheiden lassen:</para>
+<itemizedlist>
+<listitem>
+<para>Speicherlösungen: Eine Speicherlösung besteht aus einem oder mehreren Speichernetzen sowie mindestens einem Speichersystem.</para>
+</listitem>
+<listitem>
+<para>Speichernetze: Speichernetze ermöglichen einerseits den Zugriff auf die Speichersysteme, andererseits die Replikation von Daten zwischen Speichersystemen.</para>
+</listitem>
+<listitem>
+<para>Speichersysteme: Als Speichersystem wird die zentrale Instanz bezeichnet, die für andere IT-Systeme Speicherplatz zur Verfügung stellt. Ein Speichersystem erlaubt außerdem den zeitgleichen Zugriff mehrerer IT-Systeme auf den vorhandenen Speicherplatz.</para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-2424">
+<title>Zielsetzung</title>
+<para>Ziel dieses Bausteins ist es, aufzuzeigen, wie zentrale Speicherlösungen sicher geplant, umgesetzt, betrieben und ausgesondert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2425">
+<title>Abgrenzung und Modellierung</title>
+<para>Der Baustein SYS.1.8 <emphasis role="italics">Speicherlösungen</emphasis> ist immer dann anzuwenden, wenn zentrale Speicherlösungen eingesetzt werden. Somit kann er auf Network-Attached-Storage-(NAS)-Systeme, Storage-Area-Networks-(SAN)-Systeme, Hybrid Storage, Objekt Storage oder Cloud Storage angewendet werden. Dabei muss jedoch Folgendes beachtet werden:</para>
+<itemizedlist>
+<listitem>
+<para><emphasis role="strong">Network Attached Storage (NAS)</emphasis> stellt beispielsweise über die Protokolle NFS (Network File System), AFP (Apple Filing Protocol) und CIFS (Common Internet File System) Zugriffe auf die Speichersysteme zur Verfügung. Der Hauptanwendungsfall besteht darin, Fileserver-Dienste zur Verfügung zu stellen. Für NAS-Systeme sind daher auch zusätzlich zu diesem Baustein die Bausteine SYS.1.1 <emphasis role="italics">Allgemeiner Server </emphasis>sowie APP.3.3 <emphasis role="italics">Fileserver </emphasis>anzuwenden<emphasis role="italics">.</emphasis></para>
+</listitem>
+<listitem>
+<para><emphasis role="strong">Storage Area Networks (SAN)</emphasis> werden in der Regel durch ein dediziertes Speichernetz zwischen Speichersystemen und angeschlossenen IT-Systemen geschaffen. Für SAN-Systeme ist daher der Baustein NET.1.1 <emphasis role="italics">Netzarchitektur und -design</emphasis> geeignet zu berücksichtigen. Speichersysteme, die sowohl über NAS als auch SAN Daten zur Verfügung stellen können, werden oft unter der Bezeichnung <emphasis role="strong">Hybrid-Storage</emphasis> oder kombiniertes Speichersystem (Unified Storage) geführt. Für Hybrid-Systeme sind daher auch zusätzlich die Bausteine SYS.1.1 <emphasis role="italics">Allgemeiner Server </emphasis>sowie APP.3.3 <emphasis role="italics">Fileserver </emphasis>anzuwenden<emphasis role="italics">. </emphasis>Darüber hinaus ist der Baustein NET.1.1 <emphasis role="italics">Netzarchitektur und -design </emphasis>geeignet zu berücksichtigen.</para>
+</listitem>
+<listitem>
+<para><emphasis role="strong">Objekt-Storage </emphasis>(oftmals auch als <emphasis role="strong">Object-based Storage</emphasis> bezeichnet) ermöglicht gegenüber den traditionellen blockbasierten und dateibasierten Zugriffsmethoden einen objektbasierten Zugriff auf Daten. Der Zugriff auf einen objektbasierenden Speicher erfolgt über eine führende Anwendung. Die Anwendung greift hierbei über eine spezielle Schnittstelle (Application Programming Interface (API)) und deren mögliche Kommandos oder direkt per Internet Protocol (IP) auf den Objekt-Storage zu. Für objektbasierende Speicherlösungen ist daher auch zusätzlich der Baustein SYS.1.1 <emphasis role="italics">Allgemeiner Server </emphasis>anzuwenden<emphasis role="italics">. </emphasis>Darüber hinaus müssen Sicherheitsanforderungen mitberücksichtigt werden, die sich dadurch ergeben, dass Webservices eingesetzt werden. Webservices werden im vorliegenden Baustein nicht betrachtet.</para>
+</listitem>
+<listitem>
+<para>Im Zusammenhang mit Weiterentwicklungen im Speicherumfeld etabliert sich zunehmend auch der Begriff des <emphasis role="strong">Cloud Storage</emphasis>. Hierunter sind Speicherlösungen als Basis für Cloud-Services zu verstehen. Die Speicherlösung an sich bleibt dabei weitgehend unverändert, jedoch liegt eine von den klassischen SAN- oder NAS-Architekturen abweichende Art des Zugriffs auf die gespeicherten Daten vor. Dieser wird in der Regel mittels Web-Service-Schnittstelle (via Representional State Transfer (REST) und Simple Object Access Protocol (SOAP)) realisiert.</para>
+</listitem>
+</itemizedlist>
+<para>Datensicherungsgeräte, die an das Speichersystem oder an das Speichernetz angeschlossen sind, werden hier nicht betrachtet, sondern im Baustein OPS.1.2.2 <emphasis role="italics">Archivierung</emphasis> behandelt. Konzeptionelle Aspekte der Datensicherung werden im Baustein CON.3 <emphasis role="italics">Datensicherungskonzept</emphasis> erläutert.</para>
+<para>Oft kann eine Vielzahl von Konten auf Speicherlösungen zugreifen. Deswegen sollten Speicherlösungen geeignet im Rollen- und Rechtekonzept mit berücksichtigt werden. Anforderungen dazu finden sich im Baustein ORP.4 <emphasis role="italics">Identitäts- und Berechtigungsmanagement</emphasis>.</para>
+<para>Falls auf externe Dienstleistung zurückgegriffen wird, um eine Speicherlösung zu betreiben, müssen die Anforderungen des Bausteins OPS.2.3 <emphasis role="italics">Nutzung von</emphasis> <emphasis role="italics">Outsourcing </emphasis>gesondert berücksichtigt werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2426">
+<title>Gefährdungslage</title>
+<para>Da IT-Grundschutz-Bausteine nicht auf individuelle Informationsverbünde eingehen können, werden zur Darstellung der Gefährdungslage typische Szenarien zugrunde gelegt. Die folgenden spezifischen Bedrohungen und Schwachstellen sind für den Baustein SYS.1.8 <emphasis role="italics">Speicherlösungen</emphasis><emphasis role="italics"> </emphasis>von besonderer Bedeutung.</para>
+<section xml:id="scroll-bookmark-2427">
+<title>Unsichere Default-Einstellungen bei Speicherkomponenten</title>
+<para>Häufig werden Speicherkomponenten mit einer Default-Konfiguration ausgeliefert, damit die Geräte schnell und mit möglichst umfassenden Funktionen in Betrieb genommen werden können. So sind in vielen Geräten nicht benötigte Protokolle aktiviert, wie z. B. HTTP, Telnet und unsichere SNMP-Versionen. Werden Speicherkomponenten mit unsicheren Werkseinstellungen produktiv eingesetzt, kann einfacher unberechtigt auf sie zugegriffen werden. Das kann dazu führen, dass z. B. Dienste nicht mehr verfügbar sind oder dass unerlaubt auf vertrauliche Informationen der Institution zugegriffen wird.</para>
+</section>
+<section xml:id="scroll-bookmark-2428">
+<title>Manipulation von Daten über das Speichersystem</title>
+<para>Über ein mangelhaft konfiguriertes Storage Area Network (SAN) können sich ungewollt Netze verbinden. Ist beispielsweise ein Server mit SAN-Anschluss aus dem Internet erreichbar und so von außen kompromittierbar, kann dieser als Einstiegspunkt genutzt werden, um unberechtigt auf schützenswerte Informationen zuzugreifen, die im SAN gespeichert sind. Da auf diese Weise alle Sicherheits- und Überwachungsmaßnahmen, wie Firewalls oder Intrusion Detection Systeme (IDS), in den Netzen einer Institution umgangen werden können, ist das Schadenspotenzial groß.</para>
+</section>
+<section xml:id="scroll-bookmark-2429">
+<title>Verlust der Vertraulichkeit durch storagebasierte Replikationsmethoden</title>
+<para>Storagebasierte Replikationsmethoden haben den Zweck, gespeicherte oder archivierte Daten in Echtzeit über ein Speichernetz zu duplizieren und diese damit zusätzlich redundant abzuspeichern. Hierdurch sollen Datenverluste vermieden werden. Die automatisierte Replikation unverschlüsselter Daten birgt allerdings sowohl im eigenen Netz als auch bei der Nutzung öffentlicher Netze Risiken. So kann unberechtigt auf Replikationsverkehr zugegriffen werden, beispielsweise mittels FC-Analysern (FC-Replikation) oder Sniffern (IP-Replikation).</para>
+</section>
+<section xml:id="scroll-bookmark-2430">
+<title>Zugriff auf Informationen anderer Mandanten durch WWN-Spoofing</title>
+<para>Geräte in einem FC-SAN werden intern über World Wide Names (WWNs) verwaltet und zugeordnet. Sie entsprechen in gewisser Weise den MAC-Adressen von Ethernet-Netzadaptern. Mittels Programmen, die durch das herstellende Unternehmen der Host Bus Adapter (HBA) zur Verfügung gestellt werden, kann der WWN eines HBAs geändert werden. Dadurch kann unberechtigt auf Daten zugegriffen werden. Die Manipulation von WWNs, auch als WWN-Spoofing bezeichnet, birgt für eine Institution erhebliches Gefahrenpotenzial. Insbesondere im Zusammenhang mit mandantenfähigen Speichersystemen können Unberechtigte auf die Informationen anderer Mandanten zugreifen.</para>
+</section>
+<section xml:id="scroll-bookmark-2431">
+<title>Überwindung der logischen Netzseparierung</title>
+<para>Werden die Netzstrukturen unterschiedlicher Mandanten nicht durch physisch getrennte Netze, sondern durch virtuelle Storage Area Networks (VSANs) separiert, kann hierdurch die Informationssicherheit der Institution gefährdet werden. Gelingt es Angreifenden, in das Netz eines anderen Mandanten einzudringen, können sie sowohl auf das virtuelle SAN dieses Mandanten als auch auf die übertragenen Nutzdaten zugreifen.</para>
+</section>
+<section xml:id="scroll-bookmark-2432">
+<title>Ausfall von Komponenten einer Speicherlösung</title>
+<para>Komplexe netzbasierte Speicherlösungen bestehen oft aus vielen Komponenten (z. B. FC-Switches, Storage Controller, Virtualisierungs-Appliance). Fallen einzelne Komponenten einer Speicherlösung aus, kann dies dazu führen, dass wichtige Anwendungen nicht mehr korrekt arbeiten und somit Datenverluste drohen.</para>
+</section>
+<section xml:id="scroll-bookmark-2433">
+<title>Erlangung physischen Zugangs auf SAN-Switches</title>
+<para>Existieren in einer Institution unzureichende Zutritts- und Zugangskontrollen zu den Komponenten eines Speichersystems oder fehlen diese gänzlich, kann es gelingen, sich physischen Zugang zu vorhandenen Switches zu verschaffen bzw. zusätzliche FC-SAN-Switches an das Netz anzuschließen. Ziel bei einem solchen Angriff könnte es sein, auf die verteilte Zoning-Datenbank zuzugreifen, um diese so zu verändern, dass auf die Speichersysteme zugegriffen werden kann.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2434">
+<title>Anforderungen</title>
+<para>Im Folgenden sind die spezifischen Anforderungen des Bausteins SYS.1.8 <emphasis role="italics">Speicherlösungen</emphasis> aufgeführt. Der oder die Informationssicherheitsbeauftragte (ISB) ist dafür zuständig, dass alle Anforderungen gemäß dem festgelegten Sicherheitskonzept erfüllt und überprüft werden. Bei strategischen Entscheidungen ist der oder die ISB stets einzubeziehen.</para>
+<para>Im IT-Grundschutz-Kompendium sind darüber hinaus weitere Rollen definiert. Sie sollten besetzt werden, insofern dies sinnvoll und angemessen ist.</para>
+<para>Genau eine Rolle sollte <emphasis role="italics">Grundsätzlich zuständig </emphasis>sein. Darüber hinaus kann es noch <emphasis role="italics">Weitere Zuständigkeiten</emphasis> geben. Falls eine dieser weiteren Rollen für die Erfüllung einer Anforderung vorrangig zuständig ist, dann wird diese Rolle hinter der Überschrift der Anforderung in eckigen Klammern aufgeführt. Die Verwendung des Singulars oder Plurals sagt nichts darüber aus, wie viele Personen diese Rollen ausfüllen sollen.</para>
+<section xml:id="scroll-bookmark-2435">
+<title>Basis-Anforderungen</title>
+<para>Die folgenden Anforderungen MÜSSEN für diesen Baustein vorrangig erfüllt werden.</para>
+<section xml:id="scroll-bookmark-2436">
+<title>SYS.1.8.A1 Geeignete Aufstellung von Speichersystemen (B) [Haustechnik]</title>
+<para>Die IT-Komponenten von Speicherlösungen MÜSSEN in verschlossenen Räumen aufgestellt werden. Zu diesen Räumen DÜRFEN NUR Berechtigte Zutritt haben. Zudem MUSS eine sichere Stromversorgung sichergestellt sein. Die Vorgaben des herstellenden Unternehmens zur empfohlenen Umgebungstemperatur und Luftfeuchte MÜSSEN eingehalten werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2437">
+<title>SYS.1.8.A2 Sichere Grundkonfiguration von Speicherlösungen (B)</title>
+<para>Bevor eine Speicherlösung produktiv eingesetzt wird, MUSS sichergestellt sein, dass alle eingesetzten Softwarekomponenten und die Firmware aktuell sind. Danach MUSS eine sichere Grundkonfiguration hergestellt werden.</para>
+<para>Nicht genutzte Schnittstellen des Speichersystems MÜSSEN deaktiviert werden. Die Dateien zur Default-Konfiguration, zur vorgenommenen Grundkonfiguration und zur aktuellen Konfiguration SOLLTEN redundant und geschützt aufbewahrt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2438">
+<title>SYS.1.8.A3 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-2439">
+<title>SYS.1.8.A4 Schutz der Administrationsschnittstellen (B)</title>
+<para>Alle Administrations- und Management-Zugänge der Speichersysteme MÜSSEN eingeschränkt werden. Es MUSS sichergestellt sein, dass aus nicht-vertrauenswürdigen Netzen heraus nicht auf die Administrationsschnittstellen zugegriffen werden kann.</para>
+<para>Es SOLLTEN als sicher geltende Protokolle eingesetzt werden. Sollten dennoch unsichere Protokolle verwendet werden, MUSS für die Administration ein eigenes Administrationsnetz (siehe NET.1.1 <emphasis role="italics">Netzarchitektur und -design</emphasis>) genutzt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2440">
+<title>SYS.1.8.A5 ENTFALLEN (B)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2441">
+<title>Standard-Anforderungen</title>
+<para>Gemeinsam mit den Basis-Anforderungen entsprechen die folgenden Anforderungen dem Stand der Technik für diesen Baustein. Sie SOLLTEN grundsätzlich erfüllt werden.</para>
+<section xml:id="scroll-bookmark-2442">
+<title>SYS.1.8.A6 Erstellung einer Sicherheitsrichtlinie für Speicherlösungen (S)</title>
+<para>Ausgehend von der allgemeinen Sicherheitsrichtlinie der Institution SOLLTE eine spezifische Sicherheitsrichtlinie für Speicherlösungen erstellt werden. Darin SOLLTEN nachvollziehbar Vorgaben beschrieben sein, wie Speicherlösungen sicher geplant, administriert, installiert, konfiguriert und betrieben werden können.</para>
+<para>Die Richtlinie SOLLTE allen für Speicherlösungen zuständigen Administrierenden bekannt und grundlegend für ihre Arbeit sein. Wird die Richtlinie verändert oder wird von den Vorgaben abgewichen, SOLLTE dies mit dem oder der ISB abgestimmt und dokumentiert werden. Es SOLLTE regelmäßig überprüft werden, ob die Richtlinie noch korrekt umgesetzt ist. Gegebenenfalls SOLLTE sie aktualisiert werden. Die Ergebnisse SOLLTEN sinnvoll dokumentiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2443">
+<title>SYS.1.8.A7 Planung von Speicherlösungen (S)</title>
+<para>Bevor Speicherlösungen in einer Institution eingesetzt werden, SOLLTE eine Anforderungsanalyse durchgeführt werden. In der Anforderungsanalyse SOLLTEN unter anderem die Themen Performance und Kapazität betrachtet werden. Auf Basis der ermittelten Anforderungen SOLLTE dann eine detaillierte Planung für Speicherlösungen erstellt werden. Darin SOLLTEN folgende Punkte berücksichtigt werden:</para>
+<itemizedlist>
+<listitem>
+<para>Auswahl von herstellenden Unternehmen und Liefernden,</para>
+</listitem>
+<listitem>
+<para>Entscheidung für oder gegen zentrale Verwaltungssysteme (Management-Systeme),</para>
+</listitem>
+<listitem>
+<para>Planung des Netzanschlusses,</para>
+</listitem>
+<listitem>
+<para>Planung der Infrastruktur sowie</para>
+</listitem>
+<listitem>
+<para>Integration in bestehende Prozesse.</para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-2444">
+<title>SYS.1.8.A8 Auswahl einer geeigneten Speicherlösung (S)</title>
+<para>Die technischen Grundlagen unterschiedlicher Speicherlösungen SOLLTEN detailliert beleuchtet werden. Die Auswirkungen dieser technischen Grundlagen auf den möglichen Einsatz in der Institution SOLLTEN geprüft werden. Die Möglichkeiten und Grenzen der verschiedenen Speichersystemarten SOLLTEN für die Verantwortlichen der Institution transparent dargestellt werden. Die Entscheidungskriterien für eine Speicherlösung SOLLTEN nachvollziehbar dokumentiert werden. Ebenso SOLLTE die Entscheidung für die Auswahl einer Speicherlösung nachvollziehbar dokumentiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2445">
+<title>SYS.1.8.A9 Auswahl von Liefernden für eine Speicherlösung (S)</title>
+<para>Anhand der spezifizierten Anforderungen an eine Speicherlösung SOLLTEN geeignete Liefernde ausgewählt werden. Die Auswahlkriterien und die Entscheidung SOLLTEN nachvollziehbar dokumentiert werden. Außerdem SOLLTEN Aspekte der Wartung und Instandhaltung schriftlich in sogenannten Service-Level-Agreements (SLAs) festgehalten werden. Die SLAs SOLLTEN eindeutig und quantifizierbar sein. Es SOLLTE genau geregelt werden, wann der Vertrag mit den Liefernden endet.</para>
+</section>
+<section xml:id="scroll-bookmark-2446">
+<title>SYS.1.8.A10 Erstellung und Pflege eines Betriebshandbuchs (S)</title>
+<para>Es SOLLTE ein Betriebshandbuch erstellt werden. Darin SOLLTEN alle Regelungen, Anforderungen und Einstellungen dokumentiert werden, die erforderlich sind, um Speicherlösungen zu betreiben. Das Betriebshandbuch SOLLTE regelmäßig aktualisiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2447">
+<title>SYS.1.8.A11 Sicherer Betrieb einer Speicherlösung (S)</title>
+<para>Das Speichersystem SOLLTE hinsichtlich der Verfügbarkeit der internen Anwendungen, der Systemauslastung sowie kritischer Ereignisse überwacht werden. Weiterhin SOLLTEN für Speicherlösungen feste Wartungsfenster definiert werden, in denen Änderungen durchgeführt werden können. Insbesondere Firmware- oder Betriebssystemupdates von Speichersystemen oder den Netzkomponenten einer Speicherlösung SOLLTEN ausschließlich innerhalb eines solchen Wartungsfensters durchgeführt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2448">
+<title>SYS.1.8.A12 ENTFALLEN (S)</title>
+<para>Diese Anforderung ist entfallen.</para>
+</section>
+<section xml:id="scroll-bookmark-2449">
+<title>SYS.1.8.A13 Überwachung und Verwaltung von Speicherlösungen (S)</title>
+<para>Speicherlösungen SOLLTEN überwacht werden. Dabei SOLLTEN alle erhobenen Daten (Nachrichten) vorrangig daraufhin geprüft werden, ob die Vorgaben des Betriebshandbuchs eingehalten werden.</para>
+<para>Die wesentlichen Nachrichten SOLLTEN mit Nachrichtenfilter herausgefiltert werden. Einzelne Komponenten der Speicherlösung und des Gesamtsystems SOLLTEN zentral verwaltet werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2450">
+<title>SYS.1.8.A14 Absicherung eines SANs durch Segmentierung (S)</title>
+<para>Ein SAN SOLLTE segmentiert werden. Es SOLLTE ein Konzept erarbeitet werden, das die SAN-Ressourcen den jeweiligen Servern zuordnet. Hierfür SOLLTE anhand der Sicherheitsanforderungen und des Administrationsaufwands entschieden werden, welche Segmentierung in welcher Implementierung (z. B. FC-SANs oder iSCSI-Speichernetze) eingesetzt werden soll. Die aktuelle Ressourcenzuordnung SOLLTE mithilfe von Verwaltungswerkzeugen einfach und übersichtlich erkennbar sein. Weiterhin SOLLTE die aktuelle Zoning-Konfiguration dokumentiert werden. Die Dokumentation SOLLTE auch in Notfällen verfügbar sein.</para>
+</section>
+<section xml:id="scroll-bookmark-2451">
+<title>SYS.1.8.A15 Sichere Trennung von Mandanten in Speicherlösungen (S)</title>
+<para>Es SOLLTE definiert und nachvollziehbar dokumentiert werden, welche Anforderungen die Institution an die Mandantenfähigkeit einer Speicherlösung stellt. Die eingesetzten Speicherlösungen SOLLTEN diese dokumentierten Anforderungen erfüllen.</para>
+<para>Im Block-Storage-Umfeld SOLLTE <emphasis role="italics">LUN Masking </emphasis>eingesetzt werden, um Mandanten voneinander zu trennen. In Fileservice-Umgebungen SOLLTE es möglich sein, mit virtuellen Fileservern zu agieren. Dabei SOLLTE jedem Mandanten ein eigener Fileservice zugeordnet werden.</para>
+<para>Beim Einsatz von IP oder iSCSI SOLLTEN die Mandanten über eine Segmentierung im Netz voneinander getrennt werden. Wird Fibre Channel eingesetzt, SOLLTE mithilfe von VSANs und Soft-Zoning separiert werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2452">
+<title>SYS.1.8.A16 Sicheres Löschen in SAN-Umgebungen (S)</title>
+<para>In mandantenfähigen Speichersystemen SOLLTE sichergestellt werden, dass Logical Unit Numbers (LUNs), die einem bestimmten Mandanten zugeordnet sind, gelöscht werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2453">
+<title>SYS.1.8.A17 Dokumentation der Systemeinstellungen von Speichersystemen (S)</title>
+<para>Alle Systemeinstellungen von Speichersystemen SOLLTEN dokumentiert werden. Die Dokumentation SOLLTE die technischen und organisatorischen Vorgaben sowie alle spezifischen Konfigurationen der Speichersysteme der Institution enthalten.</para>
+<para>Sofern die Dokumentation der Systemeinstellungen vertrauliche Informationen beinhaltet, SOLLTEN diese vor unberechtigtem Zugriff geschützt werden. Die Dokumentation SOLLTE regelmäßig überprüft werden. Sie SOLLTE immer aktuell sein.</para>
+</section>
+<section xml:id="scroll-bookmark-2454">
+<title>SYS.1.8.A18 Sicherheitsaudits und Berichtswesen bei Speichersystemen (S)</title>
+<para>Alle eingesetzten Speichersysteme SOLLTEN regelmäßig auditiert werden. Dafür SOLLTE ein entsprechender Prozess eingerichtet werden. Es SOLLTE geregelt werden, welche Sicherheitsreports mit welchen Inhalten regelmäßig zu erstellen sind. Zudem SOLLTE auch geregelt werden, wie mit Abweichungen von Vorgaben umgegangen wird und wie oft und in welcher Tiefe Audits durchgeführt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2455">
+<title>SYS.1.8.A19 Aussonderung von Speicherlösungen (S)</title>
+<para>Werden ganze Speicherlösungen oder einzelne Komponenten einer Speicherlösung nicht mehr benötigt, SOLLTEN alle darauf vorhandenen Daten auf andere Speicherlösungen übertragen werden. Hierfür SOLLTE eine Übergangsphase eingeplant werden. Anschließend SOLLTEN alle Nutzdaten und Konfigurationsdaten sicher gelöscht werden. Aus allen relevanten Dokumenten SOLLTEN alle Verweise auf die außer Betrieb genommene Speicherlösung entfernt werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2456">
+<title>SYS.1.8.A20 Notfallvorsorge und Notfallreaktion für Speicherlösungen (S)</title>
+<para>Es SOLLTE ein Notfallplan für die eingesetzte Speicherlösung erstellt werden. Der Notfallplan SOLLTE genau beschreiben, wie in bestimmten Notfallsituationen vorzugehen ist. Auch SOLLTEN Handlungsanweisungen in Form von Maßnahmen und Kommandos enthalten sein, die die Fehleranalyse und Fehlerkorrektur unterstützen. Um Fehler zu beheben, SOLLTEN geeignete Werkzeuge eingesetzt werden.</para>
+<para>Regelmäßige Übungen und Tests SOLLTEN anhand des Notfallplans durchgeführt werden. Nach den Übungen und Tests sowie nach einem tatsächlichen Notfall SOLLTEN die dabei erzeugten Daten sicher gelöscht werden.</para>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2457">
+<title>Anforderungen bei erhöhtem Schutzbedarf</title>
+<para>Im Folgenden sind für diesen Baustein exemplarische Vorschläge für Anforderungen aufgeführt, die über dasjenige Schutzniveau hinausgehen, das dem Stand der Technik entspricht. Die Vorschläge SOLLTEN bei erhöhtem Schutzbedarf in Betracht gezogen werden. Die konkrete Festlegung erfolgt im Rahmen einer individuellen Risikoanalyse.</para>
+<section xml:id="scroll-bookmark-2458">
+<title>SYS.1.8.A21 Einsatz von Speicherpools zur Trennung von Mandanten (H)</title>
+<para>Mandanten SOLLTEN Speicherressourcen aus unterschiedlichen sogenannten Speicherpools zugewiesen werden. Dabei SOLLTE ein Speichermedium immer nur einem einzigen Pool zugewiesen werden. Die logischen Festplatten (LUNs), die aus einem solchen Pool generiert werden, SOLLTEN nur einem einzigen Mandanten zugeordnet werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2459">
+<title>SYS.1.8.A22 Einsatz einer hochverfügbaren SAN-Lösung (H)</title>
+<para>Eine hochverfügbare SAN-Lösung SOLLTE eingesetzt werden. Die eingesetzten Replikationsmechanismen SOLLTEN den Verfügbarkeitsanforderungen der Institution an die Speicherlösung entsprechen. Auch die Konfiguration der Speicherlösung SOLLTE den Verfügbarkeitsanforderungen gerecht werden. Außerdem SOLLTE ein Test- und Konsolidierungssystem vorhanden sein.</para>
+</section>
+<section xml:id="scroll-bookmark-2460">
+<title>SYS.1.8.A23 Einsatz von Verschlüsselung für Speicherlösungen (H)</title>
+<para>Alle in Speicherlösungen abgelegten Daten SOLLTEN verschlüsselt werden. Es SOLLTE festgelegt werden, auf welchen Ebenen (Data-in-Motion und Data-at-Rest) verschlüsselt wird. Dabei SOLLTE beachtet werden, dass die Verschlüsselung auf dem Transportweg auch bei Replikationen und Backup-Traffic relevant ist.</para>
+</section>
+<section xml:id="scroll-bookmark-2461">
+<title>SYS.1.8.A24 Sicherstellung der Integrität der SAN-Fabric (H)</title>
+<para>Um die Integrität der SAN-Fabric sicherzustellen, SOLLTEN Protokolle mit zusätzlichen Sicherheitsmerkmalen eingesetzt werden. Bei den folgenden Protokollen SOLLTEN deren Sicherheitseigenschaften berücksichtigt und entsprechende Konfigurationen verwendet werden:</para>
+<itemizedlist>
+<listitem>
+<para>Diffie Hellman Challenge Handshake Authentication Protocol (DH-CHAP),</para>
+</listitem>
+<listitem>
+<para>Fibre Channel Authentication Protocol (FCAP) und</para>
+</listitem>
+<listitem>
+<para>Fibre Channel Password Authentication Protocol (FCPAP).</para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="scroll-bookmark-2462">
+<title>SYS.1.8.A25 Mehrfaches Überschreiben der Daten einer LUN (H)</title>
+<para>In SAN-Umgebungen SOLLTEN Daten gelöscht werden, indem die zugehörigen Speichersegmente einer LUN mehrfach überschrieben werden.</para>
+</section>
+<section xml:id="scroll-bookmark-2463">
+<title>SYS.1.8.A26 Absicherung eines SANs durch Hard-Zoning (H)</title>
+<para>Um SANs zu segmentieren, SOLLTE Hard-Zoning eingesetzt werden.</para>
+</section>
+</section>
+</section>
+<section xml:id="scroll-bookmark-2464">
+<title>Weiterführende Informationen</title>
+<section xml:id="scroll-bookmark-2465">
+<title>Wissenswertes</title>
+<para>Die International Organization for Standardization (ISO) gibt in der Norm ISO/IEC 27040:2015 „Information technology - Security techniques - Storage security“ Vorgaben für die Absicherung von Speicherlösungen.</para>
+<para>Das Information Security Forum (ISF) macht in seinem Standard „The Standard of Good Practice for Information Security“ im Kapitel SY1.4 Network Storage Systems Vorgaben für die Absicherung von Speicherlösungen.</para>
+</section>
+</section>
