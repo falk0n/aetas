@@ -27,12 +27,13 @@ def bsi_preprocessor(docs):
 
 
 st.write("# Configure BSI specific preprocessing")
-st.write("#### Preprocessing")
+st.write("#### Current preprocessing")
 widget = st.text(f'Preprocessing name: {st.session_state["preprocess_name"]}')
 
+st.write("#### New preprocessing")
 aggregate_sections = fsc.true_false_radio("Aggregate sections into chapters", default=False)
 
-if st.button("Save preprocessing configuration"):
+if st.button("Set new preprocessing configuration"):
     st.session_state["preprocess"] = bsi_preprocessor
     st.session_state["preprocess_name"] = "BSI specific processing"
     st.session_state["preprocess_kwargs"] = {"aggregate_into_chapters": aggregate_sections}
