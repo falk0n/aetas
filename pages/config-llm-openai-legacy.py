@@ -4,7 +4,8 @@ from langchain.llms import OpenAI
 #
 # llm-qa.py
 # Configure the global LLM object in session state.
-# In this case we configure an OpenAI instruct model.
+# In this case we configure an OpenAI instruct model with a legacy endpoint.
+# Please note that the newer interface from OpenAI is the chat endpoint.
 #
 st.write("# Configure OpenAI LLM")
 st.write("#### Current LLM")

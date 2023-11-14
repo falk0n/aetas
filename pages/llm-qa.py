@@ -20,5 +20,7 @@ st.write(f"Number of tokens in query: {calc_token_length(my_query)}")
 
 if st.button("Show me your answer!"):
     answer = llm.invoke(my_query)
-    st.write(f"Number of tokens in answer: { calc_token_length(answer)}")
     st.write(answer)
+    st.write(type(answer))
+    # st.write(f"Number of tokens in answer: { calc_token_length(answer)}")
+
