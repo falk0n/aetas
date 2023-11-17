@@ -16,11 +16,12 @@ llm = st.session_state["llm"]
 calc_token_length = llm.get_num_tokens
 
 
-modify_prompt = st.checkbox("Modify prompt configuration")
-
-if st.checkbox(label="Show retriever configuration"):
-    config.show_config("retriever", True)
+config.show_expander_config("embedding")
+config.show_expander_config("vectorstore")
+config.show_expander_config("retriever")
 retriever = st.session_state["retriever"]
+
+modify_prompt = st.checkbox("Modify prompt configuration")
 
 
 # configure and create prompt

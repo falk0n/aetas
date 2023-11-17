@@ -11,8 +11,7 @@ from modules import config
 
 st.write("# Configure chroma retriever")
 vectordb = st.session_state["vectorstore"]
-if st.checkbox("Show vectorstore"):
-    config.show_config("vectorstore", prefix="Used ")
+config.show_expander_config("vectorstore", prefix="Used ")
 
 
 st.write("### Current configuration")

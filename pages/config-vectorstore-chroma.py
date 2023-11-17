@@ -2,12 +2,16 @@ import streamlit as st
 import chromadb
 from langchain.vectorstores import Chroma
 
+from modules import config
+
 #
 # config-vectorstore.py
 # Configure the global vectorstore object in session state.
 # This is a configuration with a persistent chroma client.
 #
 st.write("# Configure Vectorstore")
+config.show_expander_config("embedding")
+
 st.write("### Current vectorstore")
 kwargs = st.session_state["vectorstore_kwargs"]
 widget_path = st.text(f'Persist path: {kwargs["persist_dir"]}')

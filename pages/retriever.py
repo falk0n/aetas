@@ -15,9 +15,8 @@ vectordb = st.session_state["vectorstore"]
 
 
 st.write("# Retrieval from vectorstore")
-if st.checkbox("Show vectorstore and embedding"):
-    config.show_config("embedding", False)
-    config.show_config("vectorstore", False)
+config.show_expander_config("embedding")
+config.show_expander_config("vectorstore")
 
 
 # Let's GET REAL
