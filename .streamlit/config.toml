@@ -1,0 +1,15 @@
+
+[theme]
+
+base = "dark"
+
+#backgroundColor="#313338"           # Anthrazitgrau Screen
+#secondaryBackgroundColor="#606060"  # Grau Screen
+backgroundColor="#003066"           # Dunkelblau Screen
+secondaryBackgroundColor="#0066CE"  # OC Blau Screen
+
+textcolor="#F6F6F6"                 # HG-Grau Screen
+
+primaryColor="#CE2000"              # Rot Screen
+
+

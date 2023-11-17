@@ -115,3 +115,19 @@ def show_config(conf_name, show_details=False, prefix=""):
                 st.write(f'{detail}: {details[detail]}')
         else:
             st.write("No details available")
+
+
+# show the details of a global configuration
+# name is one of the elements described at the top of this file
+def show_expander_config(conf_name, show_details=False, prefix=""):
+    print_name = conf_name.capitalize()
+    if conf_name == "llm":
+        print_name = "LLM"
+
+    with st.expander(f'# {print_name}: {st.session_state[conf_name + "_name"]}'):
+        details = st.session_state[conf_name + "_kwargs"]
+        if len(details.keys()) > 0:
+            for detail in sorted(list(details.keys())):
+                st.write(f'{detail}: {details[detail]}')
+        else:
+            st.write("No details available")

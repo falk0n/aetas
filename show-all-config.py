@@ -19,4 +19,4 @@ st.write("# Show all global configurations")
 show_me_details = st.checkbox("Show configuration details")
 
 for name in ["loader", "preprocess", "embedding", "vectorstore", "retriever", "llm"]:
-    config.show_config(name, show_me_details)
+    config.show_expander_config(name, show_me_details)
