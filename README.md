@@ -8,7 +8,7 @@ using the langchain framework and models from HuggingFace.co
 AETAS is not an end user application!
 It is targeted at engineers who want to experiment with some embeddings
 and want a little bit more comfort than the Python command line or a Jupyter notebooks provide.
-Many interesting experiments are  going to require you to writing additional modules.
+Many interesting experiments are  going to require you to write additional modules.
 The general architecture uses streamlit. So all the modules go into the pages directory.
 
 ### Running the application
@@ -33,7 +33,7 @@ So maybe you need to install it additionally on your machine.
 ### Testing
 In general, the code has been developed on archlinux.
 No testing on other platforms has been done yet.
-The application is only standard python functionality,
-so there should no real problems running with another Linux.
+The application uses only standard python features,
+so there should be no real problems running on another reasonable system.
 
 ~~~~
