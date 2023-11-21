@@ -11,7 +11,8 @@ import numpy as np
 st.write("# Simple collection management")
 
 # location of chroma vectorstore
-chroma_dir = "/home/falk/work/nlp/vectordb/chromadb"
+config = st.session_state["defaults"]["chroma"]
+chroma_dir = config["chroma_dir"]
 if st.checkbox("select chromadb location"):
     chroma_dir = st.text_input(label="location of chroma vectorstore", value=chroma_dir)
 chroma_client = chromadb.PersistentClient(chroma_dir)

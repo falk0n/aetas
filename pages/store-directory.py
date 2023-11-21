@@ -11,7 +11,8 @@ import streamlit as st
 #
 st.write("# Embed and store all files from directory")
 st.write("### Directory configuration")
-config_filedir = "/home/falk/work/nlp/corpus/bsi_sample/"
+config = st.session_state["defaults"]["store-directory"]
+config_filedir = config["directory"]
 my_filedir = st.text_input(label="Directory to load:", value=config_filedir)
 
 if st.checkbox("Show processing configuration"):
