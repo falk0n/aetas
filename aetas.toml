@@ -1,0 +1,38 @@
+#
+# This is the default configuration file for aetas.
+# For clarity, all sections and parameters are present in this file.
+# (If not, it's a bug.)
+#
+
+[embedding]
+# Currently HuggingFaceEmbeddings is the only supported type.
+# Conceptually, this is a subclass of langchain.embeddings.
+model_type = "HuggingFaceEmbeddings"
+embedding_name = "intfloat/multilingual-e5-large"
+model_kwargs = { device = "cpu" }
+encode_kwargs = { normalize_embeddings = true }
+
+[chroma]
+chroma_dir = "/home/falk/work/nlp/vectordb/chromadb"
+#collection = "default_collection"
+collection = "multi_all_paragraphs"
+
+[retriever]
+# Currently the retriever is always created with vectorstore.as_retriever().
+search_type = "similarity_score_threshold"
+search_kwargs = { k=5, score_threshold = 0.5 }
+
+[llm]
+# Currently OpenAI is the only supported type.
+# Conceptually, type should match a subclass of langchain.llms.
+llm_type = "OpenAI"
+model = "text-davinci-003"
+model_kwargs = { temperature = 0.1, max_tokens = 512 }
+
+[store-document]
+directory = "home/falk/work/nlp/corpus/bsi_pdf/"
+filename = "SYS.1.3 Server unter Linux und Unix.pdf.clean.pdf"
+
+[store-directory]
+directory = "home/falk/work/nlp/corpus/bsi_xml/txt/"
+

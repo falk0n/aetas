@@ -1,5 +1,14 @@
+import tomllib
 import streamlit as st
 from modules import config
+
+
+# read default configurations
+config_file = "aetas.toml"
+with open(config_file, "rb") as file:
+    configuration = tomllib.load(file)
+    st.session_state["defaults"] = configuration
+
 
 # First, run initial all global session objects.
 if "init-already-done" not in st.session_state.keys():
@@ -14,9 +23,10 @@ if "init-already-done" not in st.session_state.keys():
     widget.text("Initial configuration done.")
 
 
-# Then, we can show all configurations.
-st.write("# Show all global configurations")
-show_me_details = st.checkbox("Show configuration details")
+st.write("## New Configuration")
+st.write(configuration)
 
+
+st.write("## Old Configuration")
 for name in ["loader", "preprocess", "embedding", "vectorstore", "retriever", "llm"]:
-    config.show_expander_config(name, show_me_details)
+    config.show_expander_config(name)

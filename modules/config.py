@@ -25,24 +25,40 @@ from langchain.llms import OpenAI
 #
 
 
-# set session state to default embedding
-def default_embedding():
-    default_embedding_model = "intfloat/multilingual-e5-large"
-    default_device = "cpu"
+# set session state the given embedding
+# Currently a default embedding has to be HuggingFaceEmbeddings
+# still need to figure out how to take care of the extra parameter in HuggingFaceInstructEmbeddings
+def set_embedding(name, model_kwargs, encode_kwargs):
     embedding_function = lce.HuggingFaceEmbeddings(
-        model_name=default_embedding_model,
-        model_kwargs={"device": default_device},
-        encode_kwargs={"normalize_embeddings": True})
+        model_name=name,
+        model_kwargs=model_kwargs,
+        encode_kwargs=encode_kwargs)
+    return embedding_function
+
+
+# set default embedding model based on the configuration file
+def default_embedding():
+    config = st.session_state["defaults"]["embedding"]
+    if config["model_type"] != "HuggingFaceEmbeddings":
+        raise ValueError
+    # FIXME: We should really check for any missing attributes in the configuration.
+    embedding_function = set_embedding(config["embedding_name"],
+                                       config["model_kwargs"],
+                                       config["encode_kwargs"])
+    # set session state for use by the other modules
     st.session_state["embedding"] = embedding_function
-    st.session_state["embedding_name"] = default_embedding_model
-    st.session_state["embedding_kwargs"] = {"embedding_device": default_device}
+    st.session_state["embedding_name"] = config["embedding_name"]
+    st.session_state["embedding_kwargs"] = {"model_kwargs": config["model_kwargs"],
+                                            "encode_kwargs": config["encode_kwargs"]}
     return embedding_function
 
 
 # set session state to default vectorstore
 def default_vectorstore():
-    config_chroma_dir = "/home/falk/work/nlp/vectordb/chromadb"
-    config_collection = "default_collection"
+    # FIXME: Assumption: All required configurations are available in the session state.
+    config = st.session_state["defaults"]["chroma"]
+    config_chroma_dir = config["chroma_dir"]
+    config_collection = config["collection"]
     chroma_client = chromadb.PersistentClient(config_chroma_dir)
     vectordb = Chroma(
         client=chroma_client,
@@ -76,9 +92,13 @@ def default_preprocess():
 
 
 # set session state to default llm
+# FIXME: Assumption is that all required configuration attributes are present
 def default_llm():
-    default_model = "text-davinci-003"
-    kwargs = {"temperature": 0.1, "max_tokens": 256}
+    config = st.session_state["defaults"]["llm"]
+    if config["llm_type"] != "OpenAI":
+        raise ValueError
+    default_model = config["model"]
+    kwargs = config["model_kwargs"]
     llm = OpenAI(model_name=default_model,
                  temperature=kwargs["temperature"],
                  max_tokens=kwargs["max_tokens"])
@@ -87,9 +107,11 @@ def default_llm():
     st.session_state["llm_kwargs"] = kwargs
 
 
+# set session state to default retriever based on the vectorstore
 def default_retriever():
-    config_search_type = "similarity_score_threshold"
-    config_retriever = {"k": 5, "score_threshold": 0.5}
+    config = st.session_state["defaults"]["retriever"]
+    config_search_type = config["search_type"]
+    config_retriever = config["search_kwargs"]
     vectordb = st.session_state["vectorstore"]
     retriever = vectordb.as_retriever(search_type=config_search_type, search_kwargs=config_retriever)
     retriever_kwargs = {"search_type": config_search_type, "kwargs": config_retriever}

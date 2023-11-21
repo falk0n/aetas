@@ -10,8 +10,9 @@ import streamlit as st
 
 st.write("# Embed and store one document")
 st.write("### Document configuration")
-config_filedir = "/home/falk/work/nlp/corpus/bsi_pdf/"                  # default directory
-config_filename = "SYS.1.3 Server unter Linux und Unix.pdf.clean.pdf"   # default filename
+config = st.session_state["defaults"]["store-document"]
+config_filedir = config["directory"]    # default directory
+config_filename = config["filename"]    # default filename
 my_filedir = st.text_input(label="Verzeichnis:", value=config_filedir)  # directory after user input
 my_filename = st.text_input(label="Dokument:", value=config_filename)   # filename after user input
 infile = my_filedir + my_filename
