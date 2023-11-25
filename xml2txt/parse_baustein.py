@@ -1,13 +1,26 @@
 import re
+import os
 
 
 # just convenience to put all Baustein names into a set
-def baustein_names():
-    file_with_names = "bausteine_names"         # output of extract_bausteine_names.py
+# def baustein_names():
+#     file_with_names = "bausteine_names"         # output of extract_bausteine_names.py
+#     names = set()
+#     with open(file_with_names, "r") as bausteine:
+#         for baustein in bausteine:
+#             names.add(baustein.strip())
+#     return names
+
+
+def bausteine_names(path_bausteine):
     names = set()
-    with open(file_with_names, "r") as bausteine:
-        for baustein in bausteine:
-            names.add(baustein.strip())
+    old_path = os.getcwd()
+    os.chdir(path_bausteine)
+    for baustein in os.scandir():
+        raw_baustein = baustein.name.split(".pdf")[0]
+        new_baustein = raw_baustein.replace("CCON", "CON", 1)   # weird file names for CON.X Bausteine from BSIß
+        names.add(new_baustein)
+    os.chdir(old_path)
     return names
 
 
@@ -130,7 +143,6 @@ def handle_itemizedlist(lines):
             greed_end = pattern_greed_stop.search(line)
             if greed_end:
                 greed_state = False
-                line_content = greed_content
             continue
 
         # non greedy state -> print last line
@@ -153,7 +165,7 @@ def handle_itemizedlist(lines):
 # write the lines into a textfile for the Baustein
 # This is the final part of the text processing pipeline.
 def write_txt_file(lines, baustein):
-    txt_file = "txt/" + baustein + ".txt"
+    txt_file = "./txt/" + baustein + ".txt"
     with open(txt_file, "w") as file:
         for line in lines:
             file.write(line)
@@ -161,14 +173,18 @@ def write_txt_file(lines, baustein):
 
 
 def main():
-    # bausteine = ["SYS.1.1 Allgemeiner Server"]      # for testing
-    bausteine = baustein_names()                    # for real
+
+    old_path = os.getcwd()
+    bsi_path = "/home/falk/work/nlp/corpus/bsi"
+    os.chdir(bsi_path)
+    bausteine = bausteine_names("./pdf")
     for baustein in bausteine:
         lines_raw = read_xml_baustein(baustein)
         lines_no_lists = handle_itemizedlist(lines_raw)
         lines_parsed = parse_baustein(lines_no_lists)
         lines_clean = clean_emphasis_tags(lines_parsed)
         write_txt_file(lines_clean, baustein)
+    os.chdir(old_path)
 
 
 if __name__ == "__main__":

@@ -1,13 +1,16 @@
 import re
+import os
 
 
-# just convenience to put all Baustein names into a set
-def baustein_names():
-    file_with_names = "bausteine_names"         # output of extract_bausteine_names.py
+def bausteine_names(path_bausteine):
     names = set()
-    with open(file_with_names, "r") as bausteine:
-        for baustein in bausteine:
-            names.add(baustein.strip())
+    old_path = os.getcwd()
+    os.chdir(path_bausteine)
+    for baustein in os.scandir():
+        raw_baustein = baustein.name.split(".pdf")[0]
+        new_baustein = raw_baustein.replace("CCON", "CON", 1)   # weird file names for CON.X Bausteine from BSIß
+        names.add(new_baustein)
+    os.chdir(old_path)
     return names
 
 
@@ -21,6 +24,7 @@ def baustein_start_lines(names, content):
             baustein_name = match.group(1)
             if baustein_name in names:
                 start_lines[baustein_name] = line_no
+                print(f"found Baustein {baustein_name}")
     return start_lines
 
 
@@ -28,8 +32,9 @@ def baustein_start_lines(names, content):
 # start and final <section> </section> tags are omitted.
 # The <informaltable> </informaltable> section is omitted.
 def extract_baustein(baustein, start_line, content):
-    filename = "xml/" + baustein + ".xml"
+    filename = "./xml/" + baustein + ".xml"
     section_level = 1
+    print(f"Start with: {filename}")
     with open(filename, "w") as file:
         print_flag = True
         for line_no in range(start_line, len(content)):
@@ -50,16 +55,25 @@ def extract_baustein(baustein, start_line, content):
 
 
 def main():
-    bausteine = baustein_names()                    # every Baustein
-    # bausteine = ["SYS.1.1 Allgemeiner Server"]    # Baustein for testing
+    # bsi_path should have subdirectories pdf, xml and txt for Bausteine in different formats.
+    # bsi_path/pdf should contain the pdf versions of the Bausteine as downloaded from BSI website.
+    bsi_path = "/home/falk/work/nlp/corpus/bsi"
+    old_path = os.getcwd()
+    os.chdir(bsi_path)
+    bausteine = bausteine_names("./pdf")
+    print(f"Bausteine: {bausteine}")
+    # bausteine = ["SYS.1.1 Allgemeiner Server"]
 
-    kompendium = "bsi_grundschutz_2023.xml"         # XML of IT-Grundschutzkompendium as provided by BSI
+    kompendium = "./kompendium/bsi_grundschutz_2023.xml"         # XML of IT-Grundschutzkompendium as provided by BSI
     with open(kompendium) as kompendium:
         content = kompendium.readlines()
 
     start_lines = baustein_start_lines(bausteine, content)
+    print(f"Anzahl start_lines: {start_lines}")
     for baustein, line_no in start_lines.items():
         extract_baustein(baustein, line_no, content)
+
+    os.chdir(old_path)
 
 
 if __name__ == "__main__":
