@@ -12,7 +12,8 @@ Many interesting experiments are  going to require you to write additional modul
 The general architecture uses streamlit. So all the modules go into the pages directory.
 
 ### Running the application
-For starting the application the run command is intended.
+The application is contained in streamlit-app directory. Make it your working directory.
+Then, start the application the run command.
 It assumes you have configured the following environment variables correctly:
 * HUGGINGFACEHUB_API_TOKEN
 * SENTENCE_TRANSFORMERS

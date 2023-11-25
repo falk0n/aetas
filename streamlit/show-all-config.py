@@ -23,10 +23,6 @@ if "init-already-done" not in st.session_state.keys():
     widget.text("Initial configuration done.")
 
 
-st.write("## New Configuration")
-st.write(configuration)
-
-
 st.write("## Old Configuration")
 for name in ["loader", "preprocess", "embedding", "vectorstore", "retriever", "llm"]:
     config.show_expander_config(name)
