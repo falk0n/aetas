@@ -5,7 +5,13 @@
 # This script is supposed to run in the background.
 #
 appname="show-all-config"
-logfile="logs/$(date --rfc-3339=seconds)-$appname.log"
+log_directory="logs"
+logfile="$log_directory/$(date +"%Y-%m-%dT%H:%M:%S")-$appname.log"
+
+# Create log directory if it doesn't exist
+if  [ ! -d $log_directory ]; then
+  mkdir -p "$log_directory"
+fi
 
 streamlit run "$appname.py" >$logfile 2>&1
 
