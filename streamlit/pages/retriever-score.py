@@ -32,7 +32,7 @@ config_retriever["score_threshold"] = st.number_input(
     value=config_retriever["score_threshold"], min_value=0.0, max_value=1.0)
 retriever = vectordb.as_retriever(search_type=config_search_type, search_kwargs=config_retriever)
 
-question_default = "Welche Bausteine sind für den Betrieb von Kubernetes zu berücksichtigen?"
+question_default = st.session_state["query"]
 question = st.text_input(label="Retrieval Phrase", value=question_default)
 question_embedding = embedding_function.embed_query(question)
 
@@ -59,4 +59,3 @@ for doc in retrieved_docs:
     st.write(f"**Similarity Score:** {score}")
     st.write(f"**Content:** {doc.page_content}")
     st.write("\n")
-

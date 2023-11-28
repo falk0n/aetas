@@ -120,6 +120,13 @@ def default_retriever():
     st.session_state["retriever_kwargs"] = retriever_kwargs
 
 
+# set the global default query
+def default_query():
+    st.session_state["query"] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    st.session_state["query_name"] = "Lorem ipsum"
+    st.session_state["query_kwargs"] = dict()
+
+
 # show the details of a global configuration
 # name is one of the elements described at the top of this file
 def show_config(conf_name, show_details=False, prefix=""):

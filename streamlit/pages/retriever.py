@@ -49,7 +49,7 @@ if st.button("Set new retriever configuration"):
 
 
 st.write("## Retrieval phrase")
-question_default = "Welche Anforderungen gibt es für Linux?"
+question_default = st.session_state["query"]
 question = st.text_input(label="Retrieval phrase", label_visibility="collapsed", value=question_default)
 
 

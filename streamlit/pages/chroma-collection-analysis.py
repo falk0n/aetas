@@ -57,7 +57,7 @@ st.write(f'Embedding length: {vector_length}')
 
 st.write("## Distances distribution of test query")
 embedding_function = st.session_state["embedding"]
-question_default = "Welche Anforderungen gibt es für Linux?"
+question_default = st.session_state["query"]
 question = st.text_input(label="Retrieval Phrase", value=question_default)
 question_embedding = np.array(embedding_function.embed_query(question))
 query_distances = np.matmul(vectors, question_embedding.T)

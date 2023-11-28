@@ -49,7 +49,7 @@ chain = (
 
 
 st.write("### Query")
-config_query = "Welche Anforderungen sind für Linux zu beachten?"
+config_query = st.session_state["query"]
 my_query = st.text_input(label="Query text", value=config_query)
 st.write(f"Number of tokens in query: {calc_token_length(my_query)}")
 

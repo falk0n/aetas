@@ -19,10 +19,11 @@ if "init-already-done" not in st.session_state.keys():
     config.default_vectorstore()
     config.default_retriever()
     config.default_llm()
+    config.default_query()
     st.session_state["init-already-done"] = True    # make sure we don't initialize twice and overwrite user configs
     widget.text("Initial configuration done.")
 
 
 st.write("## Old Configuration")
-for name in ["loader", "preprocess", "embedding", "vectorstore", "retriever", "llm"]:
+for name in ["loader", "preprocess", "embedding", "vectorstore", "retriever", "llm", "query"]:
     config.show_expander_config(name)
