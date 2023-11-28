@@ -1,4 +1,5 @@
 import time
+import os
 import streamlit as st
 
 #
@@ -15,7 +16,7 @@ config_filedir = config["directory"]    # default directory
 config_filename = config["filename"]    # default filename
 my_filedir = st.text_input(label="Verzeichnis:", value=config_filedir)  # directory after user input
 my_filename = st.text_input(label="Dokument:", value=config_filename)   # filename after user input
-infile = my_filedir + my_filename
+infile = os.path.join(my_filedir, my_filename)
 
 if st.checkbox("Show processing configuration"):
     st.write(f'Loader: {st.session_state["loader_name"]}')
@@ -40,8 +41,8 @@ if st.button("Process document"):
         st.write(docs_preprocessed)
 
     vectordb = st.session_state["vectorstore"]
-    time_start = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
+    time_start = time.perf_counter_ns()
     vectordb.add_documents(docs_preprocessed)
-    time_end = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
+    time_end = time.perf_counter_ns()
     duration_ms = int((time_end - time_start)/1000000)
     st.write(f"Processing time (store and embed): { duration_ms} [ms]")

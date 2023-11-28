@@ -29,15 +29,15 @@ preprocessor = st.session_state["preprocess"]
 
 if st.button("Process files in directory"):
     widget = st.text("Processing: starts now")
-    time_start = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
+    time_start = time.perf_counter_ns()
     for name in os.listdir(my_filedir):
         widget.text(f"Processing: {name}")
-        filename = my_filedir + name
+        filename = os.path.join(my_filedir, name)
         fileloader = loader(filename)
         docs_raw = fileloader.load()
         docs_preprocessed = preprocessor(docs_raw)
         vectordb.add_documents(docs_preprocessed)
-    time_end = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
+    time_end = time.perf_counter_ns()
     widget = st.text("Processing: done")
     duration_ms = int((time_end - time_start)/1000000)
     st.write(f"total processing time (mostly embedding): {duration_ms} [ms]")
