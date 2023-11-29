@@ -53,9 +53,11 @@ for doc in retrieved_docs:
     # doc_embedding = np.array(embedding_function.embed_documents([doc.page_content])[0])
     doc_embedding = np.array(embedding_function.embed_query(doc.page_content))
     score = np.dot(question_embedding, doc_embedding)
-    st.write(f"#### Baustein: {doc.metadata.get('baustein_name', 'nicht gesetzt')}")
-    st.write(f"**Chapter:** {doc.metadata.get('chapter_name', 'nicht gesetzt')}")
-    st.write(f"**Section:** {doc.metadata.get('section_name', 'nicht gesetzt')}")
-    st.write(f"**Similarity Score:** {score}")
+    metadata = doc.metadata
+    st.write(f"#### Source: {metadata.get('source', 'nicht gesetzt')}")
     st.write(f"**Content:** {doc.page_content}")
+    st.write(f"**Similarity Score:** {score}")
+    for md in sorted(list(metadata.keys())):
+        if md != "source":
+            st.write(f"**{md}:** {metadata[md]}")
     st.write("\n")

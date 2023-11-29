@@ -63,8 +63,9 @@ if st.checkbox("Show statistics and raw data"):
 st.write("### Query results")
 for doc in retrieved_docs:
     metadata = doc.metadata
-    st.write(f"#### Baustein: {metadata.get('baustein_name', 'nicht gesetzt')}")
-    st.write(f"**Chapter:** {metadata.get('chapter_name', 'nicht gesetzt')}")
-    st.write(f"**Section:** {metadata.get('section_name', 'nicht gesetzt')}")
+    st.write(f"#### Source: {metadata.get('source', 'nicht gesetzt')}")
     st.write(f"**Content:** {doc.page_content}")
+    for md in sorted(list(metadata.keys())):
+        if md != "source":
+            st.write(f"**{md}:** {metadata[md]}")
     st.write("\n")
