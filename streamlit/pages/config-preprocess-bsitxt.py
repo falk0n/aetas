@@ -15,7 +15,7 @@ def character_bsi_txt_preprocessor(docs):
     text_splitter = CharacterTextSplitter(separator="\n\n", chunk_size=1, chunk_overlap=0)
 
     docs_raw = text_splitter.split_documents(docs)
-    docs_dict = fsc. conv_document_list_to_dicts(docs_raw)
+    docs_dict = fsc.conv_document_list_to_dicts(docs_raw)
 
     for item in docs_dict:
         # Baustein name and id
