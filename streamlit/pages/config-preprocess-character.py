@@ -15,6 +15,7 @@ def character_text_splitter_preprocessor(docs):
     chunk_overlap = config_kwargs["chunk_overlap"]
     # configure the splitter, do the work and return results
     text_splitter = CharacterTextSplitter(
+        separator="\n",
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap)
     docs_raw = text_splitter.split_documents(docs)
